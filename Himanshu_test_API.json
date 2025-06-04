@@ -5842,7 +5842,7 @@
                 }
             }
         },
-        {
+        
             "/create?module=fim&subModule=customProfile": {
                 "post": {
                     "tags": [
@@ -5872,7 +5872,7 @@
                     }
                 }
             },
-        }
+        
 
         "/manage-unit/v1/units/{unitID}/company-with-ownership": {
             "post": {
