@@ -8,7 +8,7 @@
     "info": {
         "description": "",
         "version": "1.0",
-        "title": "FranConnect API - HP"
+        "title": "FranConnect API"
     },
     "basePath": " ",
     "tags": [
@@ -22,15 +22,11 @@
         },
         {
             "name": "Authentication",
-            "description": "<p>FranConnect recommends you to use OAuth 2.0 authorization to authenticate to the FranConnect API.</p><img src=\"images/AuthorizationTab.png\"><p>Perform the following steps to set up the OAuth 2.0 authorization, using the <strong>Postman</strong> GUI client:</p><ol><li>Select <b>GET</b> as the API method.</li><li>Click the <strong>Authorization</strong> tab.&nbsp;</li><li>Select the option <strong>OAuth 2.0&nbsp;</strong>for the<strong>&nbsp;Type&nbsp;</strong>field.</li><li>Select the option<strong>&nbsp;</strong><strong>Request Headers</strong> for the <strong>Add authorization data to</strong> field.</li><li>Click <strong>Get New Access Token&nbsp;</strong>to generate request for a new token.</li><img src=\"images/AccessTokenOptions.png\"><li>In the <strong>Get New Access Token&nbsp;</strong>dialog that appears, enter the details as explained in the following steps.<ol type=\"a\"> <li style=\"margin-left: 1px;\">Enter a name for your Access Token (Optional).</li><li style=\"margin-left: 1px;\">Select the desired grant type. The FranConnect API supports four grant types using the OAuth framework. The fields in the <strong> Get New Access Token</strong> dialog vary depending upon your selection of the grant type. These are explained in detail in the <u><a href=\"#tag/Authorization-Code\">Authorization Code</a></u>, <u><a href=\"#tag/Implicit\">Implicit</a></u>, <u><a href=\"#tag/Password-Credentials\">Password-Credentials</a></u>, and <u><a href=\"#tag/Client-Credentials\">Client-Credentials</a></u> sections. </li></p>"
+            "description": "<p>FranConnect recommends you to use OAuth 2.0 authorization to authenticate to the FranConnect API.</p><img src=\"images/AuthorizationTab.png\"><p>Perform the following steps to set up the OAuth 2.0 authorization, using the <strong>Postman</strong> GUI client:</p><ol><li>Select <b>GET</b> as the API method.</li><li>Click the <strong>Authorization</strong> tab.&nbsp;</li><li>Select the option <strong>OAuth 2.0&nbsp;</strong>for the<strong>&nbsp;Type&nbsp;</strong>field.</li><li>Select the option<strong>&nbsp;</strong><strong>Request Headers</strong> for the <strong>Add authorization data to</strong> field.</li><li>Click <strong>Get New Access Token&nbsp;</strong>to generate request for a new token.</li><img src=\"images/AccessTokenOptions.png\"><li>In the <strong>Get New Access Token&nbsp;</strong>dialog that appears, enter the details as explained in the following steps.<ol type=\"a\"> <li style=\"margin-left: 1px;\">Enter a name for your Access Token (Optional).</li><li style=\"margin-left: 1px;\">Select the desired grant type. The FranConnect API supports four grant types using the OAuth framework. The fields in the <strong> Get New Access Token</strong> dialog vary depending upon your selection of the grant type. These are explained in detail in the <u><a href=\"#tag/Authorization-Code\">Authorization Code</a></u>, <u><a href=\"#tag/Password-Credentials\">Password-Credentials</a></u>, and <u><a href=\"#tag/Client-Credentials\">Client-Credentials</a></u> sections. </li></p>"
         },
         {
             "name": "Authorization Code",
             "description": "<p><img src=\"images/Get-New-Access-Token.png\"><br>For using the grant type as <strong>Authorization Code</strong>, enter the details in the <strong>Get New Access Token&nbsp;</strong>dialog as explained in the following steps:<ol> <li style=\"margin-left: 1px;\">Enter a name for your Access Token (Optional).</li><li style=\"margin-left: 1px;\">Select the <strong>Grant Type</strong> as <strong>Authorization Code</strong>.</li><li style=\"margin-left: 1px;\">Enter the callback URL to which the generated access token would be redirected. The callback URL is also known as redirect URI and this URL should match the one that you use during the application registration process.<br>Example: Callback URL can be https://oauth.powerbi.com/views/oauthredirect.html<br>To register your callback/redirect URL, contact <a href=\"mailto:helpdesk@franconnect.com\">helpdesk@franconnect.com</a></li><strong>Note:</strong> The above mentioned example uses the callback URL using the Postman client. If you are using any other GUI client, use your own redirect URI.<li style=\"margin-left: 1px;\">Enter the endpoint for the authorization server as the <strong>Auth URL</strong>. This is used to get the authorization code.<br>Example: Auth URL can be https://auth.franconnectuat.net/userauth/oauth/authorize?response_type=code&amp;client_id=FRANC0NN3CT_API&amp;redirect_uri=https://oauth.powerbi.com/views/oauthredirect.html</li><p><strong>Note:</strong> The response_type is <strong>code</strong> for the Grant Type <strong>Authorization</strong> and the redirect URI is same as the callback URL.</p><li style=\"margin-left: 1px;\">Enter the endpoint for the authentication server in the <strong>Access Token URL&nbsp;</strong>field. This is used to exchange the authorization code for an access token.<br>Example: Access Token URL can be https://auth.franconnectuat.net/userauth/oauth/token?X-TenantID=developers.franconnectdemo.net&grant_type=authorization_code&client_id=FRANC0NN3CT_API&redirect_uri=https://oauth.powerbi.com/views/oauthredirect.html</p><p><strong>Note:</strong> If the login URL for your FranConnect system is https://developers.franconnectdemo.net/fc, then the X-TenantID will be developers.franconnectdemo.net</li><li style=\"margin-left: 1px;\">Enter the Client ID provided to you by FranConnect in the <strong>Client ID</strong> field. <br>Example: Client ID can be FRANC0NN3CT_API</li><li style=\"margin-left: 1px;\">Enter the Client Secret provided to you by FranConnect in the <strong>Client Secret</strong> field.<br>Example: Client Secret can be DDEEMVOE2L0O1P9E<br>Contact <a href=\"mailto:helpdesk@franconnect.com\">helpdesk@franconnect.com</a> to get your Client ID and Client Secret.</li><li style=\"margin-left: 1px;\">Select the option <strong>Send as Basic Auth header</strong> for the <strong>Client Authentication&nbsp;</strong>field.</li></ol></li></ol></p><p>Enter all these details, and click <strong>Request Token</strong> to request for a token.</p><p>The FranConnect API validates all the details and displays a dialog to enter the following additional information: <strong>Company Code</strong>, <strong>Username</strong> and <strong>Password</strong>.</p> </p><img src=\"images/Auth-Comp-Code.png\"><ol><li>If the login URL for your FranConnect system is https://developers.franconnectdemo.net/fc, then the company code will be developers.franconnectdemo.net</li><li>Your username and password will be your login credentials for your FranConnect system</li></ol><p>If all the details are valid, then, the access token is generated that can be used for the API calls.</p><p><strong>Note:</strong> The access token is valid for 12 hours, after which a new access token is to be generated using the <a href=\"#operation/Refresh_Token_Auth\"> refresh token</a>. This refresh token is valid for 30 days. Refresh tokens that were generated more than 30 days back cannot be used to generate a new access token.</p>"
-        },
-        {
-            "name": "Implicit",
-            "description": "<p><img src=\"images/Access_Token_Implicit.png\"><br>For using the grant type as <strong>Implicit</strong>, enter the details in the <strong>Get New Access Token&nbsp;</strong>dialog as explained in the following steps:<ol> <li style=\"margin-left: 1px;\">Enter a name for your Access Token (Optional).</li><li style=\"margin-left: 1px;\">Select the <strong>Grant Type</strong> as <strong>Implicit</strong>.</li><li style=\"margin-left: 1px;\">Enter the callback URL that you want to be redirected to, once your application is authorized. The callback URL is also known as redirect URI. This URL should match the one that you use during the application registration process.<br>Example: Callback URL can be https://oauth.powerbi.com/views/oauthredirect.html<br>To register your callback/redirect URL, contact <a href=\"mailto:helpdesk@franconnect.com\">helpdesk@franconnect.com</a></li><li style=\"margin-left: 1px;\">Enter the endpoint for the authorization server as the <strong>Auth URL</strong>. This is used to get the authorization code.<br>Note that the redirect URI is same as the callback URL.<br>Example: Auth URL can be https://auth.franconnectuat.net/userauth/oauth/authorize?response_type=token&amp;client_id=FRANC0NN3CT_API&amp;redirect_uri=https://oauth.powerbi.com/views/oauthredirect.html</li><p><strong>Note:</strong> The response_type is <strong>token</strong> for the grant type <strong>Authorization</strong>.</p><li style=\"margin-left: 1px;\">Enter the Client ID provided to you by FranConnect in the <strong>Client ID</strong> field. <br>Example: Client ID can be FRANC0NN3CT_API</li><li style=\"margin-left: 1px;\">Select the option <strong>Send as Basic Auth header</strong> for the <strong>Client Authentication&nbsp;</strong>field.</li></ol></li></ol></p><p>The FranConnect API validates all the details and displays a dialog to enter the following additional information: <strong>Company Code</strong>, <strong>Username</strong> and <strong>Password</strong>.</p> </p><ol><li>If the login URL for your FranConnect system is https://developers.franconnectdemo.net/fc, then the company code will be developers.franconnectdemo.net</li><li>Your username and password will be your login credentials for your FranConnect system</li></ol><p>If all the details are valid, then, the access token is generated that can be used for the API calls.</p><p><strong>Note:</strong> For this grant type, no refresh token is generated. The access token is valid for 12 hours, after which a new access token is to be generated. </p>"
         },
         {
             "name": "Password Credentials",
@@ -83,16 +79,24 @@
             "description": "<p>Using the FranConnect API, you can manage the \"in-development\" and the operational locations in the Info Manager module. Using Create, Retrieve, Update, and Delete API operations, you can manage information that can either be in the location’s main page (in Center Info) or in any of the tabs (such as Real Estate and Mystery Review).</p><p>Note that the following sections explain and provide examples on how to perform these operations on the “Primary Info” tab for locations. Similarly, you can perform these  operations for other tabs as well for locations that are either in-development or have been opened since.</p>"
         },
         {
-            "name": "Ownership",
-            "description": "<p>Leverage Ownership APIs to create ownerships between companies (or people) with franchises in the system.</p>"
-        },
-        {
             "name": "Company v1",
             "description": "These API endpoints support operations associated with Companies."
         },
         {
             "name": "Company v2",
             "description": "These v2 API endpoints provide functionality for managing company-related operations, offering enhanced features and capabilities."
+        },
+        {
+            "name": "Custom Profiles",
+            "description": "These API endpoints helps to configure custom field names for franchise user profiles. The configured fields will appear in the Franchise Location Details section."
+        },
+        {
+            "name": "Reference Dates",
+            "description": "These API endpoints helps to define field names for reference dates, which are used to schedule store-related tasks and milestones."
+        },
+        {
+            "name": "Ownership",
+            "description": "<p>Leverage Ownership APIs to create ownerships between companies (or people) with franchises in the system.</p>"
         },
         {
             "name": "Regional",
@@ -167,10 +171,6 @@
             "description": "The purpose of Segments is to improve operational performance from the brand to the unit level. The FranConnect API allows you to create Segments and define segment hierarchies. <p>In FranConnect API, segments are identified by either their <b>segmentId</b> or <b>customSegmentId</b>. A segmentId is a unique identifier that we store in our FranConnect's database, whereas, a customSegmentId is a unique identifier that a user is able to see at the front-end. Moreover, a customSegmentId is incremental in nature, for eg. segmentA is created with a customSegmentId of 001, then the next segment that gets created, will automatically take a customSegmentId of 002 and so on.</p>"
         },
         {
-            "name": "Segment - HP",
-            "description": "Segments help in improving the the operational performance from brand to unit level. <br> THis will help to do great stuff. <p> The API can help with multiple stuff like creating segments, defining segment hierarchies, etc. </p>"
-        },
-        {
             "name": "Segment Categories",
             "description": "These API endpoints support operations associated with Segment Categories."
         },
@@ -197,10 +197,6 @@
         {
             "name": "Visits",
             "description": "These API endpoints support operations associated with visits."
-        },
-        {
-            "name": "Playbooks",
-            "description": "These API endpoints support operations associated with Playbooks."
         },
         {
             "name": "Events and Webhooks",
@@ -239,7 +235,6 @@
                 "FAQ",
                 "Authentication",
                 "Authorization Code",
-                "Implicit",
                 "Password Credentials",
                 "Client Credentials",
                 "User Accessibility in API Endpoints",
@@ -295,7 +290,6 @@
                 "Profit and Loss Statements",
                 "Memos",
                 "Segments",
-                "Segment - HP",
                 "Segment Categories",
                 "Custom Segment Fields",
                 "Segment",
@@ -303,7 +297,6 @@
                 "People",
                 "Audits",
                 "Visits",
-                "Playbooks",
                 "Events and Webhooks",
                 "Sales Webhook",
                 "Lead",
@@ -8088,7 +8081,7 @@
                     "Visits"
                 ],
                 "summary": "Retrieve Visits",
-                "description": "<p class=\"western\">Make a POST request to the specified endpoint to retrieve visits in your system.<ol> <li>In the payload, you can send several attributes to properly filter out your data. Refer to the requestBody schema of this endpoint for attributes that are available as filters.</li> <li> When using multiple attributes as filters, they will be combined in an AND manner, and only results matching all filter attributes will be returned. </li> <li> To limit data, use query parameters <strong>pageId</strong> and <strong>pageSize</strong> to paginate your response data. Both parameters accept integer values. pageId, which represents a page number starts from 0 (zero), as the initial number. We recommend keeping pageSize as \"20\" to get quicker responses. </li></ol></p><table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"25%\">Operation Name</td> <td width=\"1%\">:</td> <td>POST</td> </tr> <tr> <td>Production API Endpoint</td> <td>:</td> <td valign=\"top\">https://skyapi.franconnect.net/audit/v2/visits?pageId=0&pageSize=20</td> </tr> <tr> <td>UAT API Endpoint</td> <td>:</td> <td valign=\"top\">https://skyapi.franconnectuat.net/audit/v2/visits?pageId=0&pageSize=20</td> </tr></table>The following items must be included in the header of the request:<ol> <li> <p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p> </li> <li> <p>&ldquo;Content-Type&rdquo; as the key and its value in the format &ldquo;application/json&rdquo;.</p> </li> <li> <p>&ldquo;X-TenantId&rdquo; as the key and its value based on your FranConnect system&rsquo;s URL. Click <u><a href=\"#tag/Authentication\">here</a></u>&nbsp;for details on identifying the &ldquo;X-TenantId&rdquo;. <p><img src=\"images/Retrieve_Visits.png\"> <p class=\"western\"></ol>Here's more information on how you can procure data to filter your visits more effectively:<ol> <li><strong>visitNumber</strong>: Visit's number as visible on the UI</li> <li> <strong>status</strong>: Status values are common for all visits. Refer to the below list of status values when filtering your data: <ul> <li>Scheduled: 1</li> <li>Completed: 2</li> <li>Cancelled: 3</li> <li>Non Compliance: 4</li> <li>Draft: 5</li> <li>Follow Up: 6</li> <li>In Progress: 7</li> <li>Unscheduled: 8</li> </ul> </li> <li> <strong>visitForms</strong>: accepts a list of visit forms to filter data. You can retrieve visit forms by using <a href=\"#operation/Retrieve_Visit_Forms\">this</a> request. </li> <li> <strong>relatedTo</strong>: Informs the system to retrieve either franchise location or owner based visits, or both. It accepts an array of string values. Use <b>\"owner\"</b> and <b>\"franchisee\"</b> to retrieve owner based or franchise location based visits respectively. </li> <li> <strong>franchiseId</strong>: accepts a list of franchise location Ids to filter data. You can retrieve franchise Ids by using <a href=\"#operation/Retrieve_Franchise_Number_Specific\">this</a> request. </li> <li> <strong>ownerIds</strong>: accepts a list of owner Ids to filter owner based visits. You can retrieve owner Ids by using <a href=\"#operation/Retrieve_Owners_Of_A_Franchise\">this</a> request. </li> <li> <strong>consultants</strong>: accepts a list of consultant Ids to filter data. You can retrieve visit forms by using <a href=\"#operation/Retrieve_Consultants\">this</a> request. </li> <li> <strong>division</strong>: accepts a list of division Ids (also known as brand) to filter data. You can retrieve division Ids by using <a href=\"#operation/Retrieve_Divisions\">this</a> request. </li> <li> <strong>scheduledDate</strong>: retrieve data based on when the visit was scheduled. Refer to the requestBody schema to understand what date clauses can be used to filter data. </li></ol></p>",
+                "description": "<p class=\"western\">Make a POST request to the specified endpoint to retrieve visits in your system.<ol> <li>In the payload, you can send several attributes to properly filter out your data. Refer to the requestBody schema of this endpoint for attributes that are available as filters.</li> <li> When using multiple attributes as filters, they will be combined in an AND manner, and only results matching all filter attributes will be returned. </li> <li> To limit data, use query parameters <strong>pageId</strong> and <strong>pageSize</strong> to paginate your response data. Both parameters accept integer values. pageId, which represents a page number starts from 0 (zero), as the initial number. We recommend keeping pageSize as \"20\" to get quicker responses. </li></ol></p><table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"25%\">Operation Name</td> <td width=\"1%\">:</td> <td>POST</td> </tr> <tr> <td>Production API Endpoint</td> <td>:</td> <td valign=\"top\">https://skyapi.franconnect.net/audit/v2/visits?pageId=0&pageSize=20</td> </tr> <tr> <td>UAT API Endpoint</td> <td>:</td> <td valign=\"top\">https://skyapi.franconnectuat.net/audit/v2/visits?pageId=0&pageSize=20</td> </tr></table>The following items must be included in the header of the request:<ol> <li> <p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p> </li> <li> <p>&ldquo;Content-Type&rdquo; as the key and its value in the format &ldquo;application/json&rdquo;.</p> </li> <li> <p>&ldquo;X-TenantId&rdquo; as the key and its value based on your FranConnect system&rsquo;s URL. Click <u><a href=\"#tag/Authentication\">here</a></u>&nbsp;for details on identifying the &ldquo;X-TenantId&rdquo;. <p><img src=\"images/Retrieve_Visits.png\"> <p class=\"western\"></ol>Here's more information on how you can procure data to filter your visits more effectively:<ol> <li><strong>visitNumber</strong>: Visit's number as visible on the UI</li> <li> <strong>status</strong>: Status values are common for all visits. Refer to the below list of status values when filtering your data: <ul> <li>Scheduled: 1</li> <li>Completed: 2</li> <li>Cancelled: 3</li> <li>Non Compliance: 4</li> <li>Draft: 5</li> <li>Follow Up: 6</li> <li>In Progress: 7</li> <li>Unscheduled: 8</li> <li>Must Pass: 14</li> </ul> </li> <li> <strong>visitForms</strong>: accepts a list of visit forms to filter data. You can retrieve visit forms by using <a href=\"#operation/Retrieve_Visit_Forms\">this</a> request. </li> <li> <strong>relatedTo</strong>: Informs the system to retrieve either franchise location or owner based visits, or both. It accepts an array of string values. Use <b>\"owner\"</b> and <b>\"franchisee\"</b> to retrieve owner based or franchise location based visits respectively. </li> <li> <strong>franchiseId</strong>: accepts a list of franchise location Ids to filter data. You can retrieve franchise Ids by using <a href=\"#operation/Retrieve_Franchise_Number_Specific\">this</a> request. </li> <li> <strong>ownerIds</strong>: accepts a list of owner Ids to filter owner based visits. You can retrieve owner Ids by using <a href=\"#operation/Retrieve_Owners_Of_A_Franchise\">this</a> request. </li> <li> <strong>consultants</strong>: accepts a list of consultant Ids to filter data. You can retrieve visit forms by using <a href=\"#operation/Retrieve_Consultants\">this</a> request. </li> <li> <strong>division</strong>: accepts a list of division Ids (also known as brand) to filter data. You can retrieve division Ids by using <a href=\"#operation/Retrieve_Divisions\">this</a> request. </li> <li> <strong>scheduledDate</strong>: retrieve data based on when the visit was scheduled. Refer to the requestBody schema to understand what date clauses can be used to filter data. </li></ol></p>",
                 "operationId": "Retrieve_Visits",
                 "consumes": [
                     "application/json"
@@ -9127,42 +9120,6 @@
                     }
                 }
 
-            }
-        },
-        "/audit/v2/playbooks/{playbookId}": {
-            "get": {
-                "tags": [
-                    "Playbooks"
-                ],
-                "summary": "Retrieve Playbook by Id",
-                "description": "xyz",
-                "operationId": "Retrieve_Playbook_Id",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "example": {
-                                    "data": [
-                                        "For Himanshu"
-                                    ]
-                                }
-                            }
-                        },
-                        "description": "Successful"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                }
             }
         },
         "/{customer_SalesWebhook URL}": {
