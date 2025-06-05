@@ -79,24 +79,16 @@
             "description": "<p>Using the FranConnect API, you can manage the \"in-development\" and the operational locations in the Info Manager module. Using Create, Retrieve, Update, and Delete API operations, you can manage information that can either be in the location’s main page (in Center Info) or in any of the tabs (such as Real Estate and Mystery Review).</p><p>Note that the following sections explain and provide examples on how to perform these operations on the “Primary Info” tab for locations. Similarly, you can perform these  operations for other tabs as well for locations that are either in-development or have been opened since.</p>"
         },
         {
+            "name": "Ownership",
+            "description": "<p>Leverage Ownership APIs to create ownerships between companies (or people) with franchises in the system.</p>"
+        },
+        {
             "name": "Company v1",
             "description": "These API endpoints support operations associated with Companies."
         },
         {
             "name": "Company v2",
             "description": "These v2 API endpoints provide functionality for managing company-related operations, offering enhanced features and capabilities."
-        },
-        {
-            "name": "Custom Profiles",
-            "description": "These API endpoints helps to configure custom field names for franchise user profiles. The configured fields will appear in the Franchise Location Details section."
-        },
-        {
-            "name": "Reference Dates",
-            "description": "These API endpoints helps to define field names for reference dates, which are used to schedule store-related tasks and milestones."
-        },
-        {
-            "name": "Ownership",
-            "description": "<p>Leverage Ownership APIs to create ownerships between companies (or people) with franchises in the system.</p>"
         },
         {
             "name": "Regional",
@@ -261,8 +253,6 @@
                 "Franchisee",
                 "Company v1",
                 "Company v2",
-                "Custom Profiles",
-                "Reference Dates",
                 "Ownership",
                 "Company Ownership",
                 "People Ownership",
@@ -5730,7 +5720,6 @@
                 }
             },
             "get": {
-
                 "tags": [
                     "Company v2"
                 ],
@@ -5842,38 +5831,6 @@
                 }
             }
         },
-        
-            "/create?module=fim&subModule=customProfile": {
-                "post": {
-                    "tags": [
-                        "Custom Profiles"
-                    ],
-                    "summary": "Create",
-                    "description": "<p class=\"western\">This section contains an example of the Create operation performed for adding a custom profile through the Admin setting. </p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/create?key=generatedAccessToken&module=fim&subModule=franchisee&xmlString=requiredxmlString&responseType=XML</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Create operation for adding a custom profile using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above.The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is “fim”</u>.</p></li><li><p>The sub-module for which the Create operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “custom profile”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that would contain the attribute names and their values in the request that is to be used to add a custom profile. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></li></ol></p><p class=\"western\">Performing the above mentioned steps would create a new custom profile. The response received from the API contains <strong>“referenceId”</strong> which represents the unique reference ID for that custom profile and can be used for the Update, Retrieve and the Delete operations.</p><p><strong>",
-                    "responses": {
-                        "200": {
-                            "$ref": "#/components/responses/FimCreateFranchiseeResp"
-                        },
-                        "201": {
-                            "description": "Created"
-                        },
-                        "401": {
-                            "description": "Unauthorized"
-                        },
-                        "403": {
-                            "description": "Forbidden"
-                        },
-                        "404": {
-                            "description": "Not Found"
-                        }
-                    },
-                    "requestBody": {
-                        "$ref": "#/components/requestBodies/FimCreateFranchiseeArray"
-                    }
-                }
-            },
-        
-
         "/manage-unit/v1/units/{unitID}/company-with-ownership": {
             "post": {
                 "tags": [
