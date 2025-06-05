@@ -8676,7 +8676,7 @@
                 }
               }
             }
-        }
+        },
         "/task/v2/filter": {
             "post": {
                 "tags": [
