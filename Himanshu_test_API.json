@@ -5867,7 +5867,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FimCreateFranchiseeArray"
+                    "$ref": "#/components/requestBodies/FimCreatecustomProfileArray"
                 }
             }
         },
@@ -16707,6 +16707,30 @@
                     }
                 },
                 "description": "Successful"
+            },
+            "FimCreatecustomProfileArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createcustomProfile": {
+                                "summary": "Create Custom Profile",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimCustomProfile>\n<displayName>Real Estate Broker</displayName>\n<isMandatory>Y</isMandatory>\n</fimCustomProfile>\n</fcRequest>"
+                            },
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/AdminSubModule"
+                            },
+                            "xml": {
+                                "name": "fcRequest",
+                                "wrapped": true
+                            }
+                        }
+                    }
+                },
+                "description": "Admin User Deletion object",
+                "required": true
             },
             "FimCreatecustomProfileResp": {
                 "content": {
