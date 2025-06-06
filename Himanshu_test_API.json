@@ -5898,7 +5898,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FimRetrieveFranchiseeArray"
+                    "$ref": "#/components/requestBodies/FimRetrievecustomProfileArray"
                 }
             }
         },
@@ -10478,6 +10478,25 @@
                 "content": {
                     "application/xml": {
                         "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<referenceId>557097219</referenceId>\n</filter>\n</fcRequest>",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/AdminSubModule"
+                            },
+                            "xml": {
+                                "name": "fcRequest",
+                                "wrapped": true
+                            }
+                        }
+                    }
+                },
+                "description": "Admin User Deletion object",
+                "required": true
+            },
+            "FimRetrievecustomProfileArray": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<referenceId>1607063232</referenceId>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
