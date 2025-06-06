@@ -5851,7 +5851,7 @@
                 "description": "<p class=\"western\">This section contains an example of the Create operation performed for adding a custom profile through the Admin setting. </p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/create?key=generatedAccessToken&module=fim&subModule=customProfile&xmlString=requiredxmlString&responseType=XML</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Create operation for adding a custom profile using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above.The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is “fim”</u>.</p></li><li><p>The sub-module for which the Create operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “customProfile”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that would contain the attribute names and their values in the request that is to be used to add a custom profile. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></li></ol></p><p class=\"western\">Performing the above mentioned steps would create a new custom profile. The response received from the API contains <strong>“referenceId”</strong> which represents the unique reference ID for that custom profile and can be used for the Update, Retrieve and the Delete operations.</p><p><strong>",
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/FimCreateFranchiseeResp"
+                        "$ref": "#/components/responses/FimCreatecustomProfileResp"
                     },
                     "201": {
                         "description": "Created"
@@ -5867,7 +5867,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FimCreateFranchiseeArray"
+                    "$ref": "#/components/requestBodies/FimCreatecustomProfileArray"
                 }
             }
         },
@@ -16708,7 +16708,43 @@
                 },
                 "description": "Successful"
             },
-           
+            "FimCreatecustomProfileArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createcustomProfile": {
+                                "summary": "Create Custom Profile",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimCustomProfile>\n<displayName>Real Estate Broker</displayName>\n<isMandatory>Y</isMandatory>\n</fimCustomProfile>\n</fcRequest>"
+                            },
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/AdminSubModule"
+                            },
+                            "xml": {
+                                "name": "fcRequest",
+                                "wrapped": true
+                            }
+                        }
+                    }
+                },
+                "description": "Admin User Deletion object",
+                "required": true
+            },
+            "FimCreatecustomProfileResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeResp": {
+                                "summary": "Create Franchise Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>980752871</responseId>\n<responseData>\n<fimFranchisee>\n<status>Success</status>\n<referenceId>1665635279</referenceId>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            },
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
         }
     }
 }
