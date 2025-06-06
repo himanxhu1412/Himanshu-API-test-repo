@@ -5843,7 +5843,7 @@
             }
         },
         
-            "/create?module=fim&subModule=custom1Profile": {
+            "/create?module=fim&subModule=customProfile": {
                 "post": {
                     "tags": [
                         "Custom Profiles"
