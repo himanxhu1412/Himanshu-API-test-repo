@@ -11565,7 +11565,7 @@
             "FimDeletecustomProfileResp": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Error</responseStatus>\n<responseId>1800377591</responseId>\n<responseData>\n<fimCustomProfile><status>Error</status><error><errorCode>400</errorCode><errorDetails>ThisProfilecannotbedeletedassomeFranchiseOpenerStore(s)orChecklist(s)areassociatedwithit.</errorDetails>\n</error>\n</fimCustomProfile>\n</responseData>\n</fcResponse>
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Error</responseStatus>\n<responseId>1800377591</responseId>\n<responseData>\n<fimCustomProfile>\n<status>Error</status>\n<error><errorCode>400</errorCode>\n<errorDetails>This Profile cannot be deleted as some Franchise Opener Store(s) or Checklist(s) are associated with it.</errorDetails>\n</error>\n</fimCustomProfile>\n</responseData>\n</fcResponse>
                         "
                     }
                 },
