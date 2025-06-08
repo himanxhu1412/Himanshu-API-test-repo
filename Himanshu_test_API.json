@@ -5988,7 +5988,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FimCreatecustomProfileArray"
+                    "$ref": "#/components/requestBodies/FimCreateReferenceDateArray"
                 }
             }
         },
