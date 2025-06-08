@@ -10654,7 +10654,7 @@
                 "description": "Admin User Deletion object",
                 "required": true
             },
-            "FimCreatReferenceDateArray": {
+            "FimCreateReferenceDateArray": {
                 "content": {
                     "application/xml": {
                         "examples": {
