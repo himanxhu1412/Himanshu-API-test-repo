@@ -1300,7 +1300,7 @@
                 },
                 "requestBody": {
                     "$ref": "#/components/requestBodies/FimCreateFranchiseeArray"
-                }
+                },
             }
         },
         "/retrieve?module=fim&subModule=franchisee": {
