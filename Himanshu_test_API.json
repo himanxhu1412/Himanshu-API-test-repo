@@ -10701,7 +10701,7 @@
             "FimRetrievecustomProfileArray": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<referenceId>1607063232</referenceId>\n</filter>\n</fcRequest>",
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<displayName>Launch</displayName>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -10720,7 +10720,7 @@
             "FimRetrieveReferenceDateArray": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<referenceId>21</referenceId>\n</filter>\n</fcRequest>",
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<displayName>Project</displayName>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -11746,7 +11746,8 @@
                         "examples": {
                             "centerInfo": {
                                 "summary": "Example: Custom Profile Retrieve Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1085795073</responseId>\n<responseData>\n<fimCustomProfile>\n<referenceId>1607063232</referenceId>\n<displayName>Construction PM</displayName>\n<isMandatory>N</isMandatory>\n</fimCustomProfile>\n</responseData>\n</fcResponse>"
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse><responseStatus>Success</responseStatus><responseId>2090523190</responseId><responseData><fimCustomProfile><referenceId>12</referenceId><displayName>Launch Manager</displayName><isMandatory>N</isMandatory></fimCustomProfile><fimCustomProfile><referenceId>1607063233</referenceId><displayName>Launch Operations Head</displayName><isMandatory>Y</isMandatory></fimCustomProfile><fimCustomProfile><referenceId>1607063234</referenceId><displayName>Launch Executive</displayName><isMandatory>N</isMandatory></fimCustomProfile></responseData></fcResponse>
+                                "
                             },
                         }
                     }
@@ -11759,7 +11760,8 @@
                         "examples": {
                             "centerInfo": {
                                 "summary": "Example: Reference Date Retrieve Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1142082480</responseId>\n<responseData>\n<fimReferenceDate>\n<referenceId>21</referenceId>\n<displayName>Store Openining Date</displayName>\n<milestoneApplicable>Y</milestoneApplicable>\n</fimReferenceDate>\n</responseData>\n</fcResponse>"
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse><responseStatus>Success</responseStatus><responseId>1047071773</responseId><responseData><fimReferenceDate><referenceId>2</referenceId><displayName>Projected Training start date</displayName><milestoneApplicable>Y</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>5</referenceId><displayName>Projected Soft Open Date</displayName><milestoneApplicable>N</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>6</referenceId><displayName>Projected Sneak Peek</displayName><milestoneApplicable>N</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>11</referenceId><displayName>Projected Grand Open Date</displayName><milestoneApplicable>Y</milestoneApplicable></fimReferenceDate></responseData></fcResponse>
+                                "
                             },
                         }
                     }
