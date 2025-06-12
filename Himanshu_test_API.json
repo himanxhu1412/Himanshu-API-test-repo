@@ -11746,8 +11746,7 @@
                         "examples": {
                             "centerInfo": {
                                 "summary": "Example: Custom Profile Retrieve Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse><responseStatus>Success</responseStatus><responseId>2090523190</responseId><responseData><fimCustomProfile><referenceId>12</referenceId><displayName>Launch Manager</displayName><isMandatory>N</isMandatory></fimCustomProfile><fimCustomProfile><referenceId>1607063233</referenceId><displayName>Launch Operations Head</displayName><isMandatory>Y</isMandatory></fimCustomProfile><fimCustomProfile><referenceId>1607063234</referenceId><displayName>Launch Executive</displayName><isMandatory>N</isMandatory></fimCustomProfile></responseData></fcResponse>
-                                "
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>2090523190</responseId>\n<responseData>\n<fimCustomProfile>\n<referenceId>12</referenceId>\n<displayName>Launch Manager</displayName>\n<isMandatory>N</isMandatory>\n</fimCustomProfile>\n<fimCustomProfile>\n<referenceId>1607063233</referenceId>\n<displayName>Launch Operations Head</displayName>\n<isMandatory>Y</isMandatory>\n</fimCustomProfile>\n<fimCustomProfile>\n<referenceId>1607063234</referenceId>\n<displayName>Launch Executive</displayName>\n<isMandatory>N</isMandatory>\n</fimCustomProfile>\n</responseData>\n</fcResponse>"
                             },
                         }
                     }
@@ -11760,8 +11759,7 @@
                         "examples": {
                             "centerInfo": {
                                 "summary": "Example: Reference Date Retrieve Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse><responseStatus>Success</responseStatus><responseId>1047071773</responseId><responseData><fimReferenceDate><referenceId>2</referenceId><displayName>Projected Training start date</displayName><milestoneApplicable>Y</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>5</referenceId><displayName>Projected Soft Open Date</displayName><milestoneApplicable>N</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>6</referenceId><displayName>Projected Sneak Peek</displayName><milestoneApplicable>N</milestoneApplicable></fimReferenceDate><fimReferenceDate><referenceId>11</referenceId><displayName>Projected Grand Open Date</displayName><milestoneApplicable>Y</milestoneApplicable></fimReferenceDate></responseData></fcResponse>
-                                "
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1047071773</responseId>\n<responseData>\n<fimReferenceDate>\n<referenceId>2</referenceId>\n<displayName>Projected Training start date</displayName>\n<milestoneApplicable>Y</milestoneApplicable>\n</fimReferenceDate>\n<fimReferenceDate>\n<referenceId>5</referenceId>\n<displayName>Projected Soft Open Date</displayName>\n<milestoneApplicable>N</milestoneApplicable>\n</fimReferenceDate>\n<fimReferenceDate>\n<referenceId>6</referenceId>\n<displayName>Projected Sneak Peek</displayName>\n<milestoneApplicable>N</milestoneApplicable>\n</fimReferenceDate>\n<fimReferenceDate>\n<referenceId>11</referenceId>\n<displayName>Projected Grand Open Date</displayName>\n<milestoneApplicable>Y</milestoneApplicable>\n</fimReferenceDate>\n</responseData>\n</fcResponse>"
                             },
                         }
                     }
