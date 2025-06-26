@@ -3541,109 +3541,94 @@
                                         "type": "date"
                                     }
                                 },
-                                "examples": {
-                                    "UNITS": {
-                                        "summary": "Request body sample for segment creation using UNITS",
-                                        "value": {
-                                            "name": "Segment of units",
-                                            "categoryId": "7887788887878",
-                                            "accessibility": "Public",
-                                            "description": "This segment contains units",
-                                            "owners": [
-                                                "1"
-                                            ],
-                                            "units": [
-                                                "1455354069",
-                                                "1933677728",
-                                                "489668018"
-                                            ],
-                                            "segments": []
-                                        }
-                                    },
-                                    "SEGMENTS": {
-                                        "summary": "Request body sample for segment creation using child SEGMENTS",
-                                        "value": {
-                                            "name": "JJ Inc. USA Franchises",
-                                            "categoryId": "600258032793812995",
-                                            "accessibility": "Public",
-                                            "description": "This segment contains child segments that were retrieved on the basis of company",
-                                            "companyId": "623797605",
-                                            "owners": [
-                                                "1571679912"
-                                            ],
-                                            "units": [],
-                                            "segments": [
-                                                "1148740406"
-                                            ]
-                                        }
-                                    },
-                                    "ADDITIONAL_FIELDS": {
-                                        "summary": "Request body sample for segment creation using custom segment fields",
-                                        "value": {
-                                            "categories": {
-                                                "categoryId": "694796924724709570"
-                                            },
-                                            "name": "Filling custom segment fields",
-                                            "accessibility": "Public",
-                                            "units": [
-                                                "127113502",
-                                                "174751085",
-                                                "192265767"
-                                            ],
-                                            "additionalFields": {
-                                                "test111": "A test description (text type field)",
-                                                "textArea111": "This is a test description for text area type field",
-                                                "creationDate637838117": "2022-09-14",
-                                                "singleDRopdown111": [
-                                                    "1661927934271"
+                                "example": [
+                                    {
+                                        "data": [
+                                            {
+                                                "salesReportID": "1476675187",
+                                                "franchiseeNo": "501957516",
+                                                "dateReceived": "2020-02-24",
+                                                "financialItems": [
+                                                    {
+                                                        "1": {
+                                                            "name": "Service",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "500",
+                                                                    "quantity": "10"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "162961615": {
+                                                            "name": "Testing category",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0",
+                                                                    "quantity": "0"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
                                                 ],
-                                                "countryOnlyField": {
-                                                    "countryId": "95"
-                                                },
-                                                "countryWithState": {
-                                                    "countryId": "39"
-                                                },
-                                                "stateWithCountry": {
-                                                    "stateId": "592"
-                                                },
-                                                "textAreaTypeField1777669434": "Mandatory text area field",
-                                                "entityTypeDrop-down558186133": null,
-                                                "countryTypeDrop-Down348944204": null,
-                                                "serviceAreas477918464": [
-                                                    "1662374319794",
-                                                    "1662374309711",
-                                                    "1662374305527"
+                                                "nonFinancialItems": [
+                                                    {
+                                                        "100": {
+                                                            "name": "Non Financial Category",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "2004859949": {
+                                                            "name": "Non-Financial 2",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "2004859951": {
+                                                            "name": "Non-Financial 3",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "finAddnlItems": [
+                                                    {
+                                                        "818066578": {
+                                                            "name": "Test 1900",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "1956795379": {
+                                                            "name": "Additional  Invoice 5",
+                                                            "calculationType": "(+)",
+                                                            "data": [
+                                                                {
+                                                                    "amount": "0"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
                                                 ]
-                                            },
-                                            "segment_type": "UNITS"
-                                        }
-                                    },
-                                    "CASE_1": {
-                                        "summary": "Case: Create Segments When A Unit Can Only Be Associated With A Single Segment",
-                                        "value": {
-                                            "name": "Detroit-Zone-Segment",
-                                            "categoryId": "7887788887878",
-                                            "accessibility": "Public",
-                                            "description": "This segment contains units that can only be part of one segment",
-                                            "owners": [
-                                                "1"
-                                            ],
-                                            "units": [
-                                                "1455354069",
-                                                "1933677728",
-                                                "489668018",
-                                                "999668018",
-                                                "3012668018"
-                                            ],
-                                            "unitsToBeRemoved": [
-                                                "1455354069",
-                                                "1933677728",
-                                                "489668018"
-                                            ],
-                                            "segments": []
-                                        }
+                                            }
+                                        ]
                                     }
-                                }
+                                ]
                             }
                         }
                     }
