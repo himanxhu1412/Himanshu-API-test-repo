@@ -3541,94 +3541,48 @@
                                         "type": "date"
                                     }
                                 },
-                                "example": [
-                                    {
-                                        "data": [
+                                "examples": {
+                                    "TEXT": {
+                                        "summary": "Text Type Custom Field",
+                                        "value": [
                                             {
-                                                "salesReportID": "1476675187",
-                                                "franchiseeNo": "501957516",
-                                                "dateReceived": "2020-02-24",
-                                                "financialItems": [
-                                                    {
-                                                        "1": {
-                                                            "name": "Service",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "500",
-                                                                    "quantity": "10"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "162961615": {
-                                                            "name": "Testing category",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0",
-                                                                    "quantity": "0"
-                                                                }
-                                                            ]
+                                                "fieldName": "Taxpayer Code",
+                                                "fieldType": "text",
+                                                "parent": {
+                                                    "apiKey": "category",
+                                                    "fields": [
+                                                        {
+                                                            "id": "695507570382608298",
                                                         }
-                                                    }
-                                                ],
-                                                "nonFinancialItems": [
-                                                    {
-                                                        "100": {
-                                                            "name": "Non Financial Category",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "2004859949": {
-                                                            "name": "Non-Financial 2",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "2004859951": {
-                                                            "name": "Non-Financial 3",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0"
-                                                                }
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "finAddnlItems": [
-                                                    {
-                                                        "818066578": {
-                                                            "name": "Test 1900",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "1956795379": {
-                                                            "name": "Additional  Invoice 5",
-                                                            "calculationType": "(+)",
-                                                            "data": [
-                                                                {
-                                                                    "amount": "0"
-                                                                }
-                                                            ]
-                                                        }
-                                                    }
-                                                ]
+                                                    ]
+                                                },
+                                                "validations": {
+                                                    "textLengthMax": "255",
+                                                    "isMandatory": false
+                                                },
                                             }
                                         ]
-                                    }
-                                ]
+                                    },
+                                    "TEXT_AREA": {
+                                        "summary": "Text Area Custom Field",
+                                        "value": [
+                                            {
+                                                "fieldName": "Additional Notes",
+                                                "fieldType": "textArea",
+                                                "parent": {
+                                                    "apiKey": "category",
+                                                    "fields": [
+                                                        {
+                                                            "id": "696609394510530068",
+                                                        }
+                                                    ]
+                                                },
+                                                "validations": {
+                                                    "isMandatory": false
+                                                }
+                                            }
+                                        ]
+                                    },
                             }
                         }
                     }
