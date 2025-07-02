@@ -3542,7 +3542,7 @@
                               "type": "string",
                               "format": "date"
                             },
-                            "adjustmentReason": {
+                            "adjustmentReasonId": {
                                 "type": "string",
                                 "description": "Optional. Include if the adjustment reason is selected from a predefined list."
                               },
