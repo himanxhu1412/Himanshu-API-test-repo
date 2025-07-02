@@ -3532,36 +3532,44 @@
                         "schema": {
                           "type": "object",
                           "properties": {
-                            "salesReportID": {
-                              "type": "string"
-                            },
-                            "franchiseeNo": {
-                              "type": "string"
-                            },
-                            "dateReceived": {
-                              "type": "string",
-                              "format": "date"
-                            },
-                            "adjustmentReasonId": {
-                                "type": "string",
-                                "description": "Optional. Include if the adjustment reason is selected from a predefined list."
-                              },
-                            "financialItems": {
+                            "data": {
                               "type": "array",
                               "items": {
-                                "type": "object"
-                              }
-                            },
-                            "nonFinancialItems": {
-                              "type": "array",
-                              "items": {
-                                "type": "object"
-                              }
-                            },
-                            "finAddnlItems": {
-                              "type": "array",
-                              "items": {
-                                "type": "object"
+                                "type": "object",
+                                "properties": {
+                                  "salesReportID": {
+                                    "type": "string"
+                                  },
+                                  "franchiseeNo": {
+                                    "type": "string"
+                                  },
+                                  "dateReceived": {
+                                    "type": "string",
+                                    "format": "date"
+                                  },
+                                  "adjustmentReasonId": {
+                                    "type": "string",
+                                    "description": "Optional. Include if the adjustment reason is selected from a predefined list."
+                                  },
+                                  "financialItems": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
+                                  },
+                                  "nonFinancialItems": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
+                                  },
+                                  "finAddnlItems": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -3570,84 +3578,88 @@
                           "createAdjustment": {
                             "summary": "Create Adjustment",
                             "value": {
-                              "salesReportID": "1476675187",
-                              "franchiseeNo": "501957516",
-                              "dateReceived": "2020-02-24",
-                              "financialItems": [
+                              "data": [
                                 {
-                                  "1": {
-                                    "name": "Service",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "500",
-                                        "quantity": "10"
+                                  "salesReportID": "1476675187",
+                                  "franchiseeNo": "501957516",
+                                  "dateReceived": "2020-02-24",
+                                  "financialItems": [
+                                    {
+                                      "1": {
+                                        "name": "Service",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "500",
+                                            "quantity": "10"
+                                          }
+                                        ]
+                                      },
+                                      "162961615": {
+                                        "name": "Testing category",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0",
+                                            "quantity": "0"
+                                          }
+                                        ]
                                       }
-                                    ]
-                                  },
-                                  "162961615": {
-                                    "name": "Testing category",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0",
-                                        "quantity": "0"
+                                    }
+                                  ],
+                                  "nonFinancialItems": [
+                                    {
+                                      "100": {
+                                        "name": "Non Financial Category",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0"
+                                          }
+                                        ]
+                                      },
+                                      "2004859949": {
+                                        "name": "Non-Financial 2",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0"
+                                          }
+                                        ]
+                                      },
+                                      "2004859951": {
+                                        "name": "Non-Financial 3",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0"
+                                          }
+                                        ]
                                       }
-                                    ]
-                                  }
-                                }
-                              ],
-                              "nonFinancialItems": [
-                                {
-                                  "100": {
-                                    "name": "Non Financial Category",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0"
+                                    }
+                                  ],
+                                  "finAddnlItems": [
+                                    {
+                                      "818066578": {
+                                        "name": "Test 1900",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0"
+                                          }
+                                        ]
+                                      },
+                                      "1956795379": {
+                                        "name": "Additional  Invoice 5",
+                                        "calculationType": "(+)",
+                                        "data": [
+                                          {
+                                            "amount": "0"
+                                          }
+                                        ]
                                       }
-                                    ]
-                                  },
-                                  "2004859949": {
-                                    "name": "Non-Financial 2",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0"
-                                      }
-                                    ]
-                                  },
-                                  "2004859951": {
-                                    "name": "Non-Financial 3",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0"
-                                      }
-                                    ]
-                                  }
-                                }
-                              ],
-                              "finAddnlItems": [
-                                {
-                                  "818066578": {
-                                    "name": "Test 1900",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0"
-                                      }
-                                    ]
-                                  },
-                                  "1956795379": {
-                                    "name": "Additional  Invoice 5",
-                                    "calculationType": "(+)",
-                                    "data": [
-                                      {
-                                        "amount": "0"
-                                      }
-                                    ]
-                                  }
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -3655,19 +3667,23 @@
                           "createAdjustmentWithReason": {
                             "summary": "Create Adjustment with Reason",
                             "value": {
-                              "salesReportID": "1476675187",
-                              "franchiseeNo": "501957516",
-                              "dateReceived": "2020-02-24",
-                              "adjustmentReasonId": "REASON123",
-                              "financialItems": [],
-                              "nonFinancialItems": [],
-                              "finAddnlItems": []
+                              "data": [
+                                {
+                                  "salesReportID": "1476675187",
+                                  "franchiseeNo": "501957516",
+                                  "dateReceived": "2020-02-24",
+                                  "adjustmentReasonId": "REASON123",
+                                  "financialItems": [],
+                                  "nonFinancialItems": [],
+                                  "finAddnlItems": []
+                                }
+                              ]
                             }
                           }
                         }
                       }
                     }
-                },
+                },                  
                 "responses": {
                     "200": {
                         "$ref": "#/components/responses/CreateAdjustmentResp"
