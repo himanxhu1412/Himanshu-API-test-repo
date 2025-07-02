@@ -3924,7 +3924,9 @@
                                 ]
                               }
                             }
-                        },                                           
+                        }
+                      }
+                    },                                           
                 "responses": {
                     "200": {
                         "$ref": "#/components/responses/CreateAdjustmentResp"
@@ -3942,6 +3944,7 @@
                         "description": "Not Found"
                     }
                 }
+            }
             }
         },
         "/manage-finance/adjustments/{id}": {
@@ -3961,21 +3964,10 @@
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "datalist",
-                        "description": "ParameterType:ArrayList<Entity>",
+                        "name": "salesFilter",
+                        "description": "ParameterType:PaymentFilter",
                         "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {}
-                        }
-                    },
-                    {
-                        "name": "salesReportID",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "schema": {}
                     }
                 ],
                 "requestBody": {
@@ -4028,8 +4020,8 @@
                           }
                         },
                         "examples": {
-                            "updateAdjustment": {
-                              "summary": "Update Adjustment",
+                            "createAdjustment": {
+                              "summary": "Create Adjustment",
                               "value": {
                                 "data": [
                                   {
@@ -4117,8 +4109,8 @@
                                 ]
                               }
                             },
-                            "updateAdjustmentWithReason": {
-                              "summary": "Update Adjustment with Reason",
+                            "createAdjustmentWithReason": {
+                              "summary": "Create Adjustment with Reason",
                               "value": {
                                 "data": [
                                   {
@@ -4377,10 +4369,12 @@
                                 ]
                               }
                             }
-                        },                          
+                        }
+                      }
+                    },                                           
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/UpdateAdjustmentResp"
+                        "$ref": "#/components/responses/CreateAdjustmentResp"
                     },
                     "201": {
                         "description": "Created"
@@ -4396,6 +4390,7 @@
                     }
                 }
             }
+         }
         },
         "/manage-finance/adjustments/filter": {
             "post": {
