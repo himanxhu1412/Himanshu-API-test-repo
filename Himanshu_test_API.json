@@ -3542,6 +3542,10 @@
                               "type": "string",
                               "format": "date"
                             },
+                            "adjustmentReason": {
+                                "type": "string",
+                                "description": "Optional. Include if the adjustment reason is selected from a predefined list."
+                              }
                             "financialItems": {
                               "type": "array",
                               "items": {
@@ -3560,10 +3564,6 @@
                                 "type": "object"
                               }
                             },
-                            "adjustmentReasonId": {
-                              "type": "string",
-                              "description": "Optional. Include if the adjustment reason is selected from a predefined list."
-                            }
                           }
                         },
                         "examples": {
