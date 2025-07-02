@@ -3672,7 +3672,7 @@
                                 "franchiseeNo": "1091880591",
                                 "salesReportID": "634906164",
                                 "dateReceived": "2025-06-27",
-                                "adjustmentReason": "Default",
+                                "adjustmentReason": "Price Error",
                                 "acknowledgeSalesReport": "yes",
                                 "localCurrency": true,
                                 "currencyRate": 102.21,
@@ -13326,7 +13326,7 @@
                             "data": [
                               {
                                 "reportNo": "5678",
-                                "salesReportID": "1476675190",
+                                "salesReportID": "634906164",
                                 "response": "Success"
                               }
                             ]
