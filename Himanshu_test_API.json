@@ -3545,7 +3545,7 @@
                             "adjustmentReason": {
                                 "type": "string",
                                 "description": "Optional. Include if the adjustment reason is selected from a predefined list."
-                              }
+                              },
                             "financialItems": {
                               "type": "array",
                               "items": {
