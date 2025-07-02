@@ -3672,7 +3672,7 @@
                                 "franchiseeNo": "1091880591",
                                 "salesReportID": "634906164",
                                 "dateReceived": "2025-06-27",
-                                "adjustmentReason": "reason 2",
+                                "adjustmentReason": "Default",
                                 "acknowledgeSalesReport": "yes",
                                 "localCurrency": true,
                                 "currencyRate": 102.21,
@@ -13281,6 +13281,7 @@
                                             "versionID": "Flat percent 2015",
                                             "totalQuantity": "100.0",
                                             "lastModifiedDate": "2020-03-06 00:12:34",
+                                            "adjustmentReason": "Service Cancellation",
                                             "financialItems": [
                                                 {
                                                     "1": {
