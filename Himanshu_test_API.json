@@ -13227,22 +13227,41 @@
             },
             "CreateAdjustmentResp": {
                 "content": {
-                    "application/json": {
-                        "example": {
-                            "response": {
-                                "data": [
-                                    {
-                                        "reportNo": "1234",
-                                        "salesReportID": "1476675187",
-                                        "response": "Success"
-                                    }
-                                ]
-                            }
+                  "application/json": {
+                    "examples": {
+                      "createAdjustment": {
+                        "summary": "Create Adjustment",
+                        "value": {
+                          "response": {
+                            "data": [
+                              {
+                                "reportNo": "1234",
+                                "salesReportID": "1476675187",
+                                "response": "Success"
+                              }
+                            ]
+                          }
                         }
+                      },
+                      "createAdjustmentWithReason": {
+                        "summary": "Create Adjustment with Reason",
+                        "value": {
+                          "response": {
+                            "data": [
+                              {
+                                "reportNo": "5678",
+                                "salesReportID": "1476675190",
+                                "response": "Success"
+                              }
+                            ]
+                          }
+                        }
+                      }
                     }
+                  }
                 },
                 "description": "Successful"
-            },
+              },              
             "UpdateAdjustmentResp": {
                 "content": {
                     "application/json": {
