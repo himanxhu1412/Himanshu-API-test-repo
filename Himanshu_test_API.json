@@ -3668,15 +3668,161 @@
                             "summary": "Create Adjustment with Reason",
                             "value": {
                               "data": [
-                                {
-                                  "salesReportID": "1476675187",
-                                  "franchiseeNo": "501957516",
-                                  "dateReceived": "2020-02-24",
-                                  "adjustmentReasonId": "REASON123",
-                                  "financialItems": [],
-                                  "nonFinancialItems": [],
-                                  "finAddnlItems": []
-                                }
+                              {
+                                "franchiseeNo": "1091880591",
+                                "salesReportID": "634906164",
+                                "dateReceived": "2025-06-27",
+                                "adjustmentReason": "reason 2",
+                                "acknowledgeSalesReport": "yes",
+                                "localCurrency": true,
+                                "currencyRate": 102.21,
+                                "financialItems": [
+                                    {
+                                        "1": {
+                                            "name": "Service",
+                                            "calculationType": "(+)",
+                                            "children": [
+                                                {
+                                                    "1264579896": {
+                                                        "name": "Delivery",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 7000.0
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "746902677": {
+                                            "name": "Beverage",
+                                            "calculationType": "(+)",
+                                            "children": [
+                                                {
+                                                    "1782397358": {
+                                                        "name": "Coke",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 6000.0
+                                                            }
+                                                        ]
+                                                    },
+                                                    "317038054": {
+                                                        "name": "Limca",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 0.0
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "633194951": {
+                                            "name": "Pasta",
+                                            "calculationType": "(-)",
+                                            "data": [
+                                                {
+                                                    "quantity": 0.0,
+                                                    "amount": -6000.0
+                                                }
+                                            ]
+                                        },
+                                        "479684414": {
+                                            "name": "Service (QBO)",
+                                            "calculationType": "(+)",
+                                            "data": [
+                                                {
+                                                    "quantity": 0.0,
+                                                    "amount": 0.0
+                                                }
+                                            ]
+                                        },
+                                        "1822714977": {
+                                            "name": "Construction",
+                                            "calculationType": "(+)",
+                                            "children": [
+                                                {
+                                                    "324784398": {
+                                                        "name": "Building",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 0.0
+                                                            }
+                                                        ]
+                                                    },
+                                                    "1311345735": {
+                                                        "name": "Labour",
+                                                        "calculationType": "(-)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 0.0
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "1860744108": {
+                                            "name": "Burger Category",
+                                            "calculationType": "(+)",
+                                            "children": [
+                                                {
+                                                    "86033358": {
+                                                        "name": "Veg. Burger",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 0.0
+                                                            }
+                                                        ]
+                                                    },
+                                                    "1646668812": {
+                                                        "name": "Non. Veg. Burger",
+                                                        "calculationType": "(+)",
+                                                        "data": [
+                                                            {
+                                                                "quantity": 0.0,
+                                                                "amount": 0.0
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "998876587": {
+                                            "name": "Beverages",
+                                            "calculationType": "(+)",
+                                            "data": [
+                                                {
+                                                    "quantity": 0.0,
+                                                    "amount": 0.0
+                                                }
+                                            ]
+                                        },
+                                        "39033314": {
+                                            "name": "BH Category QBO",
+                                            "calculationType": "(+)",
+                                            "data": [
+                                                {
+                                                    "quantity": 0.0,
+                                                    "amount": 7000
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
                               ]
                             }
                           }
