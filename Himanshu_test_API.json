@@ -3577,8 +3577,9 @@
                         "examples": {
                             "createAdjustment": {
                               "summary": "Create Adjustment",
-                              "value": {
-                                "data": [
+                              "value": [
+                                {
+                                    "data": [
                                   {
                                     "salesReportID": "1476675187",
                                     "franchiseeNo": "501957516",
@@ -3662,7 +3663,8 @@
                                     ]
                                   }
                                 ]
-                              }
+                                }
+                              ]
                             },
                             "createAdjustmentWithReason": {
                               "summary": "Create Adjustment with Reason",
