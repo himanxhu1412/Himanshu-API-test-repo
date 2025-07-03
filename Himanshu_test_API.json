@@ -3668,8 +3668,9 @@
                             },
                             "createAdjustmentWithReason": {
                               "summary": "Create Adjustment with Reason",
-                              "value": {
-                                "data": [
+                              "value":[
+                                {
+                                    "data": [
                                   {
                                     "franchiseeNo": "1091880591",
                                     "salesReportID": "634906164",
@@ -3924,7 +3925,8 @@
                                     ]
                                   }
                                 ]
-                              }
+                                }
+                              ] 
                             }
                         }
                       }
