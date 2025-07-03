@@ -4024,8 +4024,8 @@
                           }
                         },
                         "examples": {
-                            "createAdjustment": {
-                              "summary": "Create Adjustment",
+                            "updateAdjustment": {
+                              "summary": "Update Adjustment",
                               "value": [
                                 {
                                     "data": [
@@ -4115,8 +4115,8 @@
                                 }
                               ]
                             },
-                            "createAdjustmentWithReason": {
-                              "summary": "Create Adjustment with Reason",
+                            "updateAdjustmentWithReason": {
+                              "summary": "Update Adjustment with Reason",
                               "value":[
                                 {
                                     "data": [
