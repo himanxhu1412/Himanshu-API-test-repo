@@ -257,6 +257,7 @@
                 "Multi-Unit",
                 "Sales",
                 "Sales Lead",
+                "Retrieve Sales Lead Webform",
                 "Info Manager",
                 "Franchisee",
                 "Company v1",
@@ -1251,6 +1252,35 @@
                     "Sales Lead"
                 ],
                 "summary": "Retrieve Field Values",
+                "description": "<p class=\"western\">This section details the Retrieve operation performed to retrieve the values of different fields under the “Primary Info” tab/sub-module for a Sales lead. Using the <strong>retrieveFieldData </strong>endpoint, you can retrieve the values of following fields for a Sales lead: stateID, countyID, country, leadOwnerID, leadRatingID, leadStatusID, leadSource3ID, leadSource2ID, leadRatingID, and serviceID.</p><p>The fields whose values can be retrieved can be of the following two types: dependent and independent fields. For example, stateID and the leadSource3ID are dependent fields. To retrieve the value of a dependent field, you must provide the dependent field name and value as parameters in the request URL. To retrieve the value of an independent field, you must pass the field name as a path parameter in the request URL.</p><p>This section contains an example of the Retrieve operation performed to retrieve the values of the field <strong>county ID </strong>which is dependent on the field <strong>country</strong>.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieveFieldData?module=fs&subModule=lead&responseType=XML&fieldName=fieldInternalName&dependentFieldName=dependentFieldInternalName&dependentFieldValue=dependentFieldInternalValue</td></tr><tr><td></td></tr></table><h4 class=\"western\">Prerequisites to perform a Retrieve operation using the retrieveFieldData endpoint</h4><p class=\"western\">To perform a Retrieve operation for the above mentioned fields using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is “fs”</u>.</p></li><li><p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “lead”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><p><li>Name of the field whose value is to be retrieved using this endpoint. In this case, the name of the field is “countyID”.</p></li><p><li>The independent or dependent (if any) field values that would be used to retrieve the values of the desired field. In this case, the dependent field name to be used is “country” and dependent field value to be used is “USA”.</li></ol></p><img src=\"images/RetrieveFieldData_Sales_Lead.png\">",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/retrieveFieldDataResp"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/retrieveFieldDataArray"
+                }
+            }
+        }, 
+        "/retrieve?module=fs&subModule=externalWebForm": {
+            "post": {
+                "tags": [
+                    "Retrieve Sales Lead Webform"
+                ],
+                "summary": "Retrieve Sales Lead Webform",
                 "description": "<p class=\"western\">This section details the Retrieve operation performed to retrieve the values of different fields under the “Primary Info” tab/sub-module for a Sales lead. Using the <strong>retrieveFieldData </strong>endpoint, you can retrieve the values of following fields for a Sales lead: stateID, countyID, country, leadOwnerID, leadRatingID, leadStatusID, leadSource3ID, leadSource2ID, leadRatingID, and serviceID.</p><p>The fields whose values can be retrieved can be of the following two types: dependent and independent fields. For example, stateID and the leadSource3ID are dependent fields. To retrieve the value of a dependent field, you must provide the dependent field name and value as parameters in the request URL. To retrieve the value of an independent field, you must pass the field name as a path parameter in the request URL.</p><p>This section contains an example of the Retrieve operation performed to retrieve the values of the field <strong>county ID </strong>which is dependent on the field <strong>country</strong>.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieveFieldData?module=fs&subModule=lead&responseType=XML&fieldName=fieldInternalName&dependentFieldName=dependentFieldInternalName&dependentFieldValue=dependentFieldInternalValue</td></tr><tr><td></td></tr></table><h4 class=\"western\">Prerequisites to perform a Retrieve operation using the retrieveFieldData endpoint</h4><p class=\"western\">To perform a Retrieve operation for the above mentioned fields using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is “fs”</u>.</p></li><li><p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “lead”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><p><li>Name of the field whose value is to be retrieved using this endpoint. In this case, the name of the field is “countyID”.</p></li><p><li>The independent or dependent (if any) field values that would be used to retrieve the values of the desired field. In this case, the dependent field name to be used is “country” and dependent field value to be used is “USA”.</li></ol></p><img src=\"images/RetrieveFieldData_Sales_Lead.png\">",
                 "responses": {
                     "200": {
