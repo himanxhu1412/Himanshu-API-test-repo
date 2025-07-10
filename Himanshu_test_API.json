@@ -1139,7 +1139,7 @@
                 "description": "<p class=\"western\">This section contains an example of the Retrieve operation performed for retrieving the details of a Lead Category. In a similar manner, the Retrieve operation can be performed to retrieve other details for the lead category.</p><table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"20%\"><strong>Operation Name</strong></td> <td width=\"1%\">:</td> <td>POST</td> </tr> <tr> <td><strong>API Endpoint</strong></td> <td>:</td> <td> <context-path> /rest/dataservices/retrieve?module=admin&subModule=leadSource&filterXML=filteredxmlString&responseType=XML </td> </tr> <tr> <td></td> </tr></table><p class=\"western\">To perform a Retrieve operation for retrieving the details of a lead category using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol> <li> <p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p> </li> <li> <p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p> </li></ol><p>The following items must be used as path parameters:</p><ol> <li> <p>The module for which the Retrieve operation is being performed. In this case, the module to be used is “admin”. </p> </li> <li> <p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is \"leadSource\". </p> </li> <li> <p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p> </li> <li> <p class=\"western\">filterXML that would contain the attribute names and their values in the request that is to be used to retrieve Lead source category. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u> </li></ol></p><p> <strong>Note:</strong>The API gives you the ability to retrieve Lead Source Category on the basis of various filters, which have to be passed inside the filter tag. You can use the following filters (or a combination of them) to retrieve Lead Source Category:<ol> <li>referenceId (comma-seperated referenceId(s))</li> <li>leadSource2Name</li> <li>isActive</li> <li>leadSourceDetails</li><li>includeInWebPage</li></ol></p><img src=\"images/Retrieve_LeadSource.png\">",
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/RetrieveMultiUnitOwnerResp"
+                        "$ref": "#/components/responses/RetrieveLeadSourceResp"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -1154,7 +1154,7 @@
                 "requestBody": {
                     "content": {
                         "application/xml": {
-                            "example": "<?xmlversion='1.0'encoding='utf-8'?>\n<fcRequest><filter>\n<referenceId>1261786866</referenceId>\n</filter>\n</fcRequest>",
+                            "example": "<?xmlversion='1.0'encoding='utf-8'?>\n<fcRequest><filter>\n<referenceId>3,4,6</referenceId>\n<leadSourceDetails>Y</leadSourceDetails>\n</filter>\n</fcRequest>",
                             "schema": {
                                 "type": "array",
                                 "items": {
@@ -1167,7 +1167,7 @@
                             }
                         }
                     },
-                    "description": "Admin Area/Region Retrieval object",
+                    "description": "Lead Source Category & Details Retrieval object",
                     "required": true
                 }
             }
@@ -11299,7 +11299,7 @@
                               "required": [
                                 "module",
                                 "subModule",
-                                "xmlString",
+                                "filterXML",
                                 "responseType"
                               ]
                             }
@@ -12337,6 +12337,14 @@
                 "content": {
                     "application/xml": {
                         "example": "<?xmlversion='1.0'encoding='utf-8'?>\n<responseData>\n<adminMultiUnit>\n<referenceId>302000001</referenceId>\n<firstName>Sam</firstName>\n<lastName>Grasso</lastName>\n<muidValue>MUID_0074</muidValue>\n<franchiseeReferenceId>\n190000001,190000002,190000003,190000004,190000010,190000062,190000551,852169252</franchiseeReferenceId>\n<franchiseeName>0001,0002,0004,0005,0013,0067,0582,1038</franchiseeName>\n</adminMultiUnit>\n</responseData>"
+                    }
+                },
+                "description": "Successful"
+            },
+            "RetrieveLeadSourceResp": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xmlversion='1.0'encoding='utf-8'?><fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1550859336</responseId>\n<responseData>\n<adminLeadSource>\n<referenceId>3</referenceId>\n<leadSource2Name>Referred By</leadSource2Name>\n<isActive>Y</isActive>\n<webPageFlag>N</webPageFlag>\n\n<fsLeadSource3>\n<referenceId>8</referenceId><leadSource3Name>Friend of reffer by</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>9</referenceId><leadSource3Name>Family</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>10</referenceId><leadSource3Name>Co-workers</leadSource3Name><isActive>N</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n</adminLeadSource>\n\n<adminLeadSource>\n<referenceId>4</referenceId>\n<leadSource2Name>Search</leadSource2Name>\n<isActive>Y</isActive>\n<webPageFlag>Y</webPageFlag>\n\n<fsLeadSource3>\n<referenceId>12</referenceId><leadSource3Name>Google</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>13</referenceId><leadSource3Name>Yahoo</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>14</referenceId><leadSource3Name>MSN</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>15</referenceId><leadSource3Name>Other</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>1390512611</referenceId><leadSource3Name>Edge</leadSource3Name><isActive>N</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n</adminLeadSource>\n\n<adminLeadSource>\n<referenceId>6</referenceId>\n<leadSource2Name>Advertisement</leadSource2Name>\n<isActive>Y</isActive>\n<webPageFlag>Y</webPageFlag>\n\n<fsLeadSource3>\n<referenceId>24</referenceId><leadSource3Name>Newspaper</leadSource3Name><isActive>N</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>25</referenceId><leadSource3Name>Magazine</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>26</referenceId><leadSource3Name>Trade Shows</leadSource3Name><isActive>N</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n\n<fsLeadSource3>\n<referenceId>27</referenceId><leadSource3Name>Other</leadSource3Name><isActive>Y</isActive><webPageFlag>Y</webPageFlag>\n</fsLeadSource3>\n</adminLeadSource>\n</responseData>\n</fcResponse>"
                     }
                 },
                 "description": "Successful"
