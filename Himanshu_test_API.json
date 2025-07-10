@@ -11242,7 +11242,7 @@
                                   "description": "Sub-module name",
                                   "example": "externalWebForm"
                                 },
-                                "xmlString": {
+                                "filterXML": {
                                   "type": "string",
                                   "description": "XML string with filter details",
                                   "example": "<fcRequest><filter><referenceId>1652722613,1388823072</referenceId><formName>Lead Qualification Details</formName></filter></fcRequest>"
