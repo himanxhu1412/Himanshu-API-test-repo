@@ -11230,12 +11230,37 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/components/schemas/FSCreateLead"
-                            },
-                            "xml": {
-                                "wrapped": true
+                              "type": "object",
+                              "properties": {
+                                "module": {
+                                  "type": "string",
+                                  "description": "Module name",
+                                  "example": "fs"
+                                },
+                                "subModule": {
+                                  "type": "string",
+                                  "description": "Sub-module name",
+                                  "example": "externalWebForm"
+                                },
+                                "xmlString": {
+                                  "type": "string",
+                                  "description": "XML string with filter details",
+                                  "example": "<fcRequest><filter><referenceId>1652722613,1388823072</referenceId><formName>Lead Qualification Details</formName></filter></fcRequest>"
+                                },
+                                "responseType": {
+                                  "type": "string",
+                                  "description": "Desired response type (XML or JSON)",
+                                  "example": "XML"
+                                }
+                              },
+                              "required": [
+                                "module",
+                                "subModule",
+                                "xmlString",
+                                "responseType"
+                              ]
                             }
-                        }
+                        }                          
                     }
                 },
                 "description": "Retrieve Web Form details using reference IDs (comma-separated) and a webform name.",
