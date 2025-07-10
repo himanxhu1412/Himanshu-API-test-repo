@@ -1154,22 +1154,45 @@
                 "requestBody": {
                     "content": {
                         "application/xml": {
-                            "example": "<?xmlversion='1.0'encoding='utf-8'?>\n<fcRequest><filter>\n<referenceId>3,4,6</referenceId>\n<leadSourceDetails>Y</leadSourceDetails>\n</filter>\n</fcRequest>",
+                            "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<referenceId>3,4,6</referenceId>\n<leadSourceDetails>Y</leadSourceDetails>\n</filter>\n</fcRequest>",
                             "schema": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/AdminSubModule"
-                                },
-                                "xml": {
-                                    "name": "fcRequest",
-                                    "wrapped": true
+                                    "type": "object",
+                                    "properties": {
+                                        "module": {
+                                            "type": "string",
+                                            "description": "Module name",
+                                            "example": "admin"
+                                        },
+                                        "subModule": {
+                                            "type": "string",
+                                            "description": "Sub-module name",
+                                            "example": "leadSource"
+                                        },
+                                        "filterXML": {
+                                            "type": "string",
+                                            "description": "XML string with filter details",
+                                            "example": "<fcRequest><filter><referenceId>3,4,6</referenceId><leadSourceDetails>Y</leadSourceDetails></filter></fcRequest>"
+                                        },
+                                        "responseType": {
+                                            "type": "string",
+                                            "description": "Desired response type (XML or JSON)",
+                                            "example": "XML"
+                                        }
+                                    },
+                                    "required": [
+                                        "module",
+                                        "subModule",
+                                        "filterXML",
+                                    ]
                                 }
                             }
                         }
                     },
                     "description": "Lead Source Category & Details Retrieval object",
                     "required": true
-                }
+                }                
             }
         },
         "/create?module=fs&subModule=lead": {
