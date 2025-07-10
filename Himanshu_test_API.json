@@ -11226,7 +11226,7 @@
             "retrievewebformArray": {
                 "content": {
                     "application/xml": {
-                        "example": "POST/<context-path>/rest/dataservices/retrieve?module=fs&subModule=externalWebForm&filterXML=<fcRequest><filter><referenceId>1652722613,1388823072</referenceId><formName>Lead Qualification Details</formName></filter></fcRequest>&responseType=xml",
+                        "example": "<fcRequest>\n<filter>\n<referenceId>1652722613,1388823072</referenceId>\n<formName>Lead Qualification Details</formName>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
