@@ -11230,7 +11230,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/components/schemas/retrievefield"
+                                "$ref": "#/components/schemas/FSCreateLead"
                             },
                             "xml": {
                                 "wrapped": true
