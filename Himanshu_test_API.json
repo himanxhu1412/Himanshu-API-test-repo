@@ -11226,7 +11226,7 @@
             "retrievewebformArray": {
                 "content": {
                     "application/xml": {
-                        "example": "POST/<context-path>/rest/dataservices/retrieve?module=fs&subModule=externalWebForm&filterXML=<fcRequest><filter><referenceId>1652722613</referenceId><formName>Lead Qualification Details</formName></filter></fcRequest>&responseType=xml",
+                        "example": "POST/<context-path>/rest/dataservices/retrieve?module=fs&subModule=externalWebForm&filterXML=<fcRequest><filter><referenceId>1652722613,1388823072</referenceId><formName>Lead Qualification Details</formName></filter></fcRequest>&responseType=xml",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -11238,7 +11238,7 @@
                         }
                     }
                 },
-                "description": "Lead Creation object",
+                "description": "Retrieve Web Form details using reference IDs (comma-separated) and a webform name.",
                 "required": true
             },
             "FimCreateFranchiseeArray": {
@@ -12325,7 +12325,7 @@
             "retrieveleadwebformResp": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1961724181</responseId>\n<responseData>https://developers.franconnectdemo.net/fc/leadQualificationDetails.jsp?pqId=aomq--lq-q-oar</responseData>\n</fcResponse>
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1961724181</responseId>\n<responseData>https://developers.franconnectdemo.net/fc/leadQualificationDetails.jsp?pqId=aomq--lq-q-oar,arbbbq-rz--lq-</responseData>\n</fcResponse>
                         "
                     }
                 },
