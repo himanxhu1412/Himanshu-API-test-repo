@@ -13768,126 +13768,116 @@
                                 "normal_retrieve": {
                                     "summary": "Retrieve Invoice Details",
                                     "value": {
-                                        "response": {
-                                            "data": {
-                                                "invoiceReportDetails": {
-                                                    "franchiseeNo": "317889558",
-                                                    "franchiseeName": "SB-001",
-                                                    "totalSales": 1900.0,
-                                                    "storeType": "Default",
-                                                    "area": "NCR Region",
-                                                    "reportPeriod": "2023-03-14",
-                                                    "invoiceNo": "284",
-                                                    "versionID": "AV 2023 Monthly",
-                                                    "openBalance": 901.4,
-                                                    "additionalFees": 346.95,
-                                                    "taxOnInvoice": 11.84,
-                                                    "invoiceAmount": 901.4,
-                                                    "invoiceDate": "2023-04-21 06:12:18.0"
-                                                },
-                                                "additionalInvoiceDetails": {
-                                                    "licenseNo": "ABYN-094378-BA",
-                                                    "storePhone": "(981) 121-1601",
-                                                    "storeEmail": "franconnect.test@gmail.com"
-                                                },
-                                                "royaltyItems": {
-                                                    "Royalty": {
-                                                        "amount": 190.0,
-                                                        "tax": -0.95,
-                                                        "taxTypes": {
-                                                            "VAT @ 3.0%": 5.7,
-                                                            "Withholding ST @ -2.00%": -3.8,
-                                                            "Withholding WT @ -1.50%": -2.85
+                                        "royaltyItemDetailsMap": {
+                                            "2": {
+                                                "includeInCalculation": {
+                                                    "categories": {
+                                                        "96331698": {
+                                                            "categoryId": "New Customer ",
+                                                            "amount": "299,700.00",
+                                                            "quantity": "999.00",
+                                                            "totalQuantity": "999.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "0.0-1000.0",
+                                                                    "value": "300.00",
+                                                                    "countApplicable": "999.00",
+                                                                    "amountApplicable": "299,700.00",
+                                                                    "actualAmountCalculated": "299,700.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "lineItems": {
-                                                            "1696323611": {
-                                                                "Description": "Royalty Adjustment#1",
-                                                                "Amount": 100.0,
-                                                                "Added By": "FranConnect Administrator",
-                                                                "Added On": "2023-04-24 00:22:12"
-                                                            }
+                                                        "768612667": {
+                                                            "categoryId": "User Transaction ",
+                                                            "amount": "455,000.00",
+                                                            "quantity": "650.00",
+                                                            "totalQuantity": "650.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "600.01-And Above",
+                                                                    "value": "700.00",
+                                                                    "countApplicable": "650.00",
+                                                                    "amountApplicable": "455,000.00",
+                                                                    "actualAmountCalculated": "455,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "total": 289.05,
-                                                        "openAmount": 289.05,
-                                                        "remainingYearlyCap": 5855.4,
-                                                        "yearlyCap": 10000
-                                                    },
-                                                    "Adv.": {
-                                                        "amount": 190.0,
-                                                        "tax": 5.7,
-                                                        "taxTypes": {
-                                                            "VAT @ 3.0%": 5.7,
-                                                            "ST @ 3.5%": 6.65,
-                                                            "Withholding WT1 @ -2.00%": -3.8,
-                                                            "Withholding WT2 @ -1.50%": -2.85
-                                                        },
-                                                        "total": 195.7,
-                                                        "openAmount": 195.7,
-                                                        "remainingYearlyCap": 2782.08,
-                                                        "yearlyCap": 10000
-                                                    },
-                                                    "Promissory Notes": {
-                                                        "amount": 0.0,
-                                                        "total": 0.0,
-                                                        "openAmount": 0.0
-                                                    },
-                                                    "Late Fee": {
-                                                        "amount": 57.0,
-                                                        "tax": 0.86,
-                                                        "taxTypes": {
-                                                            "VAT @ 3.0%": 1.71,
-                                                            "Withholding ST @ -1.50%": 0.86
-                                                        },
-                                                        "total": 57.86,
-                                                        "openAmount": 57.86
+                                                        "1405547761": {
+                                                            "categoryId": "User Engagement ",
+                                                            "amount": "350,000.00",
+                                                            "quantity": "700.00",
+                                                            "totalQuantity": "700.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "400.01-800.0",
+                                                                    "value": "500.00",
+                                                                    "countApplicable": "700.00",
+                                                                    "amountApplicable": "350,000.00",
+                                                                    "actualAmountCalculated": "350,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
+                                                        }
                                                     }
                                                 },
-                                                "additionalItems": {
-                                                    "Marketing Fee": {
-                                                        "amount": 125.55,
-                                                        "tax": 6.28,
-                                                        "taxTypes": {
-                                                            "VAT @ 3.0%": 3.77,
-                                                            "ST @ 3.5%": 4.39,
-                                                            "Withholding WT @ -1.50%": -1.88
+                                                "excludeInCalculation": {
+                                                    "categories": {
+                                                        "100": {
+                                                            "categoryId": "Non Financial Category",
+                                                            "amount": "0.0",
+                                                            "quantity": "77.00",
+                                                            "totalQuantity": "77.00",
+                                                            "ranges": []
                                                         },
-                                                        "total": 131.83
-                                                    },
-                                                    "Tech Fee": {
-                                                        "amount": 200.0,
-                                                        "tax": 10.0,
-                                                        "taxTypes": {
-                                                            "VAT @ 3.0%": 6.0,
-                                                            "ST @ 3.5%": 7.0,
-                                                            "Withholding WT @ -1.50%": -3.0
+                                                        "442360728": {
+                                                            "categoryId": "Satisfy Customer ",
+                                                            "amount": "0.0",
+                                                            "quantity": "200.00",
+                                                            "totalQuantity": "200.00",
+                                                            "ranges": []
                                                         },
-                                                        "total": 210.0
+                                                        "542864630": {
+                                                            "categoryId": "Financial category",
+                                                            "amount": "0.0",
+                                                            "quantity": "5678",
+                                                            "totalQuantity": "5678",
+                                                            "ranges": []
+                                                        },
+                                                        "1534294593": {
+                                                            "categoryId": "Service Rate ",
+                                                            "amount": "0.0",
+                                                            "quantity": "15.00",
+                                                            "totalQuantity": "15.00",
+                                                            "ranges": []
+                                                        },
+                                                        "1854032402": {
+                                                            "categoryId": "NSNFCdecimal",
+                                                            "amount": "0.0",
+                                                            "quantity": "89.00",
+                                                            "totalQuantity": "89.00",
+                                                            "ranges": []
+                                                        },
+                                                        "1873615149": {
+                                                            "categoryId": "Google Rating ",
+                                                            "amount": "0.0",
+                                                            "quantity": "5.00",
+                                                            "totalQuantity": "5.00",
+                                                            "ranges": []
+                                                        }
                                                     }
                                                 },
-                                                "additionalFees": {
-                                                    "amount": 341.83,
-                                                    "tax": 5.13,
-                                                    "taxTypes": {
-                                                        "ST @ 3.0%": 10.25,
-                                                        "Withholding WT @ -1.50%": -5.13
-                                                    },
-                                                    "total": 346.95,
-                                                    "openAmount": 346.95
-                                                },
-                                                "invoiceAmount": {
-                                                    "amount": 789.56,
-                                                    "tax": 11.84,
-                                                    "taxTypes": {
-                                                        "VAT @ 3.0%": 23.69,
-                                                        "Withholding ST @ -1.50%": -11.84
-                                                    },
-                                                    "total": 801.4,
-                                                    "openAmount": 901.4
-                                                },
-                                                "paymentDetails": {
-                                                    "paymentStatus": "Unpaid",
-                                                    "amountPaid": 0.0
-                                                }
+                                                "royaltyItem": "Adv.",
+                                                "totalAmount": "1,104,700.00",
+                                                "totalAmountAfterCap": "1,104,700.00",
+                                                "isMaxCapApplied": false,
+                                                "isMinCapApplied": false,
+                                                "isGrowthBased": false,
+                                                "appliedAs": "Flat Per Category"
                                             }
                                         }
                                     }
@@ -13895,86 +13885,118 @@
                                 "local_currency_retrieve": {
                                     "summary": "Retrieve Invoice Details in Local Currency",
                                     "value": {
-                                        
-                                            "response": {
-                                                "data": {
-                                                    "invoiceReportDetails": {
-                                                        "franchiseeNo": "1284186716",
-                                                        "franchiseeName": "SB-01",
-                                                        "totalSales": 50000.0,
-                                                        "storeType": "Default",
-                                                        "area": "Indore",
-                                                        "reportPeriod": "2023-04-30",
-                                                        "invoiceNo": "360",
-                                                        "versionID": "Sample Agreement Version ",
-                                                        "openBalance": 62150.0,
-                                                        "additionalFees": 1650.0,
-                                                        "taxOnInvoice": 0.0,
-                                                        "invoiceAmount": 62150.0,
-                                                        "invoiceDate": "2023-08-11 05:25:38.0",
-                                                        "currencyRate": "100.0",
-                                                        "currencyCode": "INR"
-                                                    },
-                                                    "royaltyItems": {
-                                                        "Royalty": {
-                                                            "amount": 25000.0,
-                                                            "tax": 2500.0,
-                                                            "taxTypes": {
-                                                                "Tax @ 10.0%": 2500.0
-                                                            },
-                                                            "total": 27500.0,
-                                                            "openAmount": 27500.0
+                                        "royaltyItemDetailsMap": {
+                                            "2": {
+                                                "includeInCalculation": {
+                                                    "categories": {
+                                                        "96331698": {
+                                                            "categoryId": "New Customer ",
+                                                            "amount": "299,700.00",
+                                                            "quantity": "999.00",
+                                                            "totalQuantity": "999.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "0.0-1000.0",
+                                                                    "value": "300.00",
+                                                                    "countApplicable": "999.00",
+                                                                    "amountApplicable": "299,700.00",
+                                                                    "actualAmountCalculated": "299,700.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "Adv.": {
-                                                            "amount": 30000.0,
-                                                            "tax": 3000.0,
-                                                            "taxTypes": {
-                                                                "Tax @ 10.0%": 3000.0
-                                                            },
-                                                            "total": 33000.0,
-                                                            "openAmount": 33000.0
+                                                        "768612667": {
+                                                            "categoryId": "User Transaction ",
+                                                            "amount": "455,000.00",
+                                                            "quantity": "650.00",
+                                                            "totalQuantity": "650.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "600.01-And Above",
+                                                                    "value": "700.00",
+                                                                    "countApplicable": "650.00",
+                                                                    "amountApplicable": "455,000.00",
+                                                                    "actualAmountCalculated": "455,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "Promissory Notes": {
-                                                            "amount": 0.0,
-                                                            "total": 0.0,
-                                                            "openAmount": 0.0
+                                                        "1405547761": {
+                                                            "categoryId": "User Engagement ",
+                                                            "amount": "350,000.00",
+                                                            "quantity": "700.00",
+                                                            "totalQuantity": "700.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "400.01-800.0",
+                                                                    "value": "500.00",
+                                                                    "countApplicable": "700.00",
+                                                                    "amountApplicable": "350,000.00",
+                                                                    "actualAmountCalculated": "350,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         }
-                                                    },
-                                                    "additionalItems": {
-                                                        "Marketing Fee": {
-                                                            "amount": 500.0,
-                                                            "tax": 50.0,
-                                                            "taxTypes": {
-                                                                "Tax @ 10.0%": 50.0
-                                                            },
-                                                            "total": 550.0
-                                                        },
-                                                        "Tech Fee": {
-                                                            "amount": 1000.0,
-                                                            "tax": 100.0,
-                                                            "taxTypes": {
-                                                                "Tax @ 10.0%": 100.0
-                                                            },
-                                                            "total": 1100.0
-                                                        }
-                                                    },
-                                                    "additionalFees": {
-                                                        "amount": 1650.0,
-                                                        "total": 1650.0,
-                                                        "openAmount": 1650.0
-                                                    },
-                                                    "invoiceAmount": {
-                                                        "amount": 62150.0,
-                                                        "total": 62150.0,
-                                                        "openAmount": 62150.0
-                                                    },
-                                                    "paymentDetails": {
-                                                        "paymentStatus": "Unpaid",
-                                                        "amountPaid": 0.0
                                                     }
-                                                }
+                                                },
+                                                "excludeInCalculation": {
+                                                    "categories": {
+                                                        "100": {
+                                                            "categoryId": "Non Financial Category",
+                                                            "amount": "0.0",
+                                                            "quantity": "77.00",
+                                                            "totalQuantity": "77.00",
+                                                            "ranges": []
+                                                        },
+                                                        "442360728": {
+                                                            "categoryId": "Satisfy Customer ",
+                                                            "amount": "0.0",
+                                                            "quantity": "200.00",
+                                                            "totalQuantity": "200.00",
+                                                            "ranges": []
+                                                        },
+                                                        "542864630": {
+                                                            "categoryId": "Financial category",
+                                                            "amount": "0.0",
+                                                            "quantity": "5678",
+                                                            "totalQuantity": "5678",
+                                                            "ranges": []
+                                                        },
+                                                        "1534294593": {
+                                                            "categoryId": "Service Rate ",
+                                                            "amount": "0.0",
+                                                            "quantity": "15.00",
+                                                            "totalQuantity": "15.00",
+                                                            "ranges": []
+                                                        },
+                                                        "1854032402": {
+                                                            "categoryId": "NSNFCdecimal",
+                                                            "amount": "0.0",
+                                                            "quantity": "89.00",
+                                                            "totalQuantity": "89.00",
+                                                            "ranges": []
+                                                        },
+                                                        "1873615149": {
+                                                            "categoryId": "Google Rating ",
+                                                            "amount": "0.0",
+                                                            "quantity": "5.00",
+                                                            "totalQuantity": "5.00",
+                                                            "ranges": []
+                                                        }
+                                                    }
+                                                },
+                                                "royaltyItem": "Adv.",
+                                                "totalAmount": "1,104,700.00",
+                                                "totalAmountAfterCap": "1,104,700.00",
+                                                "isMaxCapApplied": false,
+                                                "isMinCapApplied": false,
+                                                "isGrowthBased": false,
+                                                "appliedAs": "Flat Per Category"
                                             }
-                                        
+                                        }
                                     }
                                 }
                         }
