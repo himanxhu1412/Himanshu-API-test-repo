@@ -3349,7 +3349,7 @@
                     "Royalties"
                 ],
                 "summary": "Retrieve Non-Financial Category Calculation By Invoice Id",
-                "description": "<p class=\"western\">Make a GET request to the specified endpoint to retrieve Non-Financial Category (NFC) calculation details for a specific invoice by its <b>franchiseRoyaltyId</b>. The <b>franchiseRoyaltyId</b> is the primary identifier for an invoice and can be obtained by calling the <u><a href=\"#operation/Retrieve_Royalty_Invoices\">Retrieve Royalty Invoices</a></u> endpoint.</p> <table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"25%\"><strong>Operation Name</strong></td> <td width=\"1%\">:</td> <td>GET</td> </tr> <tr> <td><strong>Production API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnect.net/manage-finance-royalty/royalties/{franchiseRoyaltyId}/nfc-calculation-details</td> </tr> <tr> <td><strong>UAT API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnectuat.net/manage-finance-royalty/royalties/{franchiseRoyaltyId}/nfc-calculation-details</td> </tr> </table>The following items must be included in the header of the request: <ol> <li>\"Authorization\" as the key and its value in the format <code>Bearer access_token</code>. This access_token is generated as part of the authentication process. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on generating the access token.</li> <li>\"Content-Type\" as the key and its value in the format <code>application/json</code>.</li> <li>\"X-TenantId\" as the key and its value based on your FranConnect system&apos;s URL. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on identifying the \"X-TenantId\".</li> </ol> <p class=\"western\">This endpoint provides a detailed breakdown of the calculations for each non-financial category included in the invoice. It shows exactly how the values were derived, for example, by multiplying quantities with fixed rates, so you can clearly understand how the total amount for each category was calculated. The response includes the following elements:</p> <ol> <li><b>royaltyItemDetailsMap</b>: Contains calculation details grouped by each royalty item.</li> <li><b>includeInCalculation</b>: Lists all categories that were included in the NFC calculation. Each category contains: <ul> <li><b>categoryId</b>: The name of the category.</li> <li><b>amount</b>: Total calculated amount for this category.</li> <li><b>quantity</b>: Total quantity applicable for this category.</li> <li><b>ranges</b>: Lists configured range brackets for the category. Each range includes: <ul> <li><b>range</b>: The defined quantity or value range (e.g., “0.0-1000.0”).</li> <li><b>value</b>: Rate applied for this range.</li> <li><b>countApplicable</b>: Quantity applicable for the range.</li> <li><b>amountApplicable</b>: Amount calculated for this range.</li> <li><b>actualAmountCalculated</b>: Final amount after applying caps, if any.</li> <li><b>isMaxCapApplied</b>: Indicates if a maximum cap was applied (true/false).</li> <li><b>isMinCapApplied</b>: Indicates if a minimum cap was applied (true/false).</li> </ul> </li> </ul> </li> <li><b>excludeInCalculation</b>: Lists all categories that were excluded from the NFC calculation. Each category includes similar details as above but with a calculated amount of 0.0.</li> <li><b>totalAmount</b>: The total calculated amount across all categories for the royalty item.</li> <li><b>totalAmountAfterCap</b>: The total amount after applying configured caps (if any).</li> <li><b>isMaxCapApplied</b>/<b>isMinCapApplied</b>: Boolean flags indicating whether maximum or minimum caps were applied during the calculation.</li> <li><b>appliedAs</b>: Describes how the amounts are applied (e.g., “Flat Per Category”).</li> </ol> <p class=\"western\">This endpoint is especially useful to determine the breakdown of NFC calculations for each royalty item and category. It helps franchisees and administrators understand how amounts were derived for both included and excluded categories.</p><img src=\"images/Retrieve_NFC_Calculations.png\">",
+                "description": "<p class=\"western\">Make a GET request to the specified endpoint to retrieve Non-Financial Category (NFC) calculation details for a specific invoice by its <b>franchiseRoyaltyId</b>. The <b>franchiseRoyaltyId</b> is the primary identifier for an invoice and can be obtained by calling the <u><a href=\"#operation/Retrieve_Royalty_Invoices\">Retrieve Royalty Invoices</a></u> endpoint.</p> <table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"25%\"><strong>Operation Name</strong></td> <td width=\"1%\">:</td> <td>GET</td> </tr> <tr> <td><strong>Production API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnect.net/manage-finance-royalty/royalties/{franchiseRoyaltyId}/nfc-calculation-details</td> </tr> <tr> <td><strong>UAT API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnectuat.net/manage-finance-royalty/royalties/{franchiseRoyaltyId}/nfc-calculation-details</td> </tr> </table>The following items must be included in the header of the request: <ol> <li>\"Authorization\" as the key and its value in the format <code>Bearer access_token</code>. This access_token is generated as part of the authentication process. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on generating the access token.</li> <li>\"Content-Type\" as the key and its value in the format <code>application/json</code>.</li> <li>\"X-TenantId\" as the key and its value based on your FranConnect system&apos;s URL. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on identifying the \"X-TenantId\".</li> </ol> <p class=\"western\">This endpoint provides a detailed breakdown of the calculations for each non-financial category included in the invoice. It shows exactly how the values were derived, for example, by multiplying quantities with fixed rates, so you can clearly understand how the total amount for each category was calculated. The response includes the following elements:</p> <ol> <li><b>royaltyItemDetailsMap</b>: Contains calculation details grouped by each royalty item.</li> <li><b>includeInCalculation</b>: Lists all categories that were included in the NFC calculation. Each category contains: <ul> <li><b>categoryId</b>: The name of the category.</li> <li><b>amount</b>: Total calculated amount for this category.</li> <li><b>quantity</b>: Total quantity applicable for this category.</li> <li><b>ranges</b>: Lists configured range brackets for the category. Each range includes: <ul> <li><b>range</b>: The defined quantity or value range (e.g., “0.0-1000.0”).</li> <li><b>value</b>: Rate applied for this range.</li> <li><b>countApplicable</b>: Quantity applicable for the range.</li> <li><b>amountApplicable</b>: Amount calculated for this range.</li> <li><b>actualAmountCalculated</b>: Final amount after applying caps, if any.</li> <li><b>isMaxCapApplied</b>: Indicates if a maximum cap was applied (true/false).</li> <li><b>isMinCapApplied</b>: Indicates if a minimum cap was applied (true/false).</li> </ul> </li> </ul> </li> <li><b>excludeInCalculation</b>: Lists all categories that were excluded from the non-financial category calculation.</li> <li><b>totalAmount</b>: The total calculated amount across all categories for the royalty item.</li> <li><b>totalAmountAfterCap</b>: The total amount after applying configured caps (if any).</li> <li><b>isMaxCapApplied</b>/<b>isMinCapApplied</b>: Boolean flags indicating whether maximum or minimum caps were applied during the calculation.</li> <li><b>appliedAs</b>: Describes how the amounts are applied (e.g., “Flat Per Category or Flat”).</li> </ol> <p class=\"western\">This endpoint is especially useful to determine the breakdown of NFC calculations for each royalty item and category. It helps franchisees and administrators understand how amounts were derived for both included and excluded categories.</p><img src=\"images/Retrieve_NFC_Calculations.png\">",
                 "operationId": "Retrieve_NFC_by_Invoice_Id",
                 "produces": [
                     "application/json"
@@ -13769,55 +13769,98 @@
                                     "summary": "Retrieve Invoice Details",
                                     "value": {
                                         "royaltyItemDetailsMap": {
-                                            "2": {
+                                            "1": {
                                                 "includeInCalculation": {
                                                     "categories": {
-                                                        "96331698": {
-                                                            "categoryId": "New Customer ",
-                                                            "amount": "299,700.00",
-                                                            "quantity": "999.00",
-                                                            "totalQuantity": "999.00",
+                                                        "878772094": {
+                                                            "categoryId": "BH NFC-1",
+                                                            "amount": "600.00",
+                                                            "quantity": "1050",
+                                                            "previousAmount": "600.00",
+                                                            "adjustedAmount": "0.00",
+                                                            "totalQuantity": "2100",
                                                             "ranges": [
                                                                 {
                                                                     "range": "0.0-1000.0",
-                                                                    "value": "300.00",
-                                                                    "countApplicable": "999.00",
-                                                                    "amountApplicable": "299,700.00",
-                                                                    "actualAmountCalculated": "299,700.00",
+                                                                    "value": "280.00",
+                                                                    "countApplicable": "1000",
+                                                                    "amountApplicable": "280.00",
+                                                                    "actualAmountCalculated": "280.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                },
+                                                                {
+                                                                    "range": "1000.01-And Above",
+                                                                    "value": "320.00",
+                                                                    "countApplicable": "1100",
+                                                                    "amountApplicable": "320.00",
+                                                                    "actualAmountCalculated": "320.00",
                                                                     "isMaxCapApplied": false,
                                                                     "isMinCapApplied": false
                                                                 }
                                                             ]
                                                         },
-                                                        "768612667": {
-                                                            "categoryId": "User Transaction ",
-                                                            "amount": "455,000.00",
-                                                            "quantity": "650.00",
-                                                            "totalQuantity": "650.00",
+                                                        "1646266697": {
+                                                            "categoryId": "BH NFC-2",
+                                                            "amount": "360.00",
+                                                            "quantity": "660.00",
+                                                            "previousAmount": "360.00",
+                                                            "adjustedAmount": "0.00",
+                                                            "totalQuantity": "1,320.00",
                                                             "ranges": [
                                                                 {
-                                                                    "range": "600.01-And Above",
-                                                                    "value": "700.00",
-                                                                    "countApplicable": "650.00",
-                                                                    "amountApplicable": "455,000.00",
-                                                                    "actualAmountCalculated": "455,000.00",
+                                                                    "range": "0.0-1500.0",
+                                                                    "value": "360.00",
+                                                                    "countApplicable": "1,320.00",
+                                                                    "amountApplicable": "360.00",
+                                                                    "actualAmountCalculated": "360.00",
                                                                     "isMaxCapApplied": false,
                                                                     "isMinCapApplied": false
                                                                 }
                                                             ]
                                                         },
-                                                        "1405547761": {
-                                                            "categoryId": "User Engagement ",
-                                                            "amount": "350,000.00",
-                                                            "quantity": "700.00",
-                                                            "totalQuantity": "700.00",
+                                                        "1668137859": {
+                                                            "categoryId": "BH NFC-5",
+                                                            "amount": "1,000.00",
+                                                            "quantity": "1250",
+                                                            "previousAmount": "1,000.00",
+                                                            "adjustedAmount": "0.00",
+                                                            "totalQuantity": "2500",
                                                             "ranges": [
                                                                 {
-                                                                    "range": "400.01-800.0",
-                                                                    "value": "500.00",
-                                                                    "countApplicable": "700.00",
-                                                                    "amountApplicable": "350,000.00",
-                                                                    "actualAmountCalculated": "350,000.00",
+                                                                    "range": "0.0-1200.0",
+                                                                    "value": "600.00",
+                                                                    "countApplicable": "1200",
+                                                                    "amountApplicable": "600.00",
+                                                                    "actualAmountCalculated": "600.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                },
+                                                                {
+                                                                    "range": "1200.01-And Above",
+                                                                    "value": "400.00",
+                                                                    "countApplicable": "1300",
+                                                                    "amountApplicable": "400.00",
+                                                                    "actualAmountCalculated": "400.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "1847352855": {
+                                                            "categoryId": "BH NFC-4",
+                                                            "amount": "440.00",
+                                                            "quantity": "500.00",
+                                                            "previousAmount": "440.00",
+                                                            "adjustedAmount": "0.00",
+                                                            "totalQuantity": "1,000.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "0.0-2000.0",
+                                                                    "value": "440.00",
+                                                                    "countApplicable": "1,000.00",
+                                                                    "amountApplicable": "440.00",
+                                                                    "actualAmountCalculated": "440.00",
                                                                     "isMaxCapApplied": false,
                                                                     "isMinCapApplied": false
                                                                 }
@@ -13825,55 +13868,98 @@
                                                         }
                                                     }
                                                 },
-                                                "excludeInCalculation": {
+                                                "royaltyItem": "Royalty",
+                                                "totalAmount": "2,400.00",
+                                                "totalAmountAfterCap": "0.00",
+                                                "isMaxCapApplied": false,
+                                                "isMinCapApplied": false,
+                                                "isGrowthBased": true,
+                                                "appliedAs": "Flat"
+                                            },
+                                            "2": {
+                                                "includeInCalculation": {
                                                     "categories": {
-                                                        "100": {
-                                                            "categoryId": "Non Financial Category",
-                                                            "amount": "0.0",
-                                                            "quantity": "77.00",
-                                                            "totalQuantity": "77.00",
-                                                            "ranges": []
+                                                        "878772094": {
+                                                            "categoryId": "BH NFC-1",
+                                                            "amount": "672,000.00",
+                                                            "quantity": "1050",
+                                                            "previousAmount": "336,000.00",
+                                                            "adjustedAmount": "336,000.00",
+                                                            "totalQuantity": "2100",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "1000.01-And Above",
+                                                                    "value": "320.00",
+                                                                    "countApplicable": "2100",
+                                                                    "amountApplicable": "672,000.00",
+                                                                    "actualAmountCalculated": "672,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "442360728": {
-                                                            "categoryId": "Satisfy Customer ",
-                                                            "amount": "0.0",
-                                                            "quantity": "200.00",
-                                                            "totalQuantity": "200.00",
-                                                            "ranges": []
+                                                        "1646266697": {
+                                                            "categoryId": "BH NFC-2",
+                                                            "amount": "528,000.00",
+                                                            "quantity": "660.00",
+                                                            "previousAmount": "237,600.00",
+                                                            "adjustedAmount": "290,400.00",
+                                                            "totalQuantity": "1,320.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "1200.01-And Above",
+                                                                    "value": "400.00",
+                                                                    "countApplicable": "1,320.00",
+                                                                    "amountApplicable": "528,000.00",
+                                                                    "actualAmountCalculated": "528,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "542864630": {
-                                                            "categoryId": "Financial category",
-                                                            "amount": "0.0",
-                                                            "quantity": "5678",
-                                                            "totalQuantity": "5678",
-                                                            "ranges": []
+                                                        "1668137859": {
+                                                            "categoryId": "BH NFC-5",
+                                                            "amount": "1,600,000.00",
+                                                            "quantity": "1250",
+                                                            "previousAmount": "750,000.00",
+                                                            "adjustedAmount": "850,000.00",
+                                                            "totalQuantity": "2500",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "1500.01-And Above",
+                                                                    "value": "640.00",
+                                                                    "countApplicable": "2500",
+                                                                    "amountApplicable": "1,600,000.00",
+                                                                    "actualAmountCalculated": "1,600,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         },
-                                                        "1534294593": {
-                                                            "categoryId": "Service Rate ",
-                                                            "amount": "0.0",
-                                                            "quantity": "15.00",
-                                                            "totalQuantity": "15.00",
-                                                            "ranges": []
-                                                        },
-                                                        "1854032402": {
-                                                            "categoryId": "NSNFCdecimal",
-                                                            "amount": "0.0",
-                                                            "quantity": "89.00",
-                                                            "totalQuantity": "89.00",
-                                                            "ranges": []
-                                                        },
-                                                        "1873615149": {
-                                                            "categoryId": "Google Rating ",
-                                                            "amount": "0.0",
-                                                            "quantity": "5.00",
-                                                            "totalQuantity": "5.00",
-                                                            "ranges": []
+                                                        "1847352855": {
+                                                            "categoryId": "BH NFC-4",
+                                                            "amount": "520,000.00",
+                                                            "quantity": "500.00",
+                                                            "previousAmount": "240,000.00",
+                                                            "adjustedAmount": "280,000.00",
+                                                            "totalQuantity": "1,000.00",
+                                                            "ranges": [
+                                                                {
+                                                                    "range": "800.01-And Above",
+                                                                    "value": "520.00",
+                                                                    "countApplicable": "1,000.00",
+                                                                    "amountApplicable": "520,000.00",
+                                                                    "actualAmountCalculated": "520,000.00",
+                                                                    "isMaxCapApplied": false,
+                                                                    "isMinCapApplied": false
+                                                                }
+                                                            ]
                                                         }
                                                     }
                                                 },
                                                 "royaltyItem": "Adv.",
-                                                "totalAmount": "1,104,700.00",
-                                                "totalAmountAfterCap": "1,104,700.00",
+                                                "totalAmount": "3,320,000.00",
+                                                "totalAmountAfterCap": "1,756,400.00",
                                                 "isMaxCapApplied": false,
                                                 "isMinCapApplied": false,
                                                 "isGrowthBased": false,
@@ -13886,115 +13972,203 @@
                                     "summary": "Retrieve Invoice Details in Local Currency",
                                     "value": {
                                         "royaltyItemDetailsMap": {
-                                            "2": {
-                                                "includeInCalculation": {
-                                                    "categories": {
-                                                        "96331698": {
-                                                            "categoryId": "New Customer ",
-                                                            "amount": "299,700.00",
-                                                            "quantity": "999.00",
-                                                            "totalQuantity": "999.00",
-                                                            "ranges": [
-                                                                {
-                                                                    "range": "0.0-1000.0",
-                                                                    "value": "300.00",
-                                                                    "countApplicable": "999.00",
-                                                                    "amountApplicable": "299,700.00",
-                                                                    "actualAmountCalculated": "299,700.00",
-                                                                    "isMaxCapApplied": false,
-                                                                    "isMinCapApplied": false
-                                                                }
-                                                            ]
-                                                        },
-                                                        "768612667": {
-                                                            "categoryId": "User Transaction ",
-                                                            "amount": "455,000.00",
-                                                            "quantity": "650.00",
-                                                            "totalQuantity": "650.00",
-                                                            "ranges": [
-                                                                {
-                                                                    "range": "600.01-And Above",
-                                                                    "value": "700.00",
-                                                                    "countApplicable": "650.00",
-                                                                    "amountApplicable": "455,000.00",
-                                                                    "actualAmountCalculated": "455,000.00",
-                                                                    "isMaxCapApplied": false,
-                                                                    "isMinCapApplied": false
-                                                                }
-                                                            ]
-                                                        },
-                                                        "1405547761": {
-                                                            "categoryId": "User Engagement ",
-                                                            "amount": "350,000.00",
-                                                            "quantity": "700.00",
-                                                            "totalQuantity": "700.00",
-                                                            "ranges": [
-                                                                {
-                                                                    "range": "400.01-800.0",
-                                                                    "value": "500.00",
-                                                                    "countApplicable": "700.00",
-                                                                    "amountApplicable": "350,000.00",
-                                                                    "actualAmountCalculated": "350,000.00",
-                                                                    "isMaxCapApplied": false,
-                                                                    "isMinCapApplied": false
-                                                                }
-                                                            ]
+                                            "royaltyItemDetailsMap": {
+                                                "1": {
+                                                    "includeInCalculation": {
+                                                        "categories": {
+                                                            "878772094": {
+                                                                "categoryId": "BH NFC-1",
+                                                                "amount": "15.00",
+                                                                "quantity": "1050",
+                                                                "previousAmount": "15.00",
+                                                                "adjustedAmount": "0.00",
+                                                                "totalQuantity": "2100",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "0.0-1000.0",
+                                                                        "value": "7.00",
+                                                                        "countApplicable": "1000",
+                                                                        "amountApplicable": "7.00",
+                                                                        "actualAmountCalculated": "7.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    },
+                                                                    {
+                                                                        "range": "1000.01-And Above",
+                                                                        "value": "8.00",
+                                                                        "countApplicable": "1100",
+                                                                        "amountApplicable": "8.00",
+                                                                        "actualAmountCalculated": "8.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1646266697": {
+                                                                "categoryId": "BH NFC-2",
+                                                                "amount": "9.00",
+                                                                "quantity": "660.00",
+                                                                "previousAmount": "9.00",
+                                                                "adjustedAmount": "0.00",
+                                                                "totalQuantity": "1,320.00",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "0.0-1500.0",
+                                                                        "value": "9.00",
+                                                                        "countApplicable": "1,320.00",
+                                                                        "amountApplicable": "9.00",
+                                                                        "actualAmountCalculated": "9.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1668137859": {
+                                                                "categoryId": "BH NFC-5",
+                                                                "amount": "25.00",
+                                                                "quantity": "1250",
+                                                                "previousAmount": "25.00",
+                                                                "adjustedAmount": "0.00",
+                                                                "totalQuantity": "2500",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "0.0-1200.0",
+                                                                        "value": "15.00",
+                                                                        "countApplicable": "1200",
+                                                                        "amountApplicable": "15.00",
+                                                                        "actualAmountCalculated": "15.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    },
+                                                                    {
+                                                                        "range": "1200.01-And Above",
+                                                                        "value": "10.00",
+                                                                        "countApplicable": "1300",
+                                                                        "amountApplicable": "10.00",
+                                                                        "actualAmountCalculated": "10.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1847352855": {
+                                                                "categoryId": "BH NFC-4",
+                                                                "amount": "11.00",
+                                                                "quantity": "500.00",
+                                                                "previousAmount": "11.00",
+                                                                "adjustedAmount": "0.00",
+                                                                "totalQuantity": "1,000.00",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "0.0-2000.0",
+                                                                        "value": "11.00",
+                                                                        "countApplicable": "1,000.00",
+                                                                        "amountApplicable": "11.00",
+                                                                        "actualAmountCalculated": "11.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
-                                                    }
+                                                    },
+                                                    "royaltyItem": "Royalty",
+                                                    "totalAmount": "60.00",
+                                                    "totalAmountAfterCap": "0.00",
+                                                    "isMaxCapApplied": false,
+                                                    "isMinCapApplied": false,
+                                                    "isGrowthBased": true,
+                                                    "appliedAs": "Flat"
                                                 },
-                                                "excludeInCalculation": {
-                                                    "categories": {
-                                                        "100": {
-                                                            "categoryId": "Non Financial Category",
-                                                            "amount": "0.0",
-                                                            "quantity": "77.00",
-                                                            "totalQuantity": "77.00",
-                                                            "ranges": []
-                                                        },
-                                                        "442360728": {
-                                                            "categoryId": "Satisfy Customer ",
-                                                            "amount": "0.0",
-                                                            "quantity": "200.00",
-                                                            "totalQuantity": "200.00",
-                                                            "ranges": []
-                                                        },
-                                                        "542864630": {
-                                                            "categoryId": "Financial category",
-                                                            "amount": "0.0",
-                                                            "quantity": "5678",
-                                                            "totalQuantity": "5678",
-                                                            "ranges": []
-                                                        },
-                                                        "1534294593": {
-                                                            "categoryId": "Service Rate ",
-                                                            "amount": "0.0",
-                                                            "quantity": "15.00",
-                                                            "totalQuantity": "15.00",
-                                                            "ranges": []
-                                                        },
-                                                        "1854032402": {
-                                                            "categoryId": "NSNFCdecimal",
-                                                            "amount": "0.0",
-                                                            "quantity": "89.00",
-                                                            "totalQuantity": "89.00",
-                                                            "ranges": []
-                                                        },
-                                                        "1873615149": {
-                                                            "categoryId": "Google Rating ",
-                                                            "amount": "0.0",
-                                                            "quantity": "5.00",
-                                                            "totalQuantity": "5.00",
-                                                            "ranges": []
+                                                "2": {
+                                                    "includeInCalculation": {
+                                                        "categories": {
+                                                            "878772094": {
+                                                                "categoryId": "BH NFC-1",
+                                                                "amount": "16,800.00",
+                                                                "quantity": "1050",
+                                                                "previousAmount": "8,400.00",
+                                                                "adjustedAmount": "8,400.00",
+                                                                "totalQuantity": "2100",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "1000.01-And Above",
+                                                                        "value": "8.00",
+                                                                        "countApplicable": "2100",
+                                                                        "amountApplicable": "16,800.00",
+                                                                        "actualAmountCalculated": "16,800.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1646266697": {
+                                                                "categoryId": "BH NFC-2",
+                                                                "amount": "13,200.00",
+                                                                "quantity": "660.00",
+                                                                "previousAmount": "5,940.00",
+                                                                "adjustedAmount": "7,260.00",
+                                                                "totalQuantity": "1,320.00",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "1200.01-And Above",
+                                                                        "value": "10.00",
+                                                                        "countApplicable": "1,320.00",
+                                                                        "amountApplicable": "13,200.00",
+                                                                        "actualAmountCalculated": "13,200.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1668137859": {
+                                                                "categoryId": "BH NFC-5",
+                                                                "amount": "40,000.00",
+                                                                "quantity": "1250",
+                                                                "previousAmount": "18,750.00",
+                                                                "adjustedAmount": "21,250.00",
+                                                                "totalQuantity": "2500",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "1500.01-And Above",
+                                                                        "value": "16.00",
+                                                                        "countApplicable": "2500",
+                                                                        "amountApplicable": "40,000.00",
+                                                                        "actualAmountCalculated": "40,000.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "1847352855": {
+                                                                "categoryId": "BH NFC-4",
+                                                                "amount": "13,000.00",
+                                                                "quantity": "500.00",
+                                                                "previousAmount": "6,000.00",
+                                                                "adjustedAmount": "7,000.00",
+                                                                "totalQuantity": "1,000.00",
+                                                                "ranges": [
+                                                                    {
+                                                                        "range": "800.01-And Above",
+                                                                        "value": "13.00",
+                                                                        "countApplicable": "1,000.00",
+                                                                        "amountApplicable": "13,000.00",
+                                                                        "actualAmountCalculated": "13,000.00",
+                                                                        "isMaxCapApplied": false,
+                                                                        "isMinCapApplied": false
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
-                                                    }
-                                                },
-                                                "royaltyItem": "Adv.",
-                                                "totalAmount": "1,104,700.00",
-                                                "totalAmountAfterCap": "1,104,700.00",
-                                                "isMaxCapApplied": false,
-                                                "isMinCapApplied": false,
-                                                "isGrowthBased": false,
-                                                "appliedAs": "Flat Per Category"
+                                                    },
+                                                    "royaltyItem": "Adv.",
+                                                    "totalAmount": "83,000.00",
+                                                    "totalAmountAfterCap": "43,910.00",
+                                                    "isMaxCapApplied": false,
+                                                    "isMinCapApplied": false,
+                                                    "isGrowthBased": false,
+                                                    "appliedAs": "Flat Per Category"
+                                                }
                                             }
                                         }
                                     }
