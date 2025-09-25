@@ -76,11 +76,11 @@
         },
         {
             "name": "Info Manager",
-            "description": "<p>Using the FranConnect API, you can manage the \"in-development\" and the operational locations in the Info Manager module. Using Create, Retrieve, Update, and Delete API operations, you can manage information that can either be in the location’s main page (in Center Info) or in any of the tabs (such as Real Estate, Mystery Review, and Transfer).</p><p>Note that the following sections explain and provide examples on how to perform these operations on the “Primary Info” tab for locations. Similarly, you can perform these  operations for other tabs as well for locations that are either in-development or have been opened since.</p>"
+            "description": "<p>Using the FranConnect API, you can manage the \"in-development\" and the operational locations in the Info Manager module. Using Create, Retrieve, Update, and Delete API operations, you can manage information that can either be in the location’s main page (in Center Info) or in any of the tabs (such as Real Estate, Mystery Review).</p><p>Note that the following sections explain and provide examples on how to perform these operations on the “Primary Info” tab for locations. Similarly, you can perform these  operations for other tabs as well for locations that are either in-development or have been opened since.</p>"
         },
         {
             "name": "Transfer",
-            "description": "<p>Using the FranConnect API, you can manage transfer operations for franchise locations in the Info Manager module. Using Create, Retrieve, Update, and Delete API operations, you can manage transfer information including ownership changes, location transfers, and related documentation.</p><p>Transfer operations allow you to handle the transfer of franchise locations between different owners, update transfer status, and manage all associated transfer documentation and requirements.</p>"
+            "description": "This API endpoints support retrieve operation associated with Transfers."
         },
         {
             "name": "Company v1",
