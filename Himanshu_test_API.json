@@ -72,7 +72,11 @@
         },
         {
             "name": "Sales",
-            "description": "<p>The Sales Module helps you to manage franchisee leads across their lifecycle. Using the FranConnect API, you can perform Create, Retrieve, Update, and Delete operations for all the tabs that are available in <strong>Sales > Lead Management</strong>, except the file type fields and the pages/tabs that contain multiple tabular sections. The “file” type of fields are not supported by the FranConnect API and you can perform only Retrieve operations on pages that contain multiple tabular sections. </p><p>The following sections provide details and examples to perform Create, Retrieve, Update, and Delete operations on a Sales Lead’s “Primary Info” tab. Similarly, you can perform these operations for any other tab in <strong>Sales > Lead Management</strong>.</p>"
+            "description": "<p>The Sales Module helps you to manage franchisee leads across their lifecycle. Using the FranConnect API, you can perform Create, Retrieve, Update, and Delete operations for all the tabs that are available in <strong>Sales > Lead Management</strong>, except the pages/tabs that contain multiple tabular sections. You can perform only Retrieve operations on pages that contain multiple tabular sections. </p><p>The following sections provide details and examples to perform Create, Retrieve, Update, and Delete operations on a Sales Lead’s “Primary Info” tab. Similarly, you can perform these operations for any other tab in <strong>Sales > Lead Management</strong>.</p>"
+        },
+        {
+            "name": "Retrieve and Upload Documents",
+            "description": "These API endpoints allow you to retrieve and upload documents linked to the Sales tab, whether it's a system-defined or custom tab. You can use them to fetch documents related to a specific lead or to create and update documents associated with that lead. This helps streamline document management within your sales workflows."
         },
         {
             "name": "Info Manager",
@@ -267,6 +271,7 @@
                 "Sales",
                 "Sales Lead",
                 "Retrieve Sales Lead Webform",
+                "Retrieve and Upload Documents",
                 "Info Manager",
                 "Franchisee",
                 "Company v1",
