@@ -1386,6 +1386,36 @@
                 }
             }
         },
+        "/retrieve?module=fs&subModule=externalWebForm": {
+            "post": {
+                "tags": [
+                    "Retrieve and Upload Documents"
+                ],
+                "summary": "Upload Documents",
+                "description": "<p class=\"western\">This section contains an example of the Retrieve operation performed for retrieving the details of a WebformURL filled by Lead. </p><table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"20%\"><strong>Operation Name</strong></td> <td width=\"1%\">:</td> <td>POST</td> </tr> <tr> <td><strong>API Endpoint</strong></td> <td>:</td> <td> <context-path> /rest/dataservices/retrieve?module=fs&subModule=externalWebForm&filterXML=filteredxmlString&responseType=XML </td> </tr> <tr> <td></td> </tr></table><p class=\"western\">To perform a Retrieve operation for retrieving the details of a lead&apos;s webformURL using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol> <li> <p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p> </li> <li> <p>Content-Type as the key and its value in the format “application/x-www-form-urlencoded“.</p> </li></ol><p>The following items must be used as path parameters:</p><ol> <li> <p>The module for which the Retrieve operation is being performed. In this case, the module to be used is “fs”</u>.</p> </li> <li> <p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “externalWebForm”.</p> </li> <li> <p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p> </li> <li> <p class=\"western\">filterXML that would contain the attribute names and their values in the request that is to be used to retrieve the webform. In this case,<strong> \"referenceId\"</strong> has been used to retrieve the web form details of an existing lead. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u> </li></ol><img src=\"images/Retrieve_Lead_Webform.png\">",
+                "operationId": "Sales_Retrieve_External_Webform",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/retrieveleadwebformResp"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/retrievewebformArray"
+                }
+            }
+        },
         "/create?module=fim&subModule=franchisee": {
             "post": {
                 "tags": [
