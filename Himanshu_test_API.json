@@ -84,7 +84,7 @@
         },
         {
             "name": "IM - Retrieve and Upload Documents",
-            "description": "These API endpoints allow you to retrieve and upload documents linked to the different Info Manager tab(s), whether it's a system-defined or custom tab. You can use them to fetch documents related to a specific info manager entity or to create and update documents associated with it. This helps streamline document management within your Info Manager workflows."
+            "description": "<p>These API endpoints allow you to retrieve and upload documents linked to the different Info Manager tab(s), whether it's a system-defined or custom tab. You can use them to fetch documents related to a specific info manager entity or to create and update documents associated with it. This helps streamline document management within your Info Manager workflows.</p><p>The following tabs are supported with document API:</p><ul><li>Agreement</li><li>Center Info</li><li>Contract Signing</li><li>Default and Termination</li><li>Employees</li><li>Entity Details</li><li>Financial</li><li>Insurance</li><li>Legal Violation</li><li>Lenders</li><li>Mystery Review</li><li>Real Estate</li><li>Renewal</li><li>Territory</li><li>Training</li><li>Transfer</li><li>Promissory Notes</li><li>Customer Complaint</li><li>All Custom Tabs</li></ul>"
         },
         {
             "name": "Transfer",
