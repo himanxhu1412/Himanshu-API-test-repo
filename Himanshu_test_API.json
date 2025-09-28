@@ -1386,7 +1386,7 @@
                 }
             }
         },
-        "/retrieve?module=fs&subModule=externalWebForm": {
+        "/retrieve?module=fs&subModule=document": {
             "post": {
                 "tags": [
                     "Retrieve and Upload Documents"
