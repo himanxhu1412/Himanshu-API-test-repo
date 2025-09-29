@@ -1635,11 +1635,11 @@
                     "IM - Retrieve and Upload Documents"
                 ],
                 "summary": "Create Data with Documents",
-                "description": "<p class=\"western\">This section contains an example of the Create operation performed for adding a franchisee center info through the Info Manager module. Similarly, the Create operation can be performed to add the different Info Manager tab entities.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/createMultiPart</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Create operation for adding franchisee center info and documents using the FranConnect API, you must make a POST request on the request URL. The request URL comprises the context path followed by the API endpoint mentioned above.The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li></ol><p class=\"western\">The following items must be sent through the <strong>form-data body: </strong></p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is “fim”.</p></li><li><p>The sub-module for which the Create operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “franchisee”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">The xmlString contains the attribute names and their corresponding values used in the request to add a franchisee. If you need to upload a document, you must include values for the relevant document fields within the xmlString (refer to the example and photo for guidance). To determine the correct parameter names and schema structure, perform a query operation using the appropriate module and sub-module with the operation type set to Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li><li><p class=\"western\">For each document-type field included in your xmlString, make sure to upload the corresponding document using the appropriate document field reference ID. This reference ID can be obtained through the fields retrieve query used during the create operation.</p></li></ol><p class=\"western\">Performing the above mentioned steps would create a new franchisee with center info tab filled. The response received from the API contains <strong>“referenceId”</strong> which represents the unique reference ID for that franchisee and can be used for the Update and Retrieve operations.</p><p><strong>Note:</strong></p><ol><li><p>In order to create data in any tab/sub-module other than “Cneter Info”, it is mandatory to specify the sub-module for which this data is to be created. The best way to uniquely specify a franchisee is through its <u><a href=\"#operation/FIM_Retrieve_Loc\">Reference ID</a></u>. You can also perform a Query operation to retrieve the schema that would be used to create data for that module-subModule combination. Click <u><a href=\"#tag/List-of-Field-Names\">here</a></u> for more details.</p></li><li><p><strong>The following tabs are currently supported with document API under Info manager: </strong>  Agreement; Center Info; Contract Signing; Default and Termination; Employees; Entity Details; Financial; Insurance; Legal Violation; Lenders; Mystery Review; Real Estate; Renewal; Territory; Training; Transfer; Promissory Notes; Customer Complaint; All Custom Tabs.</p></li></ol><img src=\"images/IMFranchisee_CreateDoc_Header.png\"><img src=\"images/IMFranchisee_CreateDoc_Body.png\">",
+                "description": "<p class=\"western\">This section contains an example of the Create operation performed for adding a franchisee center info through the Info Manager module. Similarly, the Create operation can be performed to add the different Info Manager tab entities.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/createMultiPart</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Create operation for adding franchisee center info and documents using the FranConnect API, you must make a POST request on the request URL. The request URL comprises the context path followed by the API endpoint mentioned above.The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li></ol><p class=\"western\">The following items must be sent through the <strong>form-data body: </strong></p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is “fim”.</p></li><li><p>The sub-module for which the Create operation is being performed. A list of all sub-modules can be retrieved from the “subModule” endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is “franchisee”.</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">The xmlString contains the attribute names and their corresponding values used in the request to add a franchisee. If you need to upload a document, you must include values for the relevant document fields within the xmlString (refer to the example and photo for guidance). To determine the correct parameter names and schema structure, perform a query operation using the appropriate module and sub-module with the operation type set to Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li><li><p class=\"western\">For each document-type field included in your xmlString, make sure to upload the corresponding document using the appropriate document field reference ID. This reference ID can be obtained through the fields retrieve query used during the create operation.</p></li></ol><p class=\"western\">Performing the above mentioned steps would create a new franchisee with center info tab filled. The response received from the API contains <strong>“referenceId”</strong> which represents the unique reference ID for that franchisee and can be used for the Update and Retrieve operations.</p><p><strong>Note:</strong></p><ol><li><p>In order to create data in any tab/sub-module other than “Center Info”, it is mandatory to specify the sub-module for which this data is to be created. The best way to uniquely specify a franchisee is through its <u><a href=\"#operation/FIM_Retrieve_Loc\">Reference ID</a></u>. You can also perform a Query operation to retrieve the schema that would be used to create data for that module-subModule combination. Click <u><a href=\"#tag/List-of-Field-Names\">here</a></u> for more details.</p></li><li><p><strong>The following tabs are currently supported with document API under Info manager: </strong>  Agreement; Center Info; Contract Signing; Default and Termination; Employees; Entity Details; Financial; Insurance; Legal Violation; Lenders; Mystery Review; Real Estate; Renewal; Territory; Training; Transfer; Promissory Notes; Customer Complaint; All Custom Tabs.</p></li></ol><img src=\"images/IMFranchisee_CreateDoc_Header.png\"><img src=\"images/IMFranchisee_CreateDoc_Body.png\">",
                 "operationId": "Fim_Create_FranchiseewithDoc",
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/FSCreateLeadwithDocResp"
+                        "$ref": "#/components/responses/FimCreateFranchiseewithDocResp"
                     },
                     "201": {
                         "description": "Created"
@@ -1655,7 +1655,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FSCreateLeadwithDocArray"
+                    "$ref": "#/components/requestBodies/FimCreateFrancshiseewithDocArray"
                 }
             }
         },
@@ -1669,7 +1669,7 @@
                 "operationId": "Fim_Update_FranchiseewithDoc",
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/FSUpdateLeadwithDocResp"
+                        "$ref": "#/components/responses/FimUpdateFranchiseewithDocResp"
                     },
                     "201": {
                         "description": "Created"
@@ -1685,7 +1685,7 @@
                     }
                 },
                 "requestBody": {
-                    "$ref": "#/components/requestBodies/FSUpdateLeadwithDocArray"
+                    "$ref": "#/components/requestBodies/FimUpdateFranchiseewithDocArray"
                 }
             }
         },
@@ -1725,7 +1725,7 @@
                     "Previous Ownership"
                 ],
                 "summary": "Retrieve",
-                "description": "<p class=\"western\">This section contains an example of the Retrieve operation performed for retrieving previous ownerships records through the Info Manager module for the given franchisee. For the Retrieve operation, you can also use pagination to chain through the records using the limit and offset parameters appended in the URL. Click <a href=\"#Pagination\">here</a> for more details.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieve?module=fim&subModule=previousOwnerships&filterXML=filteredxmlString&responseType=XML</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Retrieve operation for retrieving previous ownerships records using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is \"fim\".</p></li><li><p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the \"subModule\" endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is \"previousOwnerships\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">filterXML that would contain the attribute names and their values in the request that is to be used to retrieve transfer records. In this case,<strong> \"referenceId\"</strong> of a franchisee has been used to retrieve the details of previous ownerships record. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></li></ol></p><img src=\"images/PrevOwnershipRetrieve_Param.png\"><img src=\"images/PrevOwnershipRetrieve_Body.png\">",
+                "description": "<p class=\"western\">This section contains an example of the Retrieve operation performed for retrieving previous ownerships records through the Info Manager module for the given franchisee. For the Retrieve operation, you can also use pagination to chain through the records using the limit and offset parameters appended in the URL. Click <a href=\"#Pagination\">here</a> for more details.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieve?module=fim&subModule=previousOwnerships&filterXML=filteredxmlString&responseType=XML</td></tr><tr><td></td></tr></table><p class=\"western\">To perform a Retrieve operation for retrieving previous ownerships records using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is \"fim\".</p></li><li><p>The sub-module for which the Retrieve operation is being performed. A list of all sub-modules can be retrieved from the \"subModule\" endpoint mentioned <span style=\"color: #0563c1;\"><u><a href=\"#tag/List-of-Sub-Modules\">here</a></u></span>. In this case, the subModule to be used is \"previousOwnerships\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">filterXML that would contain the attribute names and their values in the request that is to be used to retrieve previous ownership records. In this case,<strong> \"franchiseeName\"</strong> which is ID of a franchisee has been used to retrieve the details of previous ownerships record. In order to determine the parameter names/ schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></li></ol></p><img src=\"images/PrevOwnershipRetrieve_Param.png\"><img src=\"images/PrevOwnershipRetrieve_Body.png\">",
                 "operationId": "FIM_Retrieve_PrevOwnership",
                 "responses": {
                     "200": {
@@ -11431,10 +11431,48 @@
                 "description": "Lead Creation object",
                 "required": true
             },
+            "FimCreateFrancshiseewithDocArray": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimFranchisee>\n<status>No</status>\n<franchiseeName>HP-FC-01</franchiseeName>\n<centerName>Berger Street</centerName>\n<areaID>Southwest Region</areaID>\n<openingDate>04/16/2025</openingDate>\n<storeTypeId>Default</storeTypeId>\n<address>123, Street 10</address>\n<city>Noida</city>\n<country>India</country>\n<state>Uttar Pradesh</state>\n<storePhone>8765431</storePhone>\n<storeEmail>test@gmail.com</storeEmail>\n<emailID>test@gmail.com</emailID>\n<_newestField2133623532>Fort</_newestField2133623532>\n<_locationDocument700697512>Location Doc 1</_locationDocument700697512>\n<_storeDocument390800936>Store Document 1</_storeDocument390800936>\n<_auditDocument748916752>Audit Document 1</_auditDocument748916752>\n<lifecycleStage>Active</lifecycleStage>\n<entityDetail>Individual</entityDetail>\n<entityType>New</entityType>\n<ownerType>New</ownerType>\n<firstName>Himanshu</firstName>\n<lastName>Paliwal</lastName>\n</fimFranchisee>\n</fcRequest>",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/FSCreateLead"
+                            },
+                            "xml": {
+                                "name": "fcRequest",
+                                "wrapped": true
+                            }
+                        }
+                    }
+                },
+                "description": "Lead Creation object",
+                "required": true
+            },
             "FSUpdateLeadwithDocArray": {
                 "content": {
                     "application/xml": {
                         "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fsLead>\n<referenceId>1421945231</referenceId>\n<_salesDocument1990166773>Sales Document-22</_salesDocument1990166773>\n</fsLead>\n</fcRequest>",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/FSCreateLead"
+                            },
+                            "xml": {
+                                "name": "fcRequest",
+                                "wrapped": true
+                            }
+                        }
+                    }
+                },
+                "description": "Lead Creation object",
+                "required": true
+            },
+            "FimUpdateFranchiseewithDocArray": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimFranchisee>\n<referenceId>1256248607</referenceId>\n<_locationDocument700697512>Location Document 2</_locationDocument700697512>\n<_storeDocument390800936>Store Document 2</_storeDocument390800936>\n</fimFranchisee>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -11780,7 +11818,7 @@
             "FimRetrieveTransferArray": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<franchiseeName>Dhampur</franchiseeName>>\n</filter></fcRequest>",
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<franchiseeName>Dhampur</franchiseeName>>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -11799,7 +11837,7 @@
             "FimRetrievePrevOwnershipArray": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<franchiseeName>Dhampur</franchiseeName>>\n</filter></fcRequest>",
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<filter>\n<franchiseeName>Dhampur</franchiseeName>>\n</filter>\n</fcRequest>",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -12826,6 +12864,23 @@
                 "content": {
                     "application/xml": {
                         "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>473101746</responseId>\n<responseData>\n<fsLead>\n<status>Success</status>\n<referenceId>1421945231</referenceId>\n</fsLead>\n</responseData>\n</fcResponse>"
+                    }
+                },
+                "description": "Successful"
+            },
+            "FimCreateFranchiseewithDocResp": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>333333651</responseId>\n<responseData>\n<fimFranchisee>\n<status>Success</status>\n<referenceId>1256248607</referenceId>\n</fimFranchisee>\n</responseData>\n</fcResponse>
+                        "
+                    }
+                },
+                "description": "Successful"
+            },
+            "FimUpdateFranchiseewithDocResp": {
+                "content": {
+                    "application/xml": {
+                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1092600569</responseId>\n<responseData>\n<fimFranchisee>\n<status>Success</status>\n<referenceId>1256248607</referenceId>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
                     }
                 },
                 "description": "Successful"
