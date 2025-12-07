@@ -111,7 +111,7 @@
             "description": "These API endpoints helps to define field names for reference dates, which are used to schedule store-related tasks and milestones."
         },
         {
-            "name": "Multi-Input Tabs",
+            "name": "Multi-Input Tab",
             "description": "The FranConnect API now supports full CRUD operations for multi-input tabs within FranConnect Info Manager modules. This includes both system-defined and custom tabs, as well as data stored in regular and tabular sections. Developers can create, retrieve, update, and delete records across these multi-input structures, enabling more complete and flexible data management within the FranConnect platform."
         },   
         {
@@ -289,7 +289,7 @@
                 "Reference Dates",
                 "Transfer",
                 "Previous Ownership",
-                "Multi-Input Tabs",
+                "Multi-Input Tab",
                 "Ownership",
                 "Company Ownership",
                 "People Ownership",
