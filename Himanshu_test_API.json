@@ -12077,7 +12077,7 @@
                 "description": "Admin User Deletion object",
                 "required": true
             },
-            "FimUpdatecustomProfileArray": {
+            "FimUpdateMultiInputTabArray": {
                 "content": {
                     "application/xml": {
                         "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimMarketingCampaignTab1917160461>\n<referenceId>2017672087</referenceId>\n<_campaignName1523888024>Summer Engagement Blast 2025</_campaignName1523888024>\n
