@@ -12868,6 +12868,23 @@
                 },
                 "description": "Successful"
             },
+            "AdminUpdateUserResp": {
+                "content": {
+                  "application/xml": {
+                    "examples": {
+                      "updateloginidresponse": {
+                        "summary": "Login ID Update Response",
+                        "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>450450221</responseId>\n<responseData>\n<adminUser>\n<status>Success</status>\n<referenceId>3451843</referenceId>\n</adminUser>\n</responseData>\n</fcResponse>"
+                      },
+                      "updatewmdataresponse": {
+                        "summary": "WM Account Group Update Response",
+                        "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>4340450221</responseId>\n<responseData>\n<adminUser>\n<status>Success</status>\n<referenceId>1986070017</referenceId>\n</adminUser>\n</responseData>\n</fcResponse>"
+                      }
+                    }
+                  }
+                },
+                "description": "Successful"
+            },  
             "ActivateUserResp": {
                 "content": {
                     "application/xml": {
