@@ -11714,7 +11714,16 @@
             "AdminUpdateUserArray": {
                 "content": {
                     "application/xml": {
-                        "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<adminUser>\n<referenceId>3451843</referenceId>\n<userID>jamesv</userID>\n</adminUser>\n</fcRequest>",
+                        "examples": {
+                            "createcorporateuser": {
+                                "summary": "Updating login Id of a user",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<adminUser>\n<referenceId>3451843</referenceId>\n<userID>jamesv</userID>\n</adminUser>\n</fcRequest>"
+                            },
+                            "createFranchiseeuser": {
+                                "summary": "Updating World Manager Access of a Franchise user",
+                                "value": "<fcRequest>\n<adminUser>\n<referenceId>1986070017</referenceId>\n<wmAccess>Y</wmAccess>\n<wmAccountGroup>Assistant Business Manager,Cashier</wmAccountGroup>\n<wmCountry>Aero Mart FC</wmCountry>\n<wmEmployeeType>Part Time</wmEmployeeType>\n</adminUser>\n</fcRequest>\n"
+                            }
+                        },
                         "schema": {
                             "type": "array",
                             "items": {
@@ -12858,34 +12867,6 @@
                     }
                 },
                 "description": "Successful"
-            },
-            "AdminUpdateUserArray": {
-                "content": {
-                    "application/xml": {
-                        "examples": {
-                            "createcorporateuser": {
-                                "summary": "Updating login Id of a user",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<adminUser>\n<referenceId>3451843</referenceId>\n<userID>jamesv</userID>\n</adminUser>\n</fcRequest>"
-                            },
-                            "createFranchiseeuser": {
-                                "summary": "Updating World Manager Access of a Franchise user",
-                                "value": "<fcRequest>\n<adminUser>\n<referenceId>1986070017</referenceId>\n<wmAccess>Y</wmAccess>\n<wmAccountGroup>Assistant Business Manager,Cashier</wmAccountGroup>\n<wmCountry>Aero Mart FC</wmCountry>\n<wmEmployeeType>Part Time</wmEmployeeType>\n</adminUser>\n</fcRequest>\n"
-                            }
-                        },
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/components/schemas/AdminSubModule"
-                            },
-                            "xml": {
-                                "name": "fcRequest",
-                                "wrapped": true
-                            }
-                        }
-                    }
-                },
-                "description": "Admin User Updation object",
-                "required": true
             },
             "ActivateUserResp": {
                 "content": {
