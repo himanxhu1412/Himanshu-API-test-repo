@@ -11885,24 +11885,6 @@
                 "description": "Admin User Deletion object",
                 "required": true
             },
-            "FimCreateUpdateDocResp": {
-                "description": "OK",
-                "content": {
-                  "application/xml": {
-                    "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1977570268</responseId>\n<responseData>\n<fimCenterInfo>\n<referenceId>1418298909</referenceId>\n<fimDocuments_1361811791fimDocumentAttachment>Gift-Certificate-Template.pdf</fimDocuments_1361811791fimDocumentAttachment>\n<fimDocuments_1361811791_url><![CDATA[https://qamaster.s3.amazonaws.com/...?response-content-disposition=attachment%3B%20filename%3D%22Gift-Certificate-Template.pdf%22&X-Amz-Security-Token=<security-token>&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=<date>&X-Amz-SignedHeaders=content-md5%3Bhost&X-Amz-Expires=3600&X-Amz-Credential=<credential>&X-Amz-Signature=<signature>]]></fimDocuments_1361811791_url>\n</fimCenterInfo>\n</responseData>\n</fcResponse>",
-                    "schema": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/FSCreateLead"
-                      },
-                      "xml": {
-                        "name": "fcResponse",
-                        "wrapped": true
-                      }
-                    }
-                  }
-                }
-            },
             "FimRetrieveFranchiseeArray": {
                 "content": {
                     "application/xml": {
@@ -13051,6 +13033,24 @@
                     }
                 },
                 "description": "Successful"
+            },
+            "FimCreateUpdateDocResp": {
+                "description": "OK",
+                "content": {
+                  "application/xml": {
+                    "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1977570268</responseId>\n<responseData>\n<fimCenterInfo>\n<referenceId>1418298909</referenceId>\n<fimDocuments_1361811791fimDocumentAttachment>Gift-Certificate-Template.pdf</fimDocuments_1361811791fimDocumentAttachment>\n<fimDocuments_1361811791_url><![CDATA[https://qamaster.s3.amazonaws.com/...?response-content-disposition=attachment%3B%20filename%3D%22Gift-Certificate-Template.pdf%22&X-Amz-Security-Token=<security-token>&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=<date>&X-Amz-SignedHeaders=content-md5%3Bhost&X-Amz-Expires=3600&X-Amz-Credential=<credential>&X-Amz-Signature=<signature>]]></fimDocuments_1361811791_url>\n</fimCenterInfo>\n</responseData>\n</fcResponse>",
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FSCreateLead"
+                      },
+                      "xml": {
+                        "name": "fcResponse",
+                        "wrapped": true
+                      }
+                    }
+                  }
+                }
             },
             "FimCreateFranchiseeResp": {
                 "content": {
