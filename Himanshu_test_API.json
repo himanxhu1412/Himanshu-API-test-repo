@@ -11535,6 +11535,25 @@
                 "description": "Lead Creation object",
                 "required": true
             },
+            "FimCreateUpdateDocArray": {
+                "content": {
+                  "application/xml": {
+                    "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimCenterInfo>\n<referenceId>1418298909</referenceId>\n<fimDocuments_1361811791fimDocumentAttachment>Gift-Certificate.pdf</fimDocuments_1361811791fimDocumentAttachment>\n<fimDocuments_1361811791fimDocumentTitle>Certificate HP</fimDocuments_1361811791fimDocumentTitle>\n<fimDocuments_1361811791_md5hash>1yY3geLEe5CnnBa9EG6+bQ==</fimDocuments_1361811791_md5hash>\n</fimCenterInfo>\n</fcRequest>",
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FSCreateLead"
+                      },
+                      "xml": {
+                        "name": "fcRequest",
+                        "wrapped": true
+                      }
+                    }
+                  }
+                },
+                "description": "Document Create and Update object",
+                "required": true
+            },
             "AdminSubModuleArray": {
                 "content": {
                     "application/xml": {
@@ -13107,25 +13126,6 @@
                     }
                 },
                 "description": "Successful"
-            },
-            "FimCreateUpdateDocArray": {
-                "content": {
-                  "application/xml": {
-                    "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n<fimCenterInfo>\n<referenceId>1418298909</referenceId>\n<fimDocuments_1361811791fimDocumentAttachment>Gift-Certificate.pdf</fimDocuments_1361811791fimDocumentAttachment>\n<fimDocuments_1361811791fimDocumentTitle>Certificate HP</fimDocuments_1361811791fimDocumentTitle>\n<fimDocuments_1361811791_md5hash>1yY3geLEe5CnnBa9EG6+bQ==</fimDocuments_1361811791_md5hash>\n</fimCenterInfo>\n</fcRequest>",
-                    "schema": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/FSCreateLead"
-                      },
-                      "xml": {
-                        "name": "fcRequest",
-                        "wrapped": true
-                      }
-                    }
-                  }
-                },
-                "description": "Document Create and Update object",
-                "required": true
             },
             "FimRetrieveFranchiseeResp": {
                 "content": {
