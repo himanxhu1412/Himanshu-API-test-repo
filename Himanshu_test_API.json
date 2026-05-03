@@ -12963,9 +12963,18 @@
                 "content": {
                   "application/xml": {
                     "example": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>2030934091</responseId>\n<responseData>\n<fsLead>\n<referenceId>1421945231</referenceId>\n<fsDocuments_1361811791fsDocumentAttachment>Gift-Certificate-Template.pdf</fsDocuments_1361811791fsDocumentAttachment>\n<fsDocuments_1361811791_url><![CDATA[https://qamaster.s3.amazonaws.com/...?response-content-disposition=attachment%3B%20filename%3D%22Sales-HP-Record.pdf%22&X-Amz-Security-Token=<security-token>&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=<date>&X-Amz-SignedHeaders=content-md5%3Bhost&X-Amz-Expires=3600&X-Amz-Credential=<credential>&X-Amz-Signature=<signature>]]></fsDocuments_1361811791_url>\n</fsLead>\n</responseData>\n</fcResponse>"
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FSCreateLead"
+                    },
+                    "xml": {
+                      "name": "fcResponse",
+                      "wrapped": true
+                    }
                   }
-                },
-                "description": "Successful"
+                }
+              }
             },
             "FimCreateUpdateDocResp": {
                 "description": "OK",
