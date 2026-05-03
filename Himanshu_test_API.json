@@ -12966,7 +12966,7 @@
                   }
                 },
                 "description": "Successful"
-              }
+            },
             "FimCreateUpdateDocResp": {
                 "description": "OK",
                 "content": {
