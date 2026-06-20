@@ -115,6 +115,30 @@
             "description": "The FranConnect API now supports full CRUD operations for multi-input tabs within FranConnect Info Manager modules. This includes both system-defined and custom tabs, as well as data stored in regular and tabular sections. Developers can create, retrieve, update, and delete records across these multi-input structures, enabling more complete and flexible data management within the FranConnect platform."
         },   
         {
+            "name": "People",
+            "description": "These API endpoints support operations associated with the People module, including management of owners, employees, and additional contacts records for both franchise and entity types."
+        },
+        {
+            "name": "Franchise Owner",
+            "description": "These API endpoints support Create, Retrieve, Update, and Delete operations for Franchise Owners records within the People module."
+        },
+        {
+            "name": "Entity Owner",
+            "description": "These API endpoints support Create, Retrieve, Update, and Delete operations for Entity Owners records within the People module."
+        },
+        {
+            "name": "Franchise Employee",
+            "description": "These API endpoints support Create, Retrieve, Update, and Delete operations for Franchise Employees records within the People module."
+        },
+        {
+            "name": "Entity Employee",
+            "description": "These API endpoints support Create, Retrieve, Update, and Delete operations for Entity Employees within the People module."
+        },
+        {
+            "name": "Additional Contact",
+            "description": "These API endpoints support Create, Retrieve, Update, and Delete operations for Additional Contacts within the People module."
+        },
+        {
             "name": "Ownership",
             "description": "<p>Leverage Ownership APIs to create ownerships between companies (or people) with franchises in the system.</p>"
         },
@@ -207,7 +231,7 @@
             "description": "These API endpoints support operations related to editing of segments. Following these endpoints, you will be able to edit the general information of a segment like its name, categoryId, customSegmentId, description etc. and alter the list of associated units, owners and or segments."
         },
         {
-            "name": "People",
+            "name": "People (Segments)",
             "description": "These API endpoints support operations associated with People."
         },
         {
@@ -290,6 +314,12 @@
                 "Transfer",
                 "Previous Ownership",
                 "Multi-Input Tab",
+                "People",
+                "Franchise Owner",
+                "Entity Owner",
+                "Franchise Employee",
+                "Entity Employee",
+                "Additional Contact",
                 "Ownership",
                 "Company Ownership",
                 "People Ownership",
@@ -323,7 +353,7 @@
                 "Custom Segment Fields",
                 "Segment",
                 "Edit Segments",
-                "People",
+                "People (Segments)",
                 "Audits",
                 "Visits",
                 "Events and Webhooks",
@@ -1774,6 +1804,198 @@
               }
             }
         },          
+        "/create?module=people&subModule=owner": {
+            "post": {
+                "tags": ["Franchise Owner", "Entity Owner"],
+                "summary": "Create",
+                "description": "<p>Creates a new owner record linked to a franchisee or entity. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>Set &lt;parentReferenceType&gt; to <code>Franchisee</code> or <code>Entity</code> inside the xmlString body.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header. Content-Type: application/x-www-form-urlencoded.</p>",
+                "operationId": "People_Create_Owner",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleCreateOwnerResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateOwnerArray" }
+            }
+        },
+        "/retrieve?module=people&subModule=owner": {
+            "post": {
+                "tags": ["Franchise Owner", "Entity Owner"],
+                "summary": "Retrieve",
+                "description": "<p>Retrieves owner records for a franchisee or entity. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>Pass filter criteria as XML in the filterXML body parameter. Set &lt;parentReferenceType&gt;Entity&lt;/parentReferenceType&gt; inside the filter to retrieve entity owners (defaults to Franchisee).<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Retrieve_Owner",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveOwnerResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveOwnerArray" }
+            }
+        },
+        "/update?module=people&subModule=owner": {
+            "post": {
+                "tags": ["Franchise Owner", "Entity Owner"],
+                "summary": "Update",
+                "description": "<p>Updates an existing owner record. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>The &lt;referenceId&gt; is the outer &lt;owners&gt;&lt;referenceId&gt; returned by the retrieve response. Include &lt;parentReferenceType&gt; to avoid a warning. Only include the fields you want to change.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Update_Owner",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleUpdateOwnerResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateOwnerArray" }
+            }
+        },
+        "/delete?module=people&subModule=owner": {
+            "post": {
+                "tags": ["Franchise Owner", "Entity Owner"],
+                "summary": "Delete",
+                "description": "<p>Deletes an owner record. Use <code>module=people</code> and <code>subModule=owner</code>.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Delete_Owner",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleDeleteOwnerResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteOwnerArray" }
+            }
+        },
+        "/create?module=people&subModule=employee": {
+            "post": {
+                "tags": ["Franchise Employee", "Entity Employee"],
+                "summary": "Create",
+                "description": "<p>Creates a new employee record linked to a franchisee or entity. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>Set &lt;parentReferenceType&gt; to <code>Franchisee</code> or <code>Entity</code> inside the xmlString body.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Create_Employee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleCreateEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateEmployeeArray" }
+            }
+        },
+        "/retrieve?module=people&subModule=employee": {
+            "post": {
+                "tags": ["Franchise Employee", "Entity Employee"],
+                "summary": "Retrieve",
+                "description": "<p>Retrieves employee records for a franchisee or entity. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>Pass filter criteria as XML in the filterXML body parameter. Set &lt;parentReferenceType&gt;Entity&lt;/parentReferenceType&gt; inside the filter to retrieve entity employees (defaults to Franchisee).<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Retrieve_Employee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveEmployeeArray" }
+            }
+        },
+        "/update?module=people&subModule=employee": {
+            "post": {
+                "tags": ["Franchise Employee", "Entity Employee"],
+                "summary": "Update",
+                "description": "<p>Updates an existing employee record. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>The &lt;referenceId&gt; is FIM_EMPLOYEES_MAPPING.EMPLOYEE_NO (Franchisee) or FIM_ENTITY_EMPLOYEES_MAPPING.EMPLOYEE_NO (Entity). Include &lt;parentReferenceType&gt; to route correctly.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Update_Employee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleUpdateEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateEmployeeArray" }
+            }
+        },
+        "/delete?module=people&subModule=employee": {
+            "post": {
+                "tags": ["Franchise Employee", "Entity Employee"],
+                "summary": "Delete",
+                "description": "<p>Deletes an employee record. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>&lt;parentReferenceType&gt; is required.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Delete_Employee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleDeleteEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteEmployeeArray" }
+            }
+        },
+        "/create?module=people&subModule=additionalContact": {
+            "post": {
+                "tags": ["Additional Contact"],
+                "summary": "Create",
+                "description": "<p>Creates a new additional contact. Use <code>module=people</code> and <code>subModule=additionalContact</code>.<br/>The root XML tag must be &lt;peopleAdditionalContact&gt; (not &lt;fimAdditionalContact&gt; — causes error 438). Use muID as the parent entity ID.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Create_AdditionalContact",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleCreateAdditionalContactResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateAdditionalContactArray" }
+            }
+        },
+        "/retrieve?module=people&subModule=additionalContact": {
+            "post": {
+                "tags": ["Additional Contact"],
+                "summary": "Retrieve",
+                "description": "<p>Retrieves additional contact records. Use <code>module=people</code> and <code>subModule=additionalContact</code>.<br/>Pass filter criteria as XML in the filterXML body parameter.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Retrieve_AdditionalContact",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveAdditionalContactResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveAdditionalContactArray" }
+            }
+        },
+        "/update?module=people&subModule=additionalContact": {
+            "post": {
+                "tags": ["Additional Contact"],
+                "summary": "Update",
+                "description": "<p>Updates an existing additional contact. Use <code>module=people</code> and <code>subModule=additionalContact</code>.<br/>The &lt;referenceId&gt; is the ADDITIONAL_CONTACT_ID from the create response. Note: email field is emailID, not email.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Update_AdditionalContact",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleUpdateAdditionalContactResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateAdditionalContactArray" }
+            }
+        },
+        "/delete?module=people&subModule=additionalContact": {
+            "post": {
+                "tags": ["Additional Contact"],
+                "summary": "Delete",
+                "description": "<p>Deletes an additional contact. Use <code>module=people</code> and <code>subModule=additionalContact</code>.<br/>The &lt;referenceId&gt; is the ADDITIONAL_CONTACT_ID from the create response.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
+                "operationId": "People_Delete_AdditionalContact",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleDeleteAdditionalContactResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteAdditionalContactArray" }
+            }
+        },
         "/manage-unit/v1/units/{franchiseId}": {
             "get": {
                 "tags": [
@@ -9248,7 +9470,7 @@
         "/manage-teams/v1/people/users": {
             "post": {
                 "tags": [
-                    "People"
+                    "People (Segments)"
                 ],
                 "summary": "Retrieve People",
                 "description": "<p class=\"western\">Make a POST request to the specified endpoint to retrieve a list of users (People) from your system. </p><table width=\"100%\" class=\"endpoint-table\"> <tr> <td width=\"25%\"><strong>Operation Name</strong></td> <td width=\"1%\">:</td> <td>POST</td> </tr> <tr> <td><strong>Production API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnect.net/manage-teams/v1/people/users</td> </tr> <tr> <td><strong>UAT API Endpoint</strong></td> <td>:</td> <td valign=\"top\">https://skyapi.franconnectuat.net/manage-teams/v1/people/users</td> </tr></table>The following items must be included in the header of the request:<ol> <li> <p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p> </li> <li> <p>&ldquo;Content-Type&rdquo; as the key and its value in the format &ldquo;application/json&rdquo;.</p> </li> <li> <p>&ldquo;X-TenantId&rdquo; as the key and its value based on your FranConnect system&rsquo;s URL. Click <u><a href=\"#tag/Authentication\">here</a></u>&nbsp;for details on identifying the &ldquo;X-TenantId&rdquo;.</p> </li></ol><p class=\"western\">Filter attributes have to be passed as value into the <b>fieldId</b> key. The following list shows the filter attributes and their corresponding clauses along with how a clause is worded in the UI (given inside parentheses). <ul> <li><b>user_first_name</b>: acceptable clauses: \"IEQUAL\" (is), \"INOT_EQUAL\" (is not), \"ILIKE\" (contains), \"NOT_ILIKE\" (does not contain)</li> <li><b>user_last_name</b>: acceptable clauses: \"IEQUAL\" (is), \"INOT_EQUAL\" (is not), \"ILIKE\" (contains), \"NOT_ILIKE\" (does not contain)</li> <li><b>user_level</b>: acceptable clauses: \"IN\" (in), \"NOT_IN\" (not in)</li> </ul></p><p class=\"western\">&nbsp;</p><img src=\"images/Retrieve_People.png\">",
@@ -12663,7 +12885,283 @@
                 },
                 "description": "Lead Creation object",
                 "required": true
-            }
+            },
+            "PeopleCreateOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeOwner": {
+                                "summary": "Create Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <parentReferenceId>15779051</parentReferenceId>\n    <firstName>John</firstName>\n    <lastName>Doe</lastName>\n    <email>john.doe@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <phone>5551234567</phone>\n    <mobile>5559876543</mobile>\n    <jobTitle>CEO</jobTitle>\n    <entityDetail>Individual</entityDetail>\n    <ownerType>New</ownerType>\n    <homeAddress>123 Main St</homeAddress>\n    <homeCity>Austin</homeCity>\n    <homeState>48</homeState>\n    <homeCountry>1</homeCountry>\n    <homeZipCode>78701</homeZipCode>\n    <otherAddress>456 Oak Ave</otherAddress>\n    <otherCity>Dallas</otherCity>\n    <otherState>48</otherState>\n    <otherCountry>1</otherCountry>\n    <otherZipCode>75201</otherZipCode>\n    <taxpayerID>123-45-6789</taxpayerID>\n    <storeOwnedPercentage>50</storeOwnedPercentage>\n    <typeOfOwnership>1</typeOfOwnership>\n    <ownershipStartDate>2024-01-15</ownershipStartDate>\n    <isManager>Y</isManager>\n    <ownerTitle>Primary Owner</ownerTitle>\n    <spouseFirstName>Jane</spouseFirstName>\n    <spouseLastName>Doe</spouseLastName>\n    <spousePhone>5552223333</spousePhone>\n    <spouseMobile>5554445555</spouseMobile>\n  </fimOwner>\n</fcRequest>"
+                            },
+                            "createEntityOwner": {
+                                "summary": "Create Entity Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <parentReferenceType>Entity</parentReferenceType>\n    <parentReferenceId>475177469</parentReferenceId>\n    <firstName>Jane</firstName>\n    <lastName>Smith</lastName>\n    <email>jane.smith@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <phone>5559876543</phone>\n    <jobTitle>Director</jobTitle>\n    <entityDetail>Individual</entityDetail>\n    <ownerType>New</ownerType>\n    <storeOwnedPercentage>100</storeOwnedPercentage>\n    <isManager>N</isManager>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Owner creation request body",
+                "required": true
+            },
+            "PeopleRetrieveOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeOwners": {
+                                "summary": "Retrieve all owners of a specific franchisee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>15779051</referenceId>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveEntityOwners": {
+                                "summary": "Retrieve all owners of a specific entity",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>475177469</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveSpecificFranchiseeOwner": {
+                                "summary": "Retrieve a specific franchisee owner by owner ID",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>15779051</referenceId>\n    <owners>\n      <fimOwners>\n        <referenceId>5348277</referenceId>\n      </fimOwners>\n    </owners>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveOwnersByStatus": {
+                                "summary": "Retrieve owners across all active franchisees",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <franchiseeStatus>Active</franchiseeStatus>\n  </filter>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Owner retrieve filter body",
+                "required": true
+            },
+            "PeopleUpdateOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeOwner": {
+                                "summary": "Update Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1949752379</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <jobTitle>Updated CEO</jobTitle>\n    <email>updated.owner@example.com</email>\n    <storeOwnedPercentage>75</storeOwnedPercentage>\n  </fimOwner>\n</fcRequest>"
+                            },
+                            "updateEntityOwner": {
+                                "summary": "Update Entity Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1965263269</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n    <jobTitle>Updated CEO</jobTitle>\n    <email>updated.entity@example.com</email>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Owner update request body",
+                "required": true
+            },
+            "PeopleDeleteOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeOwner": {
+                                "summary": "Delete Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1949752379</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n  </fimOwner>\n</fcRequest>"
+                            },
+                            "deleteEntityOwner": {
+                                "summary": "Delete Entity Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1800600574</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Owner delete request body",
+                "required": true
+            },
+            "PeopleCreateEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeEmployee": {
+                                "summary": "Create Franchise Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <parentReferenceId>164449663</parentReferenceId>\n    <firstName>Mitchell</firstName>\n    <lastName>McCluskey</lastName>\n    <employeeType>New</employeeType>\n    <jobTitle>Manager</jobTitle>\n    <phone1>5551234567</phone1>\n    <email>mitchell.mccluskey@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <phone2>5559876543</phone2>\n    <mobile>5550001111</mobile>\n    <fax>5552223333</fax>\n    <address>10 King St</address>\n    <city>Perth</city>\n    <state>238</state>\n    <country>14</country>\n    <zipcode>6000</zipcode>\n  </fimEmployee>\n</fcRequest>"
+                            },
+                            "createEntityEmployee": {
+                                "summary": "Create Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <parentReferenceType>Entity</parentReferenceType>\n    <parentReferenceId>475177469</parentReferenceId>\n    <firstName>Alex</firstName>\n    <lastName>Johnson</lastName>\n    <employeeType>New</employeeType>\n    <jobTitle>Senior Manager</jobTitle>\n    <phone1>5559876543</phone1>\n    <email>alex.johnson@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Employee creation request body",
+                "required": true
+            },
+            "PeopleRetrieveEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeEmployees": {
+                                "summary": "Retrieve all employees of a specific franchisee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveEntityEmployees": {
+                                "summary": "Retrieve entity employees",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>475177469</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveSpecificEmployee": {
+                                "summary": "Retrieve a specific franchisee employee by employee ID",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n    <fimEmployees>\n      <referenceId>7381758</referenceId>\n    </fimEmployees>\n  </filter>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Employee retrieve filter body",
+                "required": true
+            },
+            "PeopleUpdateEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeEmployee": {
+                                "summary": "Update Franchise Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>1214687730</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <jobTitle>Senior Manager</jobTitle>\n    <email>updated@example.com</email>\n  </fimEmployee>\n</fcRequest>"
+                            },
+                            "updateEntityEmployee": {
+                                "summary": "Update Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>11</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n    <jobTitle>Senior Manager</jobTitle>\n    <email>updated.entity@example.com</email>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Employee update request body",
+                "required": true
+            },
+            "PeopleDeleteEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeEmployee": {
+                                "summary": "Delete Franchise Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>2146763668</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
+                            },
+                            "deleteEntityEmployee": {
+                                "summary": "Delete Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>12</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Employee delete request body",
+                "required": true
+            },
+            "PeopleCreateAdditionalContactArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createNewContact": {
+                                "summary": "Create New Additional Contact",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <peopleAdditionalContact>\n    <muID>475177469</muID>\n    <firstName>Chris</firstName>\n    <lastName>Taylor</lastName>\n    <phone>5553210987</phone>\n    <phoneExt>101</phoneExt>\n    <mobile>5559876543</mobile>\n    <homePhone>5550001111</homePhone>\n    <address>100 Contact Lane</address>\n    <address2>Suite 5</address2>\n    <city>Chicago</city>\n    <stateID>14</stateID>\n    <country>1</country>\n    <zip>60601</zip>\n  </peopleAdditionalContact>\n</fcRequest>"
+                            },
+                            "linkExistingOwner": {
+                                "summary": "Link Existing Owner as Additional Contact",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <peopleAdditionalContact>\n    <parentReferenceType>Entity</parentReferenceType>\n    <parentReferenceId>475177469</parentReferenceId>\n    <additionalContactType>Owner</additionalContactType>\n    <additionalContactReferenceId>938073406</additionalContactReferenceId>\n  </peopleAdditionalContact>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Additional Contact creation request body",
+                "required": true
+            },
+            "PeopleRetrieveAdditionalContactArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveAdditionalContacts": {
+                                "summary": "Retrieve Additional Contacts by entity ID",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>475177469</referenceId>\n  </filter>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Additional Contact retrieve filter body",
+                "required": true
+            },
+            "PeopleUpdateAdditionalContactArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateAdditionalContact": {
+                                "summary": "Update Additional Contact",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <peopleAdditionalContact>\n    <referenceId>1316481981</referenceId>\n    <phone>5559999999</phone>\n    <emailID>updated@example.com</emailID>\n    <address>200 Updated Ave</address>\n    <city>New York</city>\n    <stateID>33</stateID>\n    <country>1</country>\n    <zip>10001</zip>\n  </peopleAdditionalContact>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Additional Contact update request body",
+                "required": true
+            },
+            "PeopleDeleteAdditionalContactArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteAdditionalContact": {
+                                "summary": "Delete Additional Contact",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <peopleAdditionalContact>\n    <referenceId>1504675724</referenceId>\n  </peopleAdditionalContact>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Additional Contact delete request body",
+                "required": true
+            },
         },
         "responses": {
             "ModuleResp": {
@@ -18949,7 +19447,196 @@
                     }
                 },
                 "description": "Successful"
+            },
+            "PeopleCreateOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeOwnerResp": {
+                                "summary": "Create Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>803558502</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1581352300</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            },
+                            "createEntityOwnerResp": {
+                                "summary": "Create Entity Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>2142337835</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1585249610</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleRetrieveOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeOwnerResp": {
+                                "summary": "Retrieve Franchisee Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1529601222</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>15779051</referenceId>\n<owners>\n<referenceId>1949752379</referenceId>\n<fimOwners>\n<referenceId>5348277</referenceId>\n<firstName>John</firstName>\n<lastName>Doe</lastName>\n<email>john.doe@example.com</email>\n<phone>5551234567</phone>\n<jobTitle>CEO</jobTitle>\n<storeOwnedPercentage>50</storeOwnedPercentage>\n<isManager>Y</isManager>\n</fimOwners>\n</owners>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            },
+                            "retrieveEntityOwnerResp": {
+                                "summary": "Retrieve Entity Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>605564084</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>475177469</referenceId>\n<fimOwner>\n<referenceId>938073406</referenceId>\n<firstName>Jane</firstName>\n<lastName>Smith</lastName>\n<email>jane.smith@example.com</email>\n<jobTitle>Director</jobTitle>\n<storeOwnedPercentage>100</storeOwnedPercentage>\n</fimOwner>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleUpdateOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeOwnerResp": {
+                                "summary": "Update Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1862437321</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1949752379</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            },
+                            "updateEntityOwnerResp": {
+                                "summary": "Update Entity Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1425017056</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1965263269</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeOwnerResp": {
+                                "summary": "Delete Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1627304851</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1949752379</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            },
+                            "deleteEntityOwnerResp": {
+                                "summary": "Delete Entity Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>869897043</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1800600574</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleCreateEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeEmployeeResp": {
+                                "summary": "Create Franchise Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1499876780</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>784412642</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            },
+                            "createEntityEmployeeResp": {
+                                "summary": "Create Entity Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>11</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleRetrieveEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeEmployeesResp": {
+                                "summary": "Retrieve Franchisee Employees Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1529601222</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>571104981</referenceId>\n<fimEmployees>\n<referenceId>7381758</referenceId>\n<fimEmployeesMapping>\n<referenceId>1214687730</referenceId>\n</fimEmployeesMapping>\n<firstName>Mitchell</firstName>\n<lastName>McCluskey</lastName>\n<email>mitchell.mccluskey@example.com</email>\n<phone1>5551234567</phone1>\n<jobTitle>Manager</jobTitle>\n</fimEmployees>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            },
+                            "retrieveEntityEmployeesResp": {
+                                "summary": "Retrieve Entity Employees Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>475177469</referenceId>\n<fimEmployee>\n<referenceId>11</referenceId>\n<firstName>Alex</firstName>\n<lastName>Johnson</lastName>\n<email>alex.johnson@example.com</email>\n<jobTitle>Senior Manager</jobTitle>\n</fimEmployee>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleUpdateEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeEmployeeResp": {
+                                "summary": "Update Franchise Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>284159422</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1214687730</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            },
+                            "updateEntityEmployeeResp": {
+                                "summary": "Update Entity Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>268016713</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>11</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeEmployeeResp": {
+                                "summary": "Delete Franchise Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>286008637</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>2146763668</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            },
+                            "deleteEntityEmployeeResp": {
+                                "summary": "Delete Entity Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1743898415</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>12</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleCreateAdditionalContactResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createAdditionalContactResp": {
+                                "summary": "Create Additional Contact Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1241536971</responseId>\n<responseData>\n<peopleAdditionalContact>\n<status>Success</status>\n<referenceId>1316481981</referenceId>\n</peopleAdditionalContact>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleRetrieveAdditionalContactResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveAdditionalContactResp": {
+                                "summary": "Retrieve Additional Contacts Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1241536971</responseId>\n<responseData>\n<peopleAdditionalContact>\n<referenceId>1316481981</referenceId>\n<firstName>Chris</firstName>\n<lastName>Taylor</lastName>\n<phone>5553210987</phone>\n<mobile>5559876543</mobile>\n<address>100 Contact Lane</address>\n<city>Chicago</city>\n<zip>60601</zip>\n</peopleAdditionalContact>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleUpdateAdditionalContactResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateAdditionalContactResp": {
+                                "summary": "Update Additional Contact Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1054005050</responseId>\n<responseData>\n<peopleAdditionalContact>\n<status>Success</status>\n<referenceId>1316481981</referenceId>\n</peopleAdditionalContact>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteAdditionalContactResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteAdditionalContactResp": {
+                                "summary": "Delete Additional Contact Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1848948583</responseId>\n<responseData>\n<peopleAdditionalContact>\n<status>Success</status>\n<referenceId>1504675724</referenceId>\n</peopleAdditionalContact>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
             }
+
         }
     }
 }
