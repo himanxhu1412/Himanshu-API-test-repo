@@ -1806,66 +1806,66 @@
         },          
         "/create?module=people&subModule=owner": {
             "post": {
-                "tags": ["Franchise Owner", "Entity Owner"],
+                "tags": ["Franchise Owner"],
                 "summary": "Create",
-                "description": "<p>Creates a new owner record linked to a franchisee or entity. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>Set &lt;parentReferenceType&gt; to <code>Franchisee</code> or <code>Entity</code> inside the xmlString body.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header. Content-Type: application/x-www-form-urlencoded.</p>",
-                "operationId": "People_Create_Owner",
+                "description": "<p class=\"western\">This section contains an example of the Create operation for adding a Franchise Owner through the People module. You can use this operation to add a new owner to an existing franchisee record.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/create?module=people&subModule=owner&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Create operation for adding a Franchise Owner using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Create operation is being performed. In this case, the subModule to be used is \"owner\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the attribute names and their values for the owner record. To add a Franchise Owner, set <strong>&lt;parentReferenceType&gt;</strong> to <code>Franchisee</code> and <strong>&lt;parentReferenceId&gt;</strong> to the <strong>Franchisee Number</strong> of the franchisee the owner belongs to — this identifies the parent record under which the owner is created. You can retrieve the Franchisee Number from the <u><a href=\"#tag/Franchisee-Number\">Franchisee Number</a></u> endpoint. The remaining fields (such as <strong>&lt;firstName&gt;</strong>, <strong>&lt;lastName&gt;</strong>, <strong>&lt;email&gt;</strong>, <strong>&lt;storeOwnedPercentage&gt;</strong>, and <strong>&lt;ownershipStartDate&gt;</strong>) carry the owner's own details. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps creates a new Franchise Owner record. The response contains <strong>\"referenceId\"</strong> inside the <strong>&lt;fimOwner&gt;</strong> element — this is the unique ID of the newly created owner and must be saved for the Retrieve, Update, and Delete operations.</p><p><strong>Note:</strong> Two distinct identifiers are involved in this operation. The <strong>&lt;parentReferenceId&gt;</strong> you send in the request is the <strong>Franchisee Number</strong> — it identifies the parent franchisee, not the owner. The <strong>referenceId</strong> returned in the response is the <strong>owner's own unique ID</strong> — use this value (not the Franchisee Number) for subsequent Retrieve, Update, and Delete operations.</p><img src=\"images/People_CreateFranchiseOwner.png\">",
+                "operationId": "People_Create_FranchiseOwner",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleCreateOwnerResp" },
+                    "200": { "$ref": "#/components/responses/PeopleCreateFranchiseOwnerResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateOwnerArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateFranchiseOwnerArray" }
             }
         },
         "/retrieve?module=people&subModule=owner": {
             "post": {
-                "tags": ["Franchise Owner", "Entity Owner"],
+                "tags": ["Franchise Owner"],
                 "summary": "Retrieve",
-                "description": "<p>Retrieves owner records for a franchisee or entity. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>Pass filter criteria as XML in the filterXML body parameter. Set &lt;parentReferenceType&gt;Entity&lt;/parentReferenceType&gt; inside the filter to retrieve entity owners (defaults to Franchisee).<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Retrieve_Owner",
+                "description": "<p class=\"western\">This section contains an example of the Retrieve operation for fetching Franchise Owner records through the People module. You can retrieve all owners linked to a specific franchisee, or retrieve a specific owner using its own unique ID.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieve?module=people&subModule=owner&filterXML=filteredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Retrieve operation for fetching Franchise Owner records using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Retrieve operation is being performed. In this case, the subModule to be used is \"owner\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">filterXML that contains the filter criteria for the Retrieve operation. To retrieve all owners of a franchisee, provide the <strong>&lt;referenceId&gt;</strong> inside a <strong>&lt;filter&gt;</strong> block — this is the <strong>Franchisee Number</strong> of the parent franchisee. To retrieve a specific owner, additionally nest the owner's own ID inside <strong>&lt;owners&gt;&lt;fimOwners&gt;&lt;referenceId&gt;</strong>. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">The response returns the owner records matching the filter, nested under the parent franchisee.</p><p><strong>Note:</strong> The response contains three identifiers that should not be confused with one another. The <strong>&lt;referenceId&gt;</strong> inside <strong>&lt;filter&gt;</strong> (and the top-level one in the response) is the <strong>Franchisee Number</strong> of the parent record. The outer <strong>&lt;owners&gt;&lt;referenceId&gt;</strong> is the <strong>owner mapping ID</strong> that links the owner to this franchisee — this is the value used for the Update and Delete operations. The inner <strong>&lt;fimOwners&gt;&lt;referenceId&gt;</strong> is the <strong>owner's person record ID</strong>. Always use the owner mapping ID for Update and Delete.</p><img src=\"images/People_RetrieveFranchiseOwner.png\">",
+                "operationId": "People_Retrieve_FranchiseOwner",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleRetrieveOwnerResp" },
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveFranchiseOwnerResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveOwnerArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveFranchiseOwnerArray" }
             }
         },
         "/update?module=people&subModule=owner": {
             "post": {
-                "tags": ["Franchise Owner", "Entity Owner"],
+                "tags": ["Franchise Owner"],
                 "summary": "Update",
-                "description": "<p>Updates an existing owner record. Use <code>module=people</code> and <code>subModule=owner</code>.<br/>The &lt;referenceId&gt; is the outer &lt;owners&gt;&lt;referenceId&gt; returned by the retrieve response. Include &lt;parentReferenceType&gt; to avoid a warning. Only include the fields you want to change.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Update_Owner",
+                "description": "<p class=\"western\">This section contains an example of the Update operation for modifying an existing Franchise Owner record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/update?module=people&subModule=owner&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform an Update operation for a Franchise Owner using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Update operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Update operation is being performed. In this case, the subModule to be used is \"owner\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the fields to be updated. Set <strong>&lt;referenceId&gt;</strong> to the <strong>owner mapping ID</strong> — the outer <strong>&lt;owners&gt;&lt;referenceId&gt;</strong> value returned by the Retrieve operation. Include <strong>&lt;parentReferenceType&gt;</strong> as <code>Franchisee</code> so the request is routed to the correct record. Only include the fields you want to change; fields that are omitted retain their existing values. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Update. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps updates the specified Franchise Owner record. The response confirms the operation status and echoes back the owner's <strong>referenceId</strong>.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>owner mapping ID</strong> (the outer <strong>&lt;owners&gt;&lt;referenceId&gt;</strong> from the Retrieve response). Do not use the Franchisee Number or the inner <strong>&lt;fimOwners&gt;</strong> person record ID for this operation.</p><img src=\"images/People_UpdateFranchiseOwner.png\">",
+                "operationId": "People_Update_FranchiseOwner",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleUpdateOwnerResp" },
+                    "200": { "$ref": "#/components/responses/PeopleUpdateFranchiseOwnerResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateOwnerArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateFranchiseOwnerArray" }
             }
         },
         "/delete?module=people&subModule=owner": {
             "post": {
-                "tags": ["Franchise Owner", "Entity Owner"],
+                "tags": ["Franchise Owner"],
                 "summary": "Delete",
-                "description": "<p>Deletes an owner record. Use <code>module=people</code> and <code>subModule=owner</code>.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Delete_Owner",
+                "description": "<p class=\"western\">This section contains an example of the Delete operation for removing a Franchise Owner record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/delete?module=people&subModule=owner&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Delete operation for a Franchise Owner using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Delete operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Delete operation is being performed. In this case, the subModule to be used is \"owner\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that identifies the owner to be deleted. Set <strong>&lt;referenceId&gt;</strong> to the <strong>owner mapping ID</strong> — the outer <strong>&lt;owners&gt;&lt;referenceId&gt;</strong> value returned by the Retrieve operation — and set <strong>&lt;parentReferenceType&gt;</strong> to <code>Franchisee</code>. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Delete. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps deletes the specified Franchise Owner record. The response confirms the operation status.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>owner mapping ID</strong>, not the Franchisee Number and not the inner <strong>&lt;fimOwners&gt;</strong> person record ID. If you do not have this value, use the Retrieve operation first to look it up.</p><img src=\"images/People_DeleteFranchiseOwner.png\">",
+                "operationId": "People_Delete_FranchiseOwner",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleDeleteOwnerResp" },
+                    "200": { "$ref": "#/components/responses/PeopleDeleteFranchiseOwnerResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteOwnerArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteFranchiseOwnerArray" }
             }
         },
         "/create?module=people&subModule=employee": {
@@ -12886,6 +12886,90 @@
                 "description": "Lead Creation object",
                 "required": true
             },
+            "PeopleCreateFranchiseOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeOwner": {
+                                "summary": "Create Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <parentReferenceId>15779051</parentReferenceId>\n    <firstName>John</firstName>\n    <lastName>Doe</lastName>\n    <email>john.doe@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <phone>5551234567</phone>\n    <mobile>5559876543</mobile>\n    <jobTitle>CEO</jobTitle>\n    <entityDetail>Individual</entityDetail>\n    <ownerType>New</ownerType>\n    <homeAddress>123 Main St</homeAddress>\n    <homeCity>Austin</homeCity>\n    <homeState>48</homeState>\n    <homeCountry>1</homeCountry>\n    <homeZipCode>78701</homeZipCode>\n    <otherAddress>456 Oak Ave</otherAddress>\n    <otherCity>Dallas</otherCity>\n    <otherState>48</otherState>\n    <otherCountry>1</otherCountry>\n    <otherZipCode>75201</otherZipCode>\n    <taxpayerID>123-45-6789</taxpayerID>\n    <storeOwnedPercentage>50</storeOwnedPercentage>\n    <typeOfOwnership>1</typeOfOwnership>\n    <ownershipStartDate>2024-01-15</ownershipStartDate>\n    <isManager>Y</isManager>\n    <ownerTitle>Primary Owner</ownerTitle>\n    <spouseFirstName>Jane</spouseFirstName>\n    <spouseLastName>Doe</spouseLastName>\n    <spousePhone>5552223333</spousePhone>\n    <spouseMobile>5554445555</spouseMobile>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Franchise Owner creation request body",
+                "required": true
+            },
+            "PeopleRetrieveFranchiseOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeOwners": {
+                                "summary": "Retrieve all owners of a specific franchisee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>15779051</referenceId>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveSpecificFranchiseeOwner": {
+                                "summary": "Retrieve a specific franchisee owner by owner ID",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>15779051</referenceId>\n    <owners>\n      <fimOwners>\n        <referenceId>5348277</referenceId>\n      </fimOwners>\n    </owners>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveOwnersByStatus": {
+                                "summary": "Retrieve owners across all active franchisees",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <franchiseeStatus>Active</franchiseeStatus>\n  </filter>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Franchise Owner retrieve filter body",
+                "required": true
+            },
+            "PeopleUpdateFranchiseOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeOwner": {
+                                "summary": "Update Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1949752379</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <jobTitle>Updated CEO</jobTitle>\n    <email>updated.owner@example.com</email>\n    <storeOwnedPercentage>75</storeOwnedPercentage>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Franchise Owner update request body",
+                "required": true
+            },
+            "PeopleDeleteFranchiseOwnerArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeOwner": {
+                                "summary": "Delete Franchise Owner",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimOwner>\n    <referenceId>1949752379</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n  </fimOwner>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Franchise Owner delete request body",
+                "required": true
+            },
             "PeopleCreateOwnerArray": {
                 "content": {
                     "application/xml": {
@@ -19443,6 +19527,58 @@
                                     ]
                                 }
                             ]
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleCreateFranchiseOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "createFranchiseeOwnerResp": {
+                                "summary": "Create Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>803558502</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1581352300</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleRetrieveFranchiseOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveFranchiseeOwnerResp": {
+                                "summary": "Retrieve Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1529601222</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>15779051</referenceId>\n<owners>\n<referenceId>1949752379</referenceId>\n<fimOwners>\n<referenceId>5348277</referenceId>\n<firstName>John</firstName>\n<lastName>Doe</lastName>\n<email>john.doe@example.com</email>\n<phone>5551234567</phone>\n<jobTitle>CEO</jobTitle>\n<storeOwnedPercentage>50</storeOwnedPercentage>\n<isManager>Y</isManager>\n</fimOwners>\n</owners>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleUpdateFranchiseOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseeOwnerResp": {
+                                "summary": "Update Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1862437321</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1949752379</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteFranchiseOwnerResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseeOwnerResp": {
+                                "summary": "Delete Franchise Owner Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1627304851</responseId>\n<responseData>\n<fimOwner>\n<status>Success</status>\n<referenceId>1949752379</referenceId>\n</fimOwner>\n</responseData>\n</fcResponse>"
+                            }
                         }
                     }
                 },
