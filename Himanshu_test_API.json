@@ -1934,66 +1934,130 @@
         },
         "/create?module=people&subModule=employee": {
             "post": {
-                "tags": ["Franchise Employee", "Entity Employee"],
+                "tags": ["Franchise Employee"],
                 "summary": "Create",
-                "description": "<p>Creates a new employee record linked to a franchisee or entity. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>Set &lt;parentReferenceType&gt; to <code>Franchisee</code> or <code>Entity</code> inside the xmlString body.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Create_Employee",
+                "description": "<p class=\"western\">This section contains an example of the Create operation for adding a Franchise Employee through the People module. You can use this operation to add a new employee to an existing franchisee record.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/create?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Create operation for adding a Franchise Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Create operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the attribute names and their values for the employee record. To add a Franchise Employee, set <strong>&lt;parentReferenceType&gt;</strong> to <code>Franchisee</code> and <strong>&lt;parentReferenceId&gt;</strong> to the <strong>Franchisee Number</strong> of the franchisee the employee belongs to — this identifies the parent record under which the employee is created. You can retrieve the Franchisee Number from the <u><a href=\"#tag/Franchisee-Number\">Franchisee Number</a></u> endpoint. The fields <strong>&lt;firstName&gt;</strong>, <strong>&lt;lastName&gt;</strong>, <strong>&lt;employeeType&gt;</strong>, <strong>&lt;jobTitle&gt;</strong>, and <strong>&lt;phone1&gt;</strong> are required; the remaining fields (such as <strong>&lt;email&gt;</strong>, <strong>&lt;phone2&gt;</strong>, <strong>&lt;mobile&gt;</strong>, <strong>&lt;address&gt;</strong>, and <strong>&lt;state&gt;</strong>) are optional. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps creates a new Franchise Employee record. The response contains <strong>\"referenceId\"</strong> inside the <strong>&lt;fimEmployee&gt;</strong> element — this is the employee's person record ID (EMPLOYEE_ID).</p><p><strong>Note:</strong> Two distinct identifiers are involved in this operation. The <strong>&lt;parentReferenceId&gt;</strong> you send in the request is the <strong>Franchisee Number</strong> — it identifies the parent franchisee, not the employee. The <strong>referenceId</strong> returned in the response is the employee's <strong>person record ID (EMPLOYEE_ID)</strong>; the Update and Delete operations instead require the <strong>employee mapping ID (EMPLOYEE_NO)</strong>, which is returned under <strong>&lt;fimEmployeesMapping&gt;&lt;referenceId&gt;</strong> in the Retrieve response.</p><p><strong>Note:</strong> <strong>&lt;phone1&gt;</strong> is mandatory — omitting it returns an error. If <strong>&lt;email_includeInCampaignList&gt;</strong> is omitted, the record is still created but the response returns a Warning and a default value is applied. State and country are integer IDs.</p><img src=\"images/People_CreateFranchiseEmployee.png\">",
+                "operationId": "People_Create_FranchiseEmployee",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleCreateEmployeeResp" },
+                    "200": { "$ref": "#/components/responses/PeopleCreateFranchiseEmployeeResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateEmployeeArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateFranchiseEmployeeArray" }
             }
         },
         "/retrieve?module=people&subModule=employee": {
             "post": {
-                "tags": ["Franchise Employee", "Entity Employee"],
+                "tags": ["Franchise Employee"],
                 "summary": "Retrieve",
-                "description": "<p>Retrieves employee records for a franchisee or entity. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>Pass filter criteria as XML in the filterXML body parameter. Set &lt;parentReferenceType&gt;Entity&lt;/parentReferenceType&gt; inside the filter to retrieve entity employees (defaults to Franchisee).<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Retrieve_Employee",
+                "description": "<p class=\"western\">This section contains an example of the Retrieve operation for fetching Franchise Employee records through the People module. You can retrieve all employees linked to a specific franchisee, or retrieve a specific employee using its own employee ID.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieve?module=people&subModule=employee&filterXML=filteredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Retrieve operation for fetching Franchise Employee records using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Retrieve operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">filterXML that contains the filter criteria for the Retrieve operation. To retrieve all employees of a franchisee, provide the <strong>&lt;referenceId&gt;</strong> inside a <strong>&lt;filter&gt;</strong> block — this is the <strong>Franchisee Number</strong> of the parent franchisee. To retrieve a specific employee, additionally nest the employee's ID inside <strong>&lt;fimEmployees&gt;&lt;referenceId&gt;</strong> (the <strong>EMPLOYEE_ID</strong>; multiple IDs can be passed comma-separated). Field-level filters such as <strong>&lt;lastName&gt;</strong> placed inside <strong>&lt;fimEmployees&gt;</strong> are matched using a LIKE comparison. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">The response returns the employee records matching the filter, nested under the parent franchisee.</p><p><strong>Note:</strong> The response contains three identifiers that should not be confused with one another. The top-level <strong>&lt;referenceId&gt;</strong> is the <strong>Franchisee Number</strong> of the parent record. The <strong>&lt;fimEmployees&gt;&lt;referenceId&gt;</strong> is the employee's <strong>person record ID (EMPLOYEE_ID)</strong> — use this value as a filter to look up a specific employee. The <strong>&lt;fimEmployeesMapping&gt;&lt;referenceId&gt;</strong> is the <strong>employee mapping ID (EMPLOYEE_NO)</strong> — this is the value required for the Update and Delete operations.</p><img src=\"images/People_RetrieveFranchiseEmployee.png\">",
+                "operationId": "People_Retrieve_FranchiseEmployee",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleRetrieveEmployeeResp" },
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveFranchiseEmployeeResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveEmployeeArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveFranchiseEmployeeArray" }
             }
         },
         "/update?module=people&subModule=employee": {
             "post": {
-                "tags": ["Franchise Employee", "Entity Employee"],
+                "tags": ["Franchise Employee"],
                 "summary": "Update",
-                "description": "<p>Updates an existing employee record. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>The &lt;referenceId&gt; is FIM_EMPLOYEES_MAPPING.EMPLOYEE_NO (Franchisee) or FIM_ENTITY_EMPLOYEES_MAPPING.EMPLOYEE_NO (Entity). Include &lt;parentReferenceType&gt; to route correctly.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Update_Employee",
+                "description": "<p class=\"western\">This section contains an example of the Update operation for modifying an existing Franchise Employee record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/update?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform an Update operation for a Franchise Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Update operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Update operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the fields to be updated. Set <strong>&lt;referenceId&gt;</strong> to the <strong>employee mapping ID (EMPLOYEE_NO)</strong> — the <strong>&lt;fimEmployeesMapping&gt;&lt;referenceId&gt;</strong> value returned by the Retrieve operation. Include <strong>&lt;parentReferenceType&gt;</strong> as <code>Franchisee</code> so the request is routed to the correct record. Only include the fields you want to change; fields that are omitted retain their existing values. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Update. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps updates the specified Franchise Employee record. The response confirms the operation status and echoes back the employee mapping <strong>referenceId</strong>.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>employee mapping ID (EMPLOYEE_NO)</strong> from <strong>&lt;fimEmployeesMapping&gt;</strong> in the Retrieve response. Do not use the Franchisee Number or the <strong>&lt;fimEmployees&gt;</strong> person record ID (EMPLOYEE_ID) for this operation.</p><img src=\"images/People_UpdateFranchiseEmployee.png\">",
+                "operationId": "People_Update_FranchiseEmployee",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleUpdateEmployeeResp" },
+                    "200": { "$ref": "#/components/responses/PeopleUpdateFranchiseEmployeeResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateEmployeeArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateFranchiseEmployeeArray" }
             }
         },
         "/delete?module=people&subModule=employee": {
             "post": {
-                "tags": ["Franchise Employee", "Entity Employee"],
+                "tags": ["Franchise Employee"],
                 "summary": "Delete",
-                "description": "<p>Deletes an employee record. Use <code>module=people</code> and <code>subModule=employee</code>.<br/>&lt;parentReferenceType&gt; is required.<br/><strong>Authentication:</strong> Authorization: Bearer {access_token} in the request header.</p>",
-                "operationId": "People_Delete_Employee",
+                "description": "<p class=\"western\">This section contains an example of the Delete operation for removing a Franchise Employee record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/delete?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Delete operation for a Franchise Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Delete operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Delete operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that identifies the employee to be deleted. Set <strong>&lt;referenceId&gt;</strong> to the <strong>employee mapping ID (EMPLOYEE_NO)</strong> — the <strong>&lt;fimEmployeesMapping&gt;&lt;referenceId&gt;</strong> value returned by the Retrieve operation — and set <strong>&lt;parentReferenceType&gt;</strong> to <code>Franchisee</code>. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Delete. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps deletes the specified Franchise Employee record. This removes the franchisee–employee mapping and, if it is the employee's last association, the employee main record. The response confirms the operation status.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>employee mapping ID (EMPLOYEE_NO)</strong>, not the Franchisee Number and not the <strong>&lt;fimEmployees&gt;</strong> person record ID (EMPLOYEE_ID). Deletion is permanent — always confirm the referenceId using the Retrieve operation first.</p><img src=\"images/People_DeleteFranchiseEmployee.png\">",
+                "operationId": "People_Delete_FranchiseEmployee",
                 "responses": {
-                    "200": { "$ref": "#/components/responses/PeopleDeleteEmployeeResp" },
+                    "200": { "$ref": "#/components/responses/PeopleDeleteFranchiseEmployeeResp" },
                     "201": { "description": "Created" },
                     "401": { "description": "Unauthorized" },
                     "403": { "description": "Forbidden" },
                     "404": { "description": "Not Found" }
                 },
-                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteEmployeeArray" }
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteFranchiseEmployeeArray" }
+            }
+        },
+        "/create?module=people&subModule=employee (Entity Employee)": {
+            "post": {
+                "tags": ["Entity Employee"],
+                "summary": "Create",
+                "description": "<p class=\"western\">This section contains an example of the Create operation for adding an Entity Employee through the People module. You can use this operation to add a new employee to an existing entity record.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/create?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Create operation for adding an Entity Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Create operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Create operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the attribute names and their values for the employee record. To add an Entity Employee, set <strong>&lt;parentReferenceType&gt;</strong> to <code>Entity</code> and <strong>&lt;parentReferenceId&gt;</strong> to the <strong>Entity ID</strong> of the entity the employee belongs to — this identifies the parent record under which the employee is created. The <strong>&lt;parentReferenceType&gt;</strong> value is sent inside the request body (xmlString), not as a URL parameter; it is the only field that distinguishes this operation from the Franchise Employee Create operation, which otherwise uses the same endpoint. The fields <strong>&lt;firstName&gt;</strong>, <strong>&lt;lastName&gt;</strong>, <strong>&lt;employeeType&gt;</strong>, <strong>&lt;jobTitle&gt;</strong>, and <strong>&lt;phone1&gt;</strong> are required; all other employee fields (address, phone2, mobile, fax, and so on) are supported identically to the Franchise Employee create. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Create. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps creates a new Entity Employee record. The response contains a single <strong>&lt;fimEmployee&gt;</strong> element whose <strong>\"referenceId\"</strong> is the <strong>employee mapping ID (EMPLOYEE_NO)</strong>.</p><p><strong>Note:</strong> The <strong>&lt;parentReferenceId&gt;</strong> you send is the <strong>Entity ID</strong> — it identifies the parent entity, not the employee. Unlike the Franchise Employee create (which returns the internal EMPLOYEE_ID), the Entity Employee create returns the <strong>employee mapping ID (EMPLOYEE_NO)</strong>; this is the value used directly for the Update and Delete operations.</p><p><strong>Note:</strong> <strong>&lt;phone1&gt;</strong> is mandatory — omitting it returns an error. If <strong>&lt;email_includeInCampaignList&gt;</strong> is omitted, the record is still created but the response returns a Warning and a default value is applied. State and country are integer IDs.</p><img src=\"images/People_CreateEntityEmployee.png\">",
+                "operationId": "People_Create_EntityEmployee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleCreateEntityEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleCreateEntityEmployeeArray" }
+            }
+        },
+        "/retrieve?module=people&subModule=employee (Entity Employee)": {
+            "post": {
+                "tags": ["Entity Employee"],
+                "summary": "Retrieve",
+                "description": "<p class=\"western\">This section contains an example of the Retrieve operation for fetching Entity Employee records through the People module. You can retrieve all employees across all entities, all employees of a specific entity, or a specific employee by its mapping ID.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"20%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/retrieve?module=people&subModule=employee&filterXML=filteredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Retrieve operation for fetching Entity Employee records using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Retrieve operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Retrieve operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">filterXML that contains the filter criteria for the Retrieve operation. To target Entity Employees, set <strong>&lt;parentReferenceType&gt;</strong> to <code>Entity</code> inside the <strong>&lt;filter&gt;</strong> block — this value is sent in the request body, not as a URL parameter, and is what distinguishes this operation from the Franchise Employee Retrieve. Provide <strong>&lt;parentReferenceType&gt;Entity&lt;/parentReferenceType&gt;</strong> alone to fetch employees across all entities, add the entity's <strong>&lt;referenceId&gt;</strong> (the <strong>Entity ID</strong>) to fetch all employees of a specific entity, or additionally provide the employee's mapping ID inside <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong> (the <strong>EMPLOYEE_NO</strong>; multiple IDs can be passed comma-separated) to fetch a specific employee. Field-level filters inside <strong>&lt;fimEmployee&gt;</strong> are matched using a LIKE comparison, and entity-level geo filters (<strong>&lt;city&gt;</strong>, <strong>&lt;state&gt;</strong>, <strong>&lt;country&gt;</strong>, <strong>&lt;region&gt;</strong>) filter by the entity's address. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Retrieve. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">The response returns the employee records matching the filter, nested under the parent entity.</p><p><strong>Note:</strong> For an Entity Employee the employee mapping ID is provided directly inside <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong>, which is flatter than the Franchise Employee structure (where it is nested under <strong>&lt;fimEmployees&gt;</strong>). The <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong> returned in the response is the <strong>employee mapping ID (EMPLOYEE_NO)</strong>, not the internal EMPLOYEE_ID — always use this value from the response for a specific-employee lookup as well as for the Update and Delete operations. The top-level <strong>&lt;referenceId&gt;</strong> is the <strong>Entity ID</strong> of the parent record.</p><img src=\"images/People_RetrieveEntityEmployee.png\">",
+                "operationId": "People_Retrieve_EntityEmployee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleRetrieveEntityEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleRetrieveEntityEmployeeArray" }
+            }
+        },
+        "/update?module=people&subModule=employee (Entity Employee)": {
+            "post": {
+                "tags": ["Entity Employee"],
+                "summary": "Update",
+                "description": "<p class=\"western\">This section contains an example of the Update operation for modifying an existing Entity Employee record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/update?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform an Update operation for an Entity Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Update operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Update operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that contains the fields to be updated. Set <strong>&lt;referenceId&gt;</strong> to the <strong>employee mapping ID (EMPLOYEE_NO)</strong> — the value returned by the Create operation or by the <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong> of the Retrieve response. Include <strong>&lt;parentReferenceType&gt;</strong> as <code>Entity</code> (sent in the body, not as a URL parameter) so the request is routed to the correct record. Only include the fields you want to change; fields that are omitted retain their existing values. In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Update. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps updates the specified Entity Employee record. The response confirms the operation status and echoes back the employee mapping <strong>referenceId</strong>.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>employee mapping ID (EMPLOYEE_NO)</strong>, not the Entity ID and not the internal EMPLOYEE_ID. Use the value returned by the Create operation or the <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong> from the Retrieve response.</p><img src=\"images/People_UpdateEntityEmployee.png\">",
+                "operationId": "People_Update_EntityEmployee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleUpdateEntityEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleUpdateEntityEmployeeArray" }
+            }
+        },
+        "/delete?module=people&subModule=employee (Entity Employee)": {
+            "post": {
+                "tags": ["Entity Employee"],
+                "summary": "Delete",
+                "description": "<p class=\"western\">This section contains an example of the Delete operation for removing an Entity Employee record through the People module.</p><table width=\"100%\" class=\"endpoint-table\"><tr><td width=\"15%\"><strong>Operation Name</strong></td><td width=\"1%\" >:</td><td>POST</td></tr><tr><td><strong>API Endpoint</strong></td><td>:</td><td><context-path>/rest/dataservices/delete?module=people&subModule=employee&xmlString=requiredxmlString&responseType=XML</td></tr></table><p class=\"western\">To perform a Delete operation for an Entity Employee using the FranConnect API, you must make a POST request on the request URL. The request URL comprises of the context path followed by the API endpoint mentioned above. The following items must be included in the header of the request:</p><ol><li><p>\"Authorization\" as the key and its value in the format \"Bearer access_token\". This access_token is generated as a part of authentication. Click <u><a href=\"#tag/Authentication\">here</a></u> for details on the steps to generate the access token.</p></li><li><p>Content-Type as the key and its value in the format \"application/x-www-form-urlencoded\".</p></li></ol><p>The following items must be used as path parameters:</p><ol><li><p>The module for which the Delete operation is being performed. In this case, the module to be used is \"people\".</p></li><li><p>The sub-module for which the Delete operation is being performed. In this case, the subModule to be used is \"employee\".</p></li><li><p>Response type as XML or JSON, depending on the type of response that is desired. If this parameter is not provided, the default response type is XML.</p></li><li><p class=\"western\">xmlString that identifies the employee to be deleted. Set <strong>&lt;referenceId&gt;</strong> to the <strong>employee mapping ID (EMPLOYEE_NO)</strong> — the <strong>&lt;fimEmployee&gt;&lt;referenceId&gt;</strong> value from the Retrieve response — and set <strong>&lt;parentReferenceType&gt;</strong> to <code>Entity</code> (sent in the body, not as a URL parameter). In order to determine the parameter names and schema, a query operation is to be performed with the corresponding module and sub-module names and the operation as Delete. Details on how the query operation is to be performed is mentioned <u><a href=\"#tag/List-of-Field-Names\">here.</a></u></p></li></ol><p class=\"western\">Performing the above mentioned steps deletes the specified Entity Employee record. The response confirms the operation status.</p><p><strong>Note:</strong> The <strong>&lt;referenceId&gt;</strong> used here is the <strong>employee mapping ID (EMPLOYEE_NO)</strong>, not the Entity ID and not the internal EMPLOYEE_ID. Always retrieve the record first to obtain the correct EMPLOYEE_NO value — using the internal EMPLOYEE_ID directly will target the wrong record. Deletion is permanent.</p><img src=\"images/People_DeleteEntityEmployee.png\">",
+                "operationId": "People_Delete_EntityEmployee",
+                "responses": {
+                    "200": { "$ref": "#/components/responses/PeopleDeleteEntityEmployeeResp" },
+                    "201": { "description": "Created" },
+                    "401": { "description": "Unauthorized" },
+                    "403": { "description": "Forbidden" },
+                    "404": { "description": "Not Found" }
+                },
+                "requestBody": { "$ref": "#/components/requestBodies/PeopleDeleteEntityEmployeeArray" }
             }
         },
         "/create?module=people&subModule=additionalContact": {
@@ -13134,17 +13198,13 @@
                 "description": "People Entity Owner delete request body",
                 "required": true
             },
-            "PeopleCreateEmployeeArray": {
+            "PeopleCreateFranchiseEmployeeArray": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "createFranchiseeEmployee": {
+                            "createFranchiseEmployee": {
                                 "summary": "Create Franchise Employee",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <parentReferenceId>164449663</parentReferenceId>\n    <firstName>Mitchell</firstName>\n    <lastName>McCluskey</lastName>\n    <employeeType>New</employeeType>\n    <jobTitle>Manager</jobTitle>\n    <phone1>5551234567</phone1>\n    <email>mitchell.mccluskey@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <phone2>5559876543</phone2>\n    <mobile>5550001111</mobile>\n    <fax>5552223333</fax>\n    <address>10 King St</address>\n    <city>Perth</city>\n    <state>238</state>\n    <country>14</country>\n    <zipcode>6000</zipcode>\n  </fimEmployee>\n</fcRequest>"
-                            },
-                            "createEntityEmployee": {
-                                "summary": "Create Entity Employee",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <parentReferenceType>Entity</parentReferenceType>\n    <parentReferenceId>475177469</parentReferenceId>\n    <firstName>Alex</firstName>\n    <lastName>Johnson</lastName>\n    <employeeType>New</employeeType>\n    <jobTitle>Senior Manager</jobTitle>\n    <phone1>5559876543</phone1>\n    <email>alex.johnson@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n  </fimEmployee>\n</fcRequest>"
                             }
                         },
                         "schema": {
@@ -13154,24 +13214,47 @@
                         }
                     }
                 },
-                "description": "People Employee creation request body",
+                "description": "People Franchise Employee creation request body",
                 "required": true
             },
-            "PeopleRetrieveEmployeeArray": {
+            "PeopleCreateEntityEmployeeArray": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "retrieveFranchiseeEmployees": {
+                            "createEntityEmployee": {
+                                "summary": "Create Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <parentReferenceType>Entity</parentReferenceType>\n    <parentReferenceId>475177469</parentReferenceId>\n    <firstName>Alex</firstName>\n    <lastName>Johnson</lastName>\n    <employeeType>New</employeeType>\n    <jobTitle>Senior Manager</jobTitle>\n    <phone1>5559876543</phone1>\n    <email>alex.johnson@example.com</email>\n    <email_includeInCampaignList>Y</email_includeInCampaignList>\n    <mobile>5550002222</mobile>\n    <address>200 Queen St</address>\n    <city>Sydney</city>\n    <state>239</state>\n    <country>14</country>\n    <zipcode>2000</zipcode>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Entity Employee creation request body",
+                "required": true
+            },
+            "PeopleRetrieveFranchiseEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "retrieveAllFranchiseEmployees": {
                                 "summary": "Retrieve all employees of a specific franchisee",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n  </filter>\n</fcRequest>"
                             },
-                            "retrieveEntityEmployees": {
-                                "summary": "Retrieve entity employees",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>475177469</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </filter>\n</fcRequest>"
-                            },
-                            "retrieveSpecificEmployee": {
-                                "summary": "Retrieve a specific franchisee employee by employee ID",
+                            "retrieveSpecificFranchiseEmployee": {
+                                "summary": "Retrieve a specific franchise employee by EMPLOYEE_ID",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n    <fimEmployees>\n      <referenceId>7381758</referenceId>\n    </fimEmployees>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveMultipleFranchiseEmployees": {
+                                "summary": "Retrieve multiple franchise employees (comma-separated EMPLOYEE_IDs)",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n    <fimEmployees>\n      <referenceId>7381758,7381759</referenceId>\n    </fimEmployees>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveFranchiseEmployeesByField": {
+                                "summary": "Retrieve franchise employees filtered by field (last name)",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <referenceId>571104981</referenceId>\n    <fimEmployees>\n      <lastName>McCluskey</lastName>\n    </fimEmployees>\n  </filter>\n</fcRequest>"
                             }
                         },
                         "schema": {
@@ -13181,20 +13264,51 @@
                         }
                     }
                 },
-                "description": "People Employee retrieve filter body",
+                "description": "People Franchise Employee retrieve filter body",
                 "required": true
             },
-            "PeopleUpdateEmployeeArray": {
+            "PeopleRetrieveEntityEmployeeArray": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "updateFranchiseeEmployee": {
+                            "retrieveAllEntityEmployees": {
+                                "summary": "Retrieve all employees across all entities",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <parentReferenceType>Entity</parentReferenceType>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveAllEmployeesOfEntity": {
+                                "summary": "Retrieve all employees of a specific entity",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <parentReferenceType>Entity</parentReferenceType>\n    <referenceId>475177469</referenceId>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveSpecificEntityEmployee": {
+                                "summary": "Retrieve a specific entity employee by EMPLOYEE_NO",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <parentReferenceType>Entity</parentReferenceType>\n    <referenceId>475177469</referenceId>\n    <fimEmployee>\n      <referenceId>1985246011</referenceId>\n    </fimEmployee>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveMultipleEntityEmployees": {
+                                "summary": "Retrieve multiple entity employees (comma-separated EMPLOYEE_NOs)",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <parentReferenceType>Entity</parentReferenceType>\n    <referenceId>475177469</referenceId>\n    <fimEmployee>\n      <referenceId>1985246011,1985246012</referenceId>\n    </fimEmployee>\n  </filter>\n</fcRequest>"
+                            },
+                            "retrieveEntityEmployeesByField": {
+                                "summary": "Retrieve entity employees filtered by field and geography",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <filter>\n    <parentReferenceType>Entity</parentReferenceType>\n    <referenceId>475177469</referenceId>\n    <fimEmployee>\n      <lastName>Johnson</lastName>\n      <city>Sydney</city>\n      <state>239</state>\n      <country>14</country>\n    </fimEmployee>\n  </filter>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Entity Employee retrieve filter body",
+                "required": true
+            },
+            "PeopleUpdateFranchiseEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "updateFranchiseEmployee": {
                                 "summary": "Update Franchise Employee",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>1214687730</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n    <jobTitle>Senior Manager</jobTitle>\n    <email>updated@example.com</email>\n  </fimEmployee>\n</fcRequest>"
-                            },
-                            "updateEntityEmployee": {
-                                "summary": "Update Entity Employee",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>11</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n    <jobTitle>Senior Manager</jobTitle>\n    <email>updated.entity@example.com</email>\n  </fimEmployee>\n</fcRequest>"
                             }
                         },
                         "schema": {
@@ -13204,20 +13318,16 @@
                         }
                     }
                 },
-                "description": "People Employee update request body",
+                "description": "People Franchise Employee update request body",
                 "required": true
             },
-            "PeopleDeleteEmployeeArray": {
+            "PeopleUpdateEntityEmployeeArray": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "deleteFranchiseeEmployee": {
-                                "summary": "Delete Franchise Employee",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>2146763668</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
-                            },
-                            "deleteEntityEmployee": {
-                                "summary": "Delete Entity Employee",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>12</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
+                            "updateEntityEmployee": {
+                                "summary": "Update Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>1985246011</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n    <jobTitle>Senior Manager</jobTitle>\n    <email>updated.entity@example.com</email>\n  </fimEmployee>\n</fcRequest>"
                             }
                         },
                         "schema": {
@@ -13227,7 +13337,45 @@
                         }
                     }
                 },
-                "description": "People Employee delete request body",
+                "description": "People Entity Employee update request body",
+                "required": true
+            },
+            "PeopleDeleteFranchiseEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseEmployee": {
+                                "summary": "Delete Franchise Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>1214687730</referenceId>\n    <parentReferenceType>Franchisee</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Franchise Employee delete request body",
+                "required": true
+            },
+            "PeopleDeleteEntityEmployeeArray": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteEntityEmployee": {
+                                "summary": "Delete Entity Employee",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcRequest>\n  <fimEmployee>\n    <referenceId>1985246011</referenceId>\n    <parentReferenceType>Entity</parentReferenceType>\n  </fimEmployee>\n</fcRequest>"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": { "$ref": "#/components/schemas/AdminSubModule" },
+                            "xml": { "name": "fcRequest", "wrapped": true }
+                        }
+                    }
+                },
+                "description": "People Entity Employee delete request body",
                 "required": true
             },
             "PeopleCreateAdditionalContactArray": {
@@ -19700,68 +19848,104 @@
                 },
                 "description": "Successful"
             },
-            "PeopleCreateEmployeeResp": {
+            "PeopleCreateFranchiseEmployeeResp": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "createFranchiseeEmployeeResp": {
+                            "createFranchiseEmployeeResp": {
                                 "summary": "Create Franchise Employee Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1499876780</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>784412642</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
-                            },
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1499876780</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>7381758</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleCreateEntityEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
                             "createEntityEmployeeResp": {
                                 "summary": "Create Entity Employee Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>11</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1985246011</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
                             }
                         }
                     }
                 },
                 "description": "Successful"
             },
-            "PeopleRetrieveEmployeeResp": {
+            "PeopleRetrieveFranchiseEmployeeResp": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "retrieveFranchiseeEmployeesResp": {
-                                "summary": "Retrieve Franchisee Employees Response",
+                            "retrieveFranchiseEmployeesResp": {
+                                "summary": "Retrieve Franchise Employees Response",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1529601222</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>571104981</referenceId>\n<fimEmployees>\n<referenceId>7381758</referenceId>\n<fimEmployeesMapping>\n<referenceId>1214687730</referenceId>\n</fimEmployeesMapping>\n<firstName>Mitchell</firstName>\n<lastName>McCluskey</lastName>\n<email>mitchell.mccluskey@example.com</email>\n<phone1>5551234567</phone1>\n<jobTitle>Manager</jobTitle>\n</fimEmployees>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
-                            },
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleRetrieveEntityEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
                             "retrieveEntityEmployeesResp": {
                                 "summary": "Retrieve Entity Employees Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>475177469</referenceId>\n<fimEmployee>\n<referenceId>11</referenceId>\n<firstName>Alex</firstName>\n<lastName>Johnson</lastName>\n<email>alex.johnson@example.com</email>\n<jobTitle>Senior Manager</jobTitle>\n</fimEmployee>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>681466528</responseId>\n<responseData>\n<fimFranchisee>\n<referenceId>475177469</referenceId>\n<fimEmployee>\n<referenceId>1985246011</referenceId>\n<firstName>Alex</firstName>\n<lastName>Johnson</lastName>\n<email>alex.johnson@example.com</email>\n<jobTitle>Senior Manager</jobTitle>\n</fimEmployee>\n</fimFranchisee>\n</responseData>\n</fcResponse>"
                             }
                         }
                     }
                 },
                 "description": "Successful"
             },
-            "PeopleUpdateEmployeeResp": {
+            "PeopleUpdateFranchiseEmployeeResp": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "updateFranchiseeEmployeeResp": {
+                            "updateFranchiseEmployeeResp": {
                                 "summary": "Update Franchise Employee Response",
                                 "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>284159422</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1214687730</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
-                            },
-                            "updateEntityEmployeeResp": {
-                                "summary": "Update Entity Employee Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>268016713</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>11</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
                             }
                         }
                     }
                 },
                 "description": "Successful"
             },
-            "PeopleDeleteEmployeeResp": {
+            "PeopleUpdateEntityEmployeeResp": {
                 "content": {
                     "application/xml": {
                         "examples": {
-                            "deleteFranchiseeEmployeeResp": {
+                            "updateEntityEmployeeResp": {
+                                "summary": "Update Entity Employee Response",
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>268016713</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1985246011</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteFranchiseEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
+                            "deleteFranchiseEmployeeResp": {
                                 "summary": "Delete Franchise Employee Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>286008637</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>2146763668</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
-                            },
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>286008637</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1214687730</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                            }
+                        }
+                    }
+                },
+                "description": "Successful"
+            },
+            "PeopleDeleteEntityEmployeeResp": {
+                "content": {
+                    "application/xml": {
+                        "examples": {
                             "deleteEntityEmployeeResp": {
                                 "summary": "Delete Entity Employee Response",
-                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1743898415</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>12</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
+                                "value": "<?xml version='1.0' encoding='utf-8'?>\n<fcResponse>\n<responseStatus>Success</responseStatus>\n<responseId>1743898415</responseId>\n<responseData>\n<fimEmployee>\n<status>Success</status>\n<referenceId>1985246011</referenceId>\n</fimEmployee>\n</responseData>\n</fcResponse>"
                             }
                         }
                     }
